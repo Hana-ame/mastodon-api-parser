@@ -1,0 +1,17 @@
+{
+  "name": "mastodon-api-parser",
+  "version": "1.0.0",
+  "description": "写了几个月才想起来为什么不写一个工具把document里面的api参数扒拉下来免得一个个复制下来我是说我是弱智。",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc && node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7"
+  }
+}

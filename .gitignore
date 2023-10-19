@@ -1,0 +1,9 @@
+node_modules
+
+text
+json
+
+*.txt
+*.js
+*.db
+*.json
