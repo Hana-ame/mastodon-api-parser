@@ -7,6 +7,45 @@
 `                                 +-> mastodon api entrance
 ```
 
+**TODO**
+~~接着复制document~~
+去复制entities
+复制完了再去生成代码
+
+
+看了swaggo源码，mf啥来着，accept要改成
+否则的话是用www-encoding post过来的
+
+
+## dev
+
+### 一阶段
+
+~~找document~~
+
+找entities的document
+
+
+### 二阶段
+
+需要筛出
+- swagger 需要的
+- 从gin parse变量需要的
+- 传参需要的(golang 类型)
+- 返回需要的entities类型
+- gin router
+
+TODO:看到的话先去写entities的东西好了.
+
+
+
+### ./html
+```sh
+npm run html [folder_name]
+```
+
+### ./text
+
 ## branches
 
 main 主分支，先写js的好了，参考查漏补缺那个
@@ -26,6 +65,8 @@ py的re有点大便是说。
 - pass to function
 - 怎么给函数起名啊
   - 就变成大写好了。
+
+v1/v2被冲了
 
 ## python
 

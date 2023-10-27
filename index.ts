@@ -16,7 +16,6 @@ type ParamRaw = {
   comment : string
 }
 type APIRaw = {
-  path : string
   summary : string
   method : string
   router : string
@@ -28,18 +27,20 @@ type APIRaw = {
 
 // traverse the folder
 function traverseText(currentPath: string) {
+  if (currentPath == 'text\\streaming') return
   // 读取当前文件夹中的内容
   const files = fs.readdirSync(currentPath);
 
   // 遍历每个文件/文件夹
   files.forEach((file) => {
+    if (!file.endsWith('.txt')) return;
     const filePath = path.join(currentPath, file);
     const stats = fs.statSync(filePath);
 
     if (stats.isFile()) {
       // 处理文件
       console.log('File:', filePath);
-      textToAPRraw(currentPath, file)
+      textToAPIraw(currentPath, file)
     } else if (stats.isDirectory()) {
       // 处理子文件夹
       console.log('Directory:', filePath);
@@ -159,7 +160,7 @@ function parseAPIRaw(doc: string) {
   } as APIRaw
 }
 
-function textToAPRraw(dir :string, file: string) {
+function textToAPIraw(dir :string, file: string) {
     const filePath = path.join(dir, file);
     const doc = readFile(filePath) ?? "error: "
   if (doc.startsWith("error: ")) {
@@ -178,6 +179,148 @@ function textToAPRraw(dir :string, file: string) {
   fs.writeFileSync(newfilePath, fileContent, 'utf-8')  
 }
 
+// to Param and API
+
+type Param = {
+  name : string // name
+  varName : string // use in go, as param name
+  paramType : ParamType // which type of param
+  dataType : string  // 
+  isArray : boolean // is array or not
+  required : boolean  // is required or not
+  comment : string // comment used in swag
+}
+
+
+type API = {
+  summary : string // first line
+  name : string // name of function
+  description : string
+  tag : string // mastodon/accounts ...
+  returns : string  // @Produce but all json
+  request : Param[] // @Params
+  path : string
+  method : string // "GET" ...
+  router : string // /path/:param  used in go
+  swagPath : string // used in swag
+
+  // oauth : string // not used
+}
+
+
+function ParamRawToParam(raw: ParamRaw) {
+  // name is the raw name
+  // eg: something_nothing, hash[key][another], hash[][arrkey]
+  const name = raw.name 
+
+  // this may do later. 
+  // todo: array, hash
+  let varName = ""
+  const matches = name.match(/w+/g); 
+  if (matches == null) {console.log(raw);}
+  else varName = matches.join("_")
+
+  // it's the type 
+  // "formData" | "path" | "header" | "query" | "unknown"
+  const paramType = raw.paramType
+
+  // data type
+  // string for header and path
+  // query is all string but sometimes should turn to int
+  // formData is complex which contains hash[] and array[]
+  // and files.
+  // find it in comment
+  // is array 
+  // required 
+  // find them in comment
+  // what's more, it should meet the golang types of varibles.
+  let dataType : string = "undefined"
+  let isArray : boolean = false
+  if (paramType == "header" || paramType == "path") {
+    dataType = "string"
+    isArray = false
+  } else if (paramType == "query" || paramType == "formData") {
+    console.log(raw) // todo
+  } else {
+    console.log(raw)
+  }
+  const required = raw.comment.includes("REQUIRED") // required
+
+  // comment is passed as it is
+  // this line should present in swag comment
+  const comment = raw.comment // as is
+  return {
+    name,
+    varName,
+    paramType,
+    dataType,
+    isArray,
+    required,
+    comment,
+  } as Param
+}
+
+function APIRawToAPI(raw: APIRaw) {
+  // summary is the title
+  // which used in swagger
+  const summary = raw.summary
+
+  // the name used for the function name in golang.
+  // anyway...
+  const matches = summary.match(/w+/g); 
+  if (matches == null) {console.log(raw); return null}
+  const name = matches.join("_")
+
+  // comment used in swagger
+  const description = raw.description
+  
+  // topo, it should show folder's name
+  const tag = 'mastodon'
+
+  // dunno
+  // this should used in swagger?
+  // all apis return json though..
+  const returns = "json"
+
+  // parse requests, see the function above
+  const request = raw.request.map(r => ParamRawToParam(r)).filter(r => r !== null)    
+
+  // http method
+  // used in gin router and swagger
+  const method = raw.method
+
+  // router
+  // passed by raw
+  const router = raw.router
+  
+  // the path used in swagger
+  // not tested
+  const swagPath = router.split('/')
+  .map(v => {
+    if (v.startsWith(':')) {
+      return `{${v.substring(1)}}`
+    } else {
+      return v
+    }
+  }).join('/')
+
+  // this is what in raw document
+  // same as gin router. should use it
+  const path = raw.router
+  return {
+    summary ,
+    name ,
+    description ,
+    tag ,
+    returns ,
+    request ,
+    path ,
+    method ,
+    router ,
+    swagPath ,
+  } as API
+}
+
 
 // entity (later)
 
@@ -194,4 +337,7 @@ type EntityRaw = {
 
 // step: 1
 // convert text file to raw json file.
-traverseText('text')
+// traverseText('text')
+
+// step: 2
+// convert raw json file to cooked json file
