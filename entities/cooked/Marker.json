@@ -1,0 +1,35 @@
+[
+  {
+    "name": "last_read_id",
+    "jsonName": "last_read_id",
+    "valueName": "LastReadID",
+    "optional": false,
+    "type": "Type: String (cast from integer but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the most recently viewed entity."
+  },
+  {
+    "name": "version",
+    "jsonName": "version",
+    "valueName": "Version",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: An incrementing counter, used for locking to prevent write conflicts."
+  },
+  {
+    "name": "updated_at",
+    "jsonName": "updated_at",
+    "valueName": "UpdatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp of when the marker was set."
+  }
+]

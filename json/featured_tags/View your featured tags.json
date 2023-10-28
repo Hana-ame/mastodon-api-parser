@@ -1,0 +1,15 @@
+{
+  "summary": "View your featured tags",
+  "method": "GET",
+  "router": "/api/v1/featured_tags",
+  "description": "List all hashtags featured on your profile.\n\n",
+  "returns": "Array of FeaturedTag",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

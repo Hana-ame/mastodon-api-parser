@@ -1,0 +1,9 @@
+{
+  "summary": "View extended description",
+  "method": "GET",
+  "router": "/api/v1/instance/extended_description",
+  "description": "Obtain an extended description of this server\n\n",
+  "returns": "ExtendedDescription",
+  "oauth": "Public",
+  "request": []
+}

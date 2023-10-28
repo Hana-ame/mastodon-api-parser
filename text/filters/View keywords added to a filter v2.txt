@@ -1,0 +1,38 @@
+View keywords added to a filter
+GET /api/v2/filters/:filter_id/keywords HTTP/1.1
+List all keywords attached to the current filter group.
+
+Returns: Array of FilterKeyword
+OAuth: User token + read:filters
+Version history:
+4.0.0 - added
+
+Request
+Path parameters
+:filter_id
+REQUIRED String. The ID of the Filter in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+[
+{
+"id": "34979",
+"keyword": "baz",
+"whole_word": true
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter is not owned by you, or does not exist
+
+{
+"error": "Record not found"
+}

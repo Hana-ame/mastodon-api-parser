@@ -1,0 +1,282 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::Cohort
+Represents a retention metric.
+
+Example
+Attributes
+period
+frequency
+data
+CohortData entity attributes
+date {date}
+rate
+value
+See also
+Example
+Monthly retention data for the month of 2022-09, given that 2 users registered during 2022-09 and were active at least once during that month.
+
+{
+	"period": "2022-09-01T00:00:00+00:00",
+	"frequency": "month",
+	"data": [
+		{
+			"date": "2022-09-01T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
+		}
+	]
+}
+Daily retention data for the week between 2022-09-08 and 2022-09-14, given that 2 users registered on 2022-09-08 and 1 of those users stopped being active after 2022-09-09.
+
+{
+	"period": "2022-09-08T00:00:00+00:00",
+	"frequency": "day",
+	"data": [
+		{
+			"date": "2022-09-08T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
+		},
+		{
+			"date": "2022-09-09T00:00:00+00:00",
+			"rate": 1.0,
+			"value": "2"
+		},
+		{
+			"date": "2022-09-10T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
+		},
+		{
+			"date": "2022-09-11T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
+		},
+		{
+			"date": "2022-09-12T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
+		},
+		{
+			"date": "2022-09-13T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
+		},
+		{
+			"date": "2022-09-14T00:00:00+00:00",
+			"rate": 0.5,
+			"value": "1"
+		}
+	]
+}
+Attributes
+period
+Description: The timestamp for the start of the period, at midnight.
+Type: String (ISO 8601 Datetime)
+Version history:
+3.5.0 - added
+
+frequency
+Description: The size of the bucket for the returned data.
+Type: String (Enumerable oneOf)
+day = Daily buckets
+month = Monthly buckets
+Version history:
+3.5.0 - added
+
+data
+Description: Retention data for users who registered during the given period.
+Type: Array of CohortData
+Version history:
+3.5.0 - added
+
+CohortData entity attributes
+date {date}
+Description: The timestamp for the start of the bucket, at midnight.
+Type: String (ISO 8601 Datetime)
+Version history:
+3.5.0 - added
+
+rate
+Description: The percentage rate of users who registered in the specified period and were active for the given date bucket.
+Type: Number
+Version history:
+3.5.0 - added
+
+value
+Description: How many users registered in the specified period and were active for the given date bucket.
+Type: Integer
+Version history:
+3.5.0 - added
+
+See also
+admin/retention API methods
+app/serializers/rest/admin/cohort_serializer.rb
+Last updated September 20, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

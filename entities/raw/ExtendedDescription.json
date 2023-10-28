@@ -1,0 +1,12 @@
+[
+  {
+    "name": "updated_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: A timestamp of when the extended description was last updated."
+  },
+  {
+    "name": "content",
+    "type": "Type: String (HTML)",
+    "description": "Description: The rendered HTML content of the extended description."
+  }
+]

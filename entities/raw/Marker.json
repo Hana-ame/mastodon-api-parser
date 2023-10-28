@@ -1,0 +1,17 @@
+[
+  {
+    "name": "last_read_id",
+    "type": "Type: String (cast from integer but not guaranteed to be a number)",
+    "description": "Description: The ID of the most recently viewed entity."
+  },
+  {
+    "name": "version",
+    "type": "Type: Integer",
+    "description": "Description: An incrementing counter, used for locking to prevent write conflicts."
+  },
+  {
+    "name": "updated_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp of when the marker was set."
+  }
+]

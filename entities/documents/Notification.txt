@@ -1,0 +1,283 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Notification
+Represents a notification of an event relevant to the user.
+
+Attributes
+id
+type
+created_at
+account
+status OPTIONAL
+report OPTIONAL
+Examples
+Mention
+Favourite
+See also
+Attributes
+id
+Description: The id of the notification in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+0.9.9 - added
+
+type
+Description: The type of event that resulted in the notification.
+Type: String (Enumerable oneOf)
+mention = Someone mentioned you in their status
+status = Someone you enabled notifications for has posted a status
+reblog = Someone boosted one of your statuses
+follow = Someone followed you
+follow_request = Someone requested to follow you
+favourite = Someone favourited one of your statuses
+poll = A poll you have voted in or created has ended
+update = A status you interacted with has been edited
+admin.sign_up = Someone signed up (optionally sent to admins)
+admin.report = A new report has been filed
+Version history:
+0.9.9 - added
+2.8.0 - added poll
+3.1.0 - added follow_request
+3.3.0 - added status
+3.5.0 - added update and admin.sign_up
+4.0.0 - added admin.report
+
+created_at
+Description: The timestamp of the notification.
+Type: String (ISO 8601 Datetime)
+Version history:
+0.9.9 - added
+
+account
+Description: The account that performed the action that generated the notification.
+Type: Account
+Version history:
+0.9.9 - added
+
+status OPTIONAL
+Description: Status that was the object of the notification. Attached when type of the notification is favourite, reblog, status, mention, poll, or update.
+Type: Status
+Version history:
+0.9.9 - added
+
+report OPTIONAL
+Description: Report that was the object of the notification. Attached when type of the notification is admin.report.
+Type: Report
+Version history:
+4.0.0 - added
+
+Examples
+Mention
+
+  {
+    "id": "34975861",
+    "type": "mention",
+    "created_at": "2019-11-23T07:49:02.064Z",
+    "account": {
+      "id": "971724",
+      "username": "zsc",
+      "acct": "zsc",
+      // ...
+    },
+    "status": {
+      "id": "103186126728896492",
+      "created_at": "2019-11-23T07:49:01.940Z",
+      "in_reply_to_id": "103186038209478945",
+      "in_reply_to_account_id": "14715",
+      // ...
+    }
+  }
+Favourite
+  {
+    "id": "34975535",
+    "type": "favourite",
+    "created_at": "2019-11-23T07:29:18.903Z",
+    "account": {
+      "id": "297420",
+      "username": "haskal",
+      "acct": "haskal@cybre.space",
+      // ...
+    },
+    "status": {
+      "id": "103186046267791694",
+      "created_at": "2019-11-23T07:28:34.210Z",
+      // ...
+      "account": {
+        "id": "14715",
+        "username": "trwnh",
+        "acct": "trwnh",
+        // ...
+      },
+      // ...
+    }
+  }
+See also
+notifications API methods
+app/serializers/rest/notification_serializer.rb
+Last updated December 14, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "error",
+    "jsonName": "error",
+    "valueName": "Error",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The error message."
+  },
+  {
+    "name": "error_description OPTIONAL",
+    "jsonName": "error_description",
+    "valueName": "ErrorDescription",
+    "optional": true,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A longer description of the error, mainly provided with the OAuth API."
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "summary": "Accept follow request",
+  "method": "POST",
+  "router": "/api/v1/follow_requests/:account_id/authorize",
+  "description": "",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":account_id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

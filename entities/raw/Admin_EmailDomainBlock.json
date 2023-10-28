@@ -1,0 +1,37 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the EmailDomainBlock in the database."
+  },
+  {
+    "name": "domain",
+    "type": "Type: String",
+    "description": "Description: The email domain that is not allowed to be used for signups."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the email domain was disallowed from signups."
+  },
+  {
+    "name": "history",
+    "type": "Type: Array of Hash",
+    "description": "Description: Usage statistics for given days (typically the past week)."
+  },
+  {
+    "name": "history[][day]",
+    "type": "Type: String (UNIX timestamp)",
+    "description": "Description: UNIX timestamp on midnight of the given day."
+  },
+  {
+    "name": "history[][accounts]",
+    "type": "Type: String (cast from an integer)",
+    "description": "Description: The counted accounts signup attempts using that email domain within that day."
+  },
+  {
+    "name": "history[][uses]",
+    "type": "Type: String (cast from an integer)",
+    "description": "Description: The counted IP signup attempts of that email domain within that day."
+  }
+]

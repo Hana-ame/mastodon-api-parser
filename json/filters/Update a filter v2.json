@@ -1,0 +1,60 @@
+{
+  "summary": "Update a filter",
+  "method": "PUT",
+  "router": "/api/v2/filters/:id",
+  "description": "Update a filter group with the given parameters.\n\n",
+  "returns": "Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Filter in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "title",
+      "paramType": "formData",
+      "comment": "String. The name of the filter group."
+    },
+    {
+      "name": "context[]",
+      "paramType": "formData",
+      "comment": "Array of String. Where the filter should be applied. Specify at least one of home, notifications, public, thread, account."
+    },
+    {
+      "name": "filter_action",
+      "paramType": "formData",
+      "comment": "String. The policy to be applied when the filter is matched. Specify warn or hide."
+    },
+    {
+      "name": "expires_in",
+      "paramType": "formData",
+      "comment": "Integer. How many seconds from now should the filter expire?"
+    },
+    {
+      "name": "keywords_attributes[][keyword]",
+      "paramType": "formData",
+      "comment": "String. A keyword to be added to the newly-created filter group."
+    },
+    {
+      "name": "keywords_attributes[][whole_word]",
+      "paramType": "formData",
+      "comment": "Boolean. Whether the keyword should consider word boundaries."
+    },
+    {
+      "name": "keywords_attributes[][id]",
+      "paramType": "formData",
+      "comment": "String. Provide the ID of an existing keyword to modify it, instead of creating a new keyword."
+    },
+    {
+      "name": "keywords_attributes[][_destroy]",
+      "paramType": "formData",
+      "comment": "Boolean. If true, will remove the keyword with the given ID."
+    }
+  ]
+}

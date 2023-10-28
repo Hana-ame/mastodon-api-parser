@@ -1,0 +1,12 @@
+[
+  {
+    "name": "source",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The reason this account is being suggested."
+  },
+  {
+    "name": "account",
+    "type": "Type: Account",
+    "description": "Description: The account being recommended to follow."
+  }
+]

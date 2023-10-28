@@ -1,0 +1,57 @@
+[
+  {
+    "name": "name",
+    "jsonName": "name",
+    "valueName": "Name",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The emoji used for the reaction. Either a unicode emoji, or a custom emoji’s shortcode."
+  },
+  {
+    "name": "count",
+    "jsonName": "count",
+    "valueName": "Count",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The total number of users who have added this reaction."
+  },
+  {
+    "name": "me OPTIONAL",
+    "jsonName": "me",
+    "valueName": "Me",
+    "optional": true,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: If there is a currently authorized user: Have you added this reaction?"
+  },
+  {
+    "name": "url OPTIONAL",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": true,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: If the reaction is a custom emoji: A link to the custom emoji."
+  },
+  {
+    "name": "static_url OPTIONAL",
+    "jsonName": "static_url",
+    "valueName": "StaticUrl",
+    "optional": true,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: If the reaction is a custom emoji: A link to a non-animated version of the custom emoji."
+  }
+]

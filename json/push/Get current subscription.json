@@ -1,0 +1,15 @@
+{
+  "summary": "Get current subscription",
+  "method": "GET",
+  "router": "/api/v1/push/subscription",
+  "description": "View the PushSubscription currently associated with this access token.\n\n",
+  "returns": "WebPushSubscription",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

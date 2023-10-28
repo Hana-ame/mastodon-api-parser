@@ -1,0 +1,20 @@
+{
+  "summary": "Follow a hashtag",
+  "method": "POST",
+  "router": "/api/v1/tags/:id/follow",
+  "description": "Follow a hashtag. Posts containing a followed hashtag will be inserted into your home timeline.\n\n",
+  "returns": "Tag",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The name of the hashtag."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the report in the database."
+  },
+  {
+    "name": "action_taken",
+    "jsonName": "action_taken",
+    "valueName": "ActionTaken",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether an action was taken to resolve this report."
+  },
+  {
+    "name": "action_taken_at",
+    "jsonName": "action_taken_at",
+    "valueName": "ActionTakenAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When an action was taken, if this report is currently resolved."
+  },
+  {
+    "name": "category",
+    "jsonName": "category",
+    "valueName": "Category",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The category under which the report is classified."
+  },
+  {
+    "name": "comment",
+    "jsonName": "comment",
+    "valueName": "Comment",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: An optional reason for reporting."
+  },
+  {
+    "name": "forwarded",
+    "jsonName": "forwarded",
+    "valueName": "Forwarded",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether a report was forwarded to a remote instance."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The time the report was filed."
+  },
+  {
+    "name": "updated_at",
+    "jsonName": "updated_at",
+    "valueName": "UpdatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The time of last action on this report."
+  },
+  {
+    "name": "account",
+    "jsonName": "account",
+    "valueName": "Account",
+    "optional": false,
+    "type": "Type: Admin::Account",
+    "valueType": "AdminAccount",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account which filed the report."
+  },
+  {
+    "name": "target_account",
+    "jsonName": "target_account",
+    "valueName": "TargetAccount",
+    "optional": false,
+    "type": "Type: Admin::Account",
+    "valueType": "AdminAccount",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account being reported."
+  },
+  {
+    "name": "assigned_account",
+    "jsonName": "assigned_account",
+    "valueName": "AssignedAccount",
+    "optional": false,
+    "type": "Type: NULLABLE Admin::Account or null",
+    "valueType": "AdminAccount",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The account of the moderator assigned to this report."
+  },
+  {
+    "name": "action_taken_by_account",
+    "jsonName": "action_taken_by_account",
+    "valueName": "ActionTakenByAccount",
+    "optional": false,
+    "type": "Type: NULLABLE Admin::Account or null",
+    "valueType": "AdminAccount",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The account of the moderator who handled the report."
+  },
+  {
+    "name": "statuses",
+    "jsonName": "statuses",
+    "valueName": "Statuses",
+    "optional": false,
+    "type": "Type: Array of Status",
+    "valueType": "Status",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Statuses attached to the report, for context."
+  },
+  {
+    "name": "rules",
+    "jsonName": "rules",
+    "valueName": "Rules",
+    "optional": false,
+    "type": "Type: Array of Rule",
+    "valueType": "Rule",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Rules attached to the report, for context."
+  }
+]

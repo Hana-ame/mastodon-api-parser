@@ -1,0 +1,12 @@
+[
+  {
+    "name": "key",
+    "type": "Type: String",
+    "description": "Description: The unique keystring for the requested dimension."
+  },
+  {
+    "name": "data",
+    "type": "Type: Array of Hash",
+    "description": "Description: The data available for the requested dimension."
+  }
+]

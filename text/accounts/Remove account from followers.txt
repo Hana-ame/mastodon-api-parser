@@ -1,0 +1,46 @@
+Remove account from followers
+POST /api/v1/accounts/:id/remove_from_followers HTTP/1.1
+Remove the given account from your followers.
+
+Returns: Relationship
+OAuth: User token + write:follows
+Version history:
+3.5.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Successfully removed from followers, or account was already not following you
+
+{
+"id": "3",
+"following": false,
+"showing_reblogs": false,
+"notifying": false,
+"followed_by": false,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

@@ -1,0 +1,30 @@
+{
+  "summary": "View profile directory",
+  "method": "GET",
+  "router": "/api/v1/directory",
+  "description": "List accounts visible in the directory.\n\n",
+  "returns": "Array of Account",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "offset",
+      "paramType": "query",
+      "comment": "Number. Skip the first n results."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Number. How many accounts to load. Defaults to 40 accounts. Max 80 accounts."
+    },
+    {
+      "name": "order",
+      "paramType": "query",
+      "comment": "String. Use active to sort by most recently posted statuses (default) or new to sort by most recently created profiles."
+    },
+    {
+      "name": "local",
+      "paramType": "query",
+      "comment": "Boolean. If true, returns only local accounts."
+    }
+  ]
+}

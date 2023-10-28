@@ -1,0 +1,20 @@
+{
+  "summary": "View a single filter",
+  "method": "GET",
+  "router": "/api/v1/filters/:id",
+  "description": "",
+  "returns": "V1::Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the FilterKeyword in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

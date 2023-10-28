@@ -1,0 +1,430 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::Dimension
+Represents qualitative data about the server.
+
+Attributes
+key
+data
+Data attributes
+key
+human_key
+value
+unit OPTIONAL
+human_value OPTIONAL
+Examples
+languages
+sources
+servers
+space_usage
+software_versions
+tag_servers
+tag_languages
+instance_accounts
+instance_languages
+See also
+Attributes
+key
+Description: The unique keystring for the requested dimension.
+Type: String
+Version history:
+3.5.0 - added
+
+data
+Description: The data available for the requested dimension.
+Type: Array of Hash
+Version history:
+3.5.0 - added
+
+Data attributes
+key
+Description: The unique keystring for this data item.
+Type: String
+Version history:
+3.5.0 - added
+
+human_key
+Description: A human-readable key for this data item.
+Type: String
+Version history:
+3.5.0 - added
+
+value
+Description: The value for this data item.
+Type: String
+Version history:
+3.5.0 - added
+
+unit OPTIONAL
+Description: The units associated with this data item’s value, if applicable.
+Type: String
+Version history:
+3.5.0 - added
+
+human_value OPTIONAL
+Description: A human-readable formatted value for this data item.
+Type: String
+Version history:
+3.5.0 - added
+
+Examples
+languages
+Count how many local statuses are posted in each language, then show dimensional data about how popular each language is.
+
+{
+	"key": "languages",
+	"data": [
+		{
+			"key": "en",
+			"human_key": "English",
+			"value": "10"
+		},
+		{
+			"key": "es",
+			"human_key": "Spanish",
+			"value": "1"
+		},
+		// ...
+	]
+}
+sources
+Count how many local statuses were authored by a given client, then show dimensional data about how popular each client is.
+
+{
+	"key": "sources",
+	"data": [
+		{
+			"key": "web",
+			"human_key": "Website",
+			"value": "2"
+		},
+		// ...
+	]
+}
+servers
+Count how many statuses were posted from a given domain, then show dimensional data about the most popular remote servers.
+
+{
+    "key": "servers",
+    "data": [
+      {
+        "key": "botsin.space",
+        "human_key": "botsin.space",
+        "value": "13738"
+      },
+      {
+        "key": "mastodon.social",
+        "human_key": "mastodon.social",
+        "value": "8928"
+      },
+		// ...
+    ]
+  }
+space_usage
+Show dimensional data about how much space is used by each software in your server stack.
+
+{
+	"key": "space_usage",
+	"data": [
+		{
+			"key": "postgresql",
+			"human_key": "PostgreSQL",
+			"value": "14924935",
+			"unit": "bytes",
+			"human_value": "14.2 MB"
+		},
+		{
+			"key": "redis",
+			"human_key": "Redis",
+			"value": "1972544",
+			"unit": "bytes",
+			"human_value": "1.88 MB"
+		},
+		{
+			"key": "media",
+			"human_key": "Media storage",
+			"value": "0",
+			"unit": "bytes",
+			"human_value": "0 Bytes"
+		}
+	]
+}
+software_versions
+Show dimensional data about which versions of software in your server stack you are using.
+
+{
+	"key": "software_versions",
+	"data": [
+		{
+			"key": "mastodon",
+			"human_key": "Mastodon",
+			"value": "3.5.3",
+			"human_value": "3.5.3"
+		},
+		{
+			"key": "ruby",
+			"human_key": "Ruby",
+			"value": "3.0.4p208",
+			"human_value": "3.0.4p208"
+		},
+		{
+			"key": "postgresql",
+			"human_key": "PostgreSQL",
+			"value": "10.22",
+			"human_value": "10.22"
+		},
+		{
+			"key": "redis",
+			"human_key": "Redis",
+			"value": "4.0.9",
+			"human_value": "4.0.9"
+		}
+	]
+}
+tag_servers
+Count how many statuses contain the trending tag with the given id, then show dimensional data about the most popular servers using that trending tag.
+
+{
+	"key": "tag_servers",
+	"data": [
+		{
+			"key": "live.hatnix.net",
+			"human_key": "live.hatnix.net",
+			"value": "6"
+		},
+		{
+			"key": "linuxrocks.online",
+			"human_key": "linuxrocks.online",
+			"value": "4"
+		}
+	]
+}
+tag_languages
+Count how many statuses contain the trending tag with the given id, then show dimensional data about the most popular languages for those statuses.
+
+{
+    "key": "tag_languages",
+    "data": [
+      {
+        "key": "und",
+        "human_key": "und",
+        "value": "8"
+      },
+      {
+        "key": "en",
+        "human_key": "English",
+        "value": "7"
+      },
+		// ...
+    ]
+  }
+instance_accounts
+Count how many followers each account from the given domain has, then show dimensional data about the most popular accounts from that remote server.
+
+{
+	"key": "instance_accounts",
+	"data": [
+		{
+			"key": "fribbledom",
+			"human_key": "fribbledom",
+			"value": "33"
+		},
+		{
+			"key": "ShugoWah",
+			"human_key": "ShugoWah",
+			"value": "26"
+		},
+		// ...
+	]
+}
+instance_languages
+Count how many statuses from the given domain are posted in each language, then show dimensional data about how popular each language is on that remote server.
+
+{
+	"key": "instance_languages",
+	"data": [
+		{
+			"key": "en",
+			"human_key": "English",
+			"value": "5848"
+		},
+		{
+			"key": "de",
+			"human_key": "German",
+			"value": "155"
+		},
+		// ...
+	]
+}
+See also
+admin/dimensions API methods
+app/serializers/rest/admin/dimension_serializer.rb
+app/lib/admin/metrics/dimension.rb
+app/lib/admin/metrics/dimension/
+Last updated September 20, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

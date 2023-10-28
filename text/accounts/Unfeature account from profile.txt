@@ -1,0 +1,46 @@
+Unfeature account from profile
+POST /api/v1/accounts/:id/unpin HTTP/1.1
+Remove the given account from the user’s featured profiles.
+
+Returns: Relationship
+OAuth: User + write:accounts
+Version history:
+2.5.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Successfully unendorsed, or account was already not endorsed
+
+{
+"id": "1",
+"following": true,
+"showing_reblogs": true,
+"notifying": false,
+"followed_by": true,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

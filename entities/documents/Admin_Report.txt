@@ -1,0 +1,323 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::Report
+Admin-level information about a filed report.
+
+Example
+Attributes
+id
+action_taken
+action_taken_at
+category
+comment
+forwarded
+created_at
+updated_at
+account
+target_account
+assigned_account
+action_taken_by_account
+statuses
+rules
+See also
+Example
+{
+  "id": "1",
+  "action_taken": false,
+  "action_taken_at": null,
+  "category": "spam",
+  "comment": "",
+  "forwarded": false,
+  "created_at": "2022-09-09T21:19:23.085Z",
+  "updated_at": "2022-09-09T21:19:23.085Z",
+  "account": {
+    "id": "108965218747268792",
+    "username": "admin",
+    "domain": null,
+    "created_at": "2022-09-08T22:48:07.985Z",
+    "email": "admin@mastodon.local",
+    // ...
+    "account": {
+      "id": "108965218747268792",
+      "username": "admin",
+      "acct": "admin",
+      // ...
+    }
+  },
+  "target_account": {
+    "id": "108965430868193066",
+    "username": "goody",
+    "domain": null,
+    "created_at": "2022-09-08T23:42:04.731Z",
+    "email": "goody@mastodon.local",
+    // ...
+    "account": {
+      "id": "108965430868193066",
+      "username": "goody",
+      "acct": "goody",
+      // ...
+    }
+  },
+  "assigned_account": null,
+  "action_taken_by_account": null,
+  "statuses": [],
+  "rules": []
+}
+Attributes
+id
+Description: The ID of the report in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+2.9.1 - added
+
+action_taken
+Description: Whether an action was taken to resolve this report.
+Type: Boolean
+Version history:
+2.9.1 - added
+
+action_taken_at
+Description: When an action was taken, if this report is currently resolved.
+Type: NULLABLE String (ISO 8601 Datetime) or null
+Version history:
+2.9.1 - added
+
+category
+Description: The category under which the report is classified.
+Type: String (Enumerable oneOf)
+spam = Malicious, fake, or repetitive content
+violation = Violates one or more specific rules
+other = The default (catch-all) category
+Version history:
+3.5.0 - added
+
+comment
+Description: An optional reason for reporting.
+Type: String
+Version history:
+2.9.1 - added
+
+forwarded
+Description: Whether a report was forwarded to a remote instance.
+Type: Boolean
+Version history:
+4.0.0 - added
+
+created_at
+Description: The time the report was filed.
+Type: String (ISO 8601 Datetime)
+Version history:
+2.9.1 - added
+
+updated_at
+Description: The time of last action on this report.
+Type: String (ISO 8601 Datetime)
+Version history:
+2.9.1 - added
+
+account
+Description: The account which filed the report.
+Type: Admin::Account
+Version history:
+2.9.1 - added
+
+target_account
+Description: The account being reported.
+Type: Admin::Account
+Version history:
+2.9.1 - added
+
+assigned_account
+Description: The account of the moderator assigned to this report.
+Type: NULLABLE Admin::Account or null
+Version history:
+2.9.1 - added
+
+action_taken_by_account
+Description: The account of the moderator who handled the report.
+Type: NULLABLE Admin::Account or null
+Version history:
+2.9.1 - added
+
+statuses
+Description: Statuses attached to the report, for context.
+Type: Array of Status
+Version history:
+2.9.1 - added
+
+rules
+Description: Rules attached to the report, for context.
+Type: Array of Rule
+Version history:
+3.5.0 - added
+
+See also
+admin/reports API methods
+app/serializers/rest/admin/report_serializer.rb
+Last updated March 8, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

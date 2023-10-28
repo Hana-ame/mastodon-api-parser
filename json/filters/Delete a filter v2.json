@@ -1,0 +1,9 @@
+{
+  "summary": "Delete a filter",
+  "method": "DELETE",
+  "router": "/api/v2/filters/:id",
+  "description": "Delete a filter group with the given id.\n\n",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": []
+}

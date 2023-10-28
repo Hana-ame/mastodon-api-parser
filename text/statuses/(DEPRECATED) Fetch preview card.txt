@@ -1,0 +1,39 @@
+(DEPRECATED) Fetch preview card
+GET /api/v1/statuses/:id/card HTTP/1.1
+Returns: PreviewCard
+OAuth: Public for public statuses, user token + read:statuses for private statuses
+Version history:
+0.0.0 - added
+2.6.0 - deprecated in favor of card property inlined on Status entity
+3.0.0 - removed
+
+Request
+Path parameters
+:id
+REQUIRED String. The local ID of the Status in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"url": "https://www.youtube.com/watch?v=OMv_EPMED8Y",
+"title": "♪ Brand New Friend (Christmas Song!)",
+"description": "",
+"type": "video",
+"author_name": "YOGSCAST Lewis & Simon",
+"author_url": "https://www.youtube.com/user/BlueXephos",
+"provider_name": "YouTube",
+"provider_url": "https://www.youtube.com/",
+"html": "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/OMv_EPMED8Y?feature=oembed\" frameborder=\"0\" allowfullscreen=\"\"></iframe>",
+"width": 480,
+"height": 270,
+"image": "https://files.mastodon.social/preview_cards/images/014/179/145/original/9cf4b7cf5567b569.jpeg",
+"embed_url": ""
+}
+404: Not found
+Status does not exist or is private.
+
+{
+"error": "Record not found"
+}

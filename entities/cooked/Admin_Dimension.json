@@ -1,0 +1,24 @@
+[
+  {
+    "name": "key",
+    "jsonName": "key",
+    "valueName": "Key",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The unique keystring for the requested dimension."
+  },
+  {
+    "name": "data",
+    "jsonName": "data",
+    "valueName": "Data",
+    "optional": false,
+    "type": "Type: Array of Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The data available for the requested dimension."
+  }
+]

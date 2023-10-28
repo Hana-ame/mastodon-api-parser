@@ -1,0 +1,27 @@
+[
+  {
+    "name": "name",
+    "type": "Type: String",
+    "description": "Description: The name of your application."
+  },
+  {
+    "name": "website OPTIONAL",
+    "type": "Type: NULLABLE String (URL)",
+    "description": "Description: The website associated with your application."
+  },
+  {
+    "name": "vapid_key",
+    "type": "Type: String",
+    "description": "Description: Used for Push Streaming API. Returned with POST /api/v1/apps. Equivalent to WebPushSubscription#server_key"
+  },
+  {
+    "name": "client_id OPTIONAL",
+    "type": "Type: String",
+    "description": "Description: Client ID key, to be used for obtaining OAuth tokens"
+  },
+  {
+    "name": "client_secret OPTIONAL",
+    "type": "Type: String",
+    "description": "Description: Client secret key, to be used for obtaining OAuth tokens"
+  }
+]

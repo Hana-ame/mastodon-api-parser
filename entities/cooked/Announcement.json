@@ -1,0 +1,156 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the announcement in the database."
+  },
+  {
+    "name": "content",
+    "jsonName": "content",
+    "valueName": "Content",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The text of the announcement."
+  },
+  {
+    "name": "starts_at",
+    "jsonName": "starts_at",
+    "valueName": "StartsAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the announcement will start."
+  },
+  {
+    "name": "ends_at",
+    "jsonName": "ends_at",
+    "valueName": "EndsAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the announcement will end."
+  },
+  {
+    "name": "published",
+    "jsonName": "published",
+    "valueName": "Published",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the announcement is currently active."
+  },
+  {
+    "name": "all_day",
+    "jsonName": "all_day",
+    "valueName": "AllDay",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the announcement should start and end on dates only instead of datetimes. Will be false if there is no starts_at or ends_at time."
+  },
+  {
+    "name": "published_at",
+    "jsonName": "published_at",
+    "valueName": "PublishedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When the announcement was published."
+  },
+  {
+    "name": "updated_at",
+    "jsonName": "updated_at",
+    "valueName": "UpdatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When the announcement was last updated."
+  },
+  {
+    "name": "read OPTIONAL",
+    "jsonName": "read",
+    "valueName": "Read",
+    "optional": true,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the announcement has been read by the current user."
+  },
+  {
+    "name": "mentions",
+    "jsonName": "mentions",
+    "valueName": "Mentions",
+    "optional": false,
+    "type": "Type: Array of Announcement::Account",
+    "valueType": "AnnouncementAccount",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Accounts mentioned in the announcement text."
+  },
+  {
+    "name": "statuses",
+    "jsonName": "statuses",
+    "valueName": "Statuses",
+    "optional": false,
+    "type": "Type: Array of Announcement::Status",
+    "valueType": "AnnouncementStatus",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Statuses linked in the announcement text."
+  },
+  {
+    "name": "tags",
+    "jsonName": "tags",
+    "valueName": "Tags",
+    "optional": false,
+    "type": "Type: Array of Status::Tag",
+    "valueType": "StatusTag",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Tags linked in the announcement text."
+  },
+  {
+    "name": "emojis",
+    "jsonName": "emojis",
+    "valueName": "Emojis",
+    "optional": false,
+    "type": "Type: Array of CustomEmoji",
+    "valueType": "CustomEmoji",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Custom emoji used in the announcement text."
+  },
+  {
+    "name": "reactions",
+    "jsonName": "reactions",
+    "valueName": "Reactions",
+    "optional": false,
+    "type": "Type: Array of Reaction",
+    "valueType": "Reaction",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Emoji reactions attached to the announcement."
+  }
+]

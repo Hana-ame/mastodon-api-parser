@@ -1,0 +1,35 @@
+View status source
+GET /api/v1/statuses/:id/source HTTP/1.1
+Obtain the source properties for a status so that it can be edited.
+
+Returns: StatusSource
+OAuth: App token + read:statuses
+Version history:
+3.5.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The local ID of the Status in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": "108942703571991143",
+"text": "this is a status that will be edited",
+"spoiler_text": ""
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status does not exist or is private.
+
+{
+"error": "Record not found"
+}

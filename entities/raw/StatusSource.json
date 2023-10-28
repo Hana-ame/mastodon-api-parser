@@ -1,0 +1,17 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "description": "Description: ID of the status in the database."
+  },
+  {
+    "name": "text",
+    "type": "Type: String",
+    "description": "Description: The plain text used to compose the status."
+  },
+  {
+    "name": "spoiler_text",
+    "type": "Type: String",
+    "description": "Description: The plain text used to compose the status’s subject or content warning."
+  }
+]

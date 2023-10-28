@@ -1,0 +1,45 @@
+View a single scheduled status
+GET /api/v1/scheduled_statuses/:id HTTP/1.1
+Returns: ScheduledStatus
+OAuth: User token + read:statuses
+Version history:
+2.7.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the ScheduledStatus in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": "3221",
+"scheduled_at": "2019-12-05T12:33:01.000Z",
+"params": {
+"poll": null,
+"text": "test content",
+"media_ids": null,
+"sensitive": null,
+"visibility": null,
+"idempotency": null,
+"scheduled_at": null,
+"spoiler_text": null,
+"application_id": 596551,
+"in_reply_to_id": null
+},
+"media_attachments": []
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+ScheduledStatus is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

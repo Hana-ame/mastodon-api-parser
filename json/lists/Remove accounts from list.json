@@ -1,0 +1,25 @@
+{
+  "summary": "Remove accounts from list",
+  "method": "DELETE",
+  "router": "/api/v1/lists/:id/accounts",
+  "description": "Remove accounts from the given list.\n\n",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the List in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "account_ids[]",
+      "paramType": "formData",
+      "comment": "REQUIRED Array of String. The accounts that should be removed from the list."
+    }
+  ]
+}

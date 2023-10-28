@@ -1,0 +1,268 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::EmailDomainBlock
+Represents an email domain that cannot be used to sign up.
+
+Example
+Attributes
+id
+domain
+created_at
+history
+See also
+Example
+{
+  "id": "1",
+  "domain": "foo",
+  "created_at": "2022-11-16T06:09:36.176Z",
+  "history": [
+    {
+      "day": "1668556800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668470400",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668384000",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668297600",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668211200",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668124800",
+      "accounts": "0",
+      "uses": "0"
+    },
+    {
+      "day": "1668038400",
+      "accounts": "0",
+      "uses": "0"
+    }
+  ]
+}
+Attributes
+id
+Description: The ID of the EmailDomainBlock in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+4.0.0 - added
+
+domain
+Description: The email domain that is not allowed to be used for signups.
+Type: String
+Version history:
+4.0.0 - added
+
+created_at
+Description: When the email domain was disallowed from signups.
+Type: String (ISO 8601 Datetime)
+Version history:
+4.0.0 - added
+
+history
+Description: Usage statistics for given days (typically the past week).
+Type: Array of Hash
+Version history:
+4.0.0 - added
+
+history[][day]
+Description: UNIX timestamp on midnight of the given day.
+Type: String (UNIX timestamp)
+Version history:
+4.0.0 - added
+
+history[][accounts]
+Description: The counted accounts signup attempts using that email domain within that day.
+Type: String (cast from an integer)
+Version history:
+4.0.0 - added
+
+history[][uses]
+Description: The counted IP signup attempts of that email domain within that day.
+Type: String (cast from an integer)
+Version history:
+4.0.0 - added
+
+See also
+admin/email_domain_blocks API methods
+app/serializers/rest/admin/email_domain_blocks_serializer.rb
+Last updated December 14, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

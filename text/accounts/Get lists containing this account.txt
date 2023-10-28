@@ -1,0 +1,55 @@
+Get lists containing this account
+GET /api/v1/accounts/:id/lists HTTP/1.1
+User lists that you have added this account to.
+
+Returns: Array of List
+OAuth: User token + read:lists
+Version history:
+2.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+If the account is part of any lists, those entities will be returned. If the account is not part of any of your lists, then an empty array will be returned.
+
+[
+{
+"id": "13694",
+"title": "dev"
+}
+]
+[]
+401: Unauthorized
+Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user
+
+Sample response for whitelist mode:
+
+{
+"error": "This API requires an authenticated user"
+}
+Sample response with missing header or invalid token:
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Account does not exist
+
+{
+"error": "Record not found"
+}
+410: Gone
+Account is suspended (since 2.4.0 and until 3.3.0)
+
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

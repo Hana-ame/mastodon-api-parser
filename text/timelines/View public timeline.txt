@@ -1,0 +1,51 @@
+View public timeline
+GET /api/v1/timelines/public HTTP/1.1
+Returns: Array of Status
+OAuth: Public. Requires app token + read:statuses if the instance has disabled public preview.
+Version history:
+0.0.0 - added
+2.3.0 - added only_media
+2.6.0 - add min_id
+3.0.0 - auth is required if public preview is disabled
+3.1.4 - added remote
+3.3.0 - both min_id and max_id can be used at the same time now
+
+Request
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+local
+Boolean. Show only local statuses? Defaults to false.
+remote
+Boolean. Show only remote statuses? Defaults to false.
+only_media
+Boolean. Show only statuses with media attached? Defaults to false.
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+since_id
+String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+Response
+200: OK
+Sample API call with limit=2
+
+[
+{
+"id": "103206804533200177",
+"created_at": "2019-11-26T23:27:31.000Z",
+// ...
+"visibility": "public",
+// ...
+},
+{
+"id": "103206804086086361",
+"created_at": "2019-11-26T23:27:32.000Z",
+// ...
+"visibility": "public",
+// ...
+}
+]

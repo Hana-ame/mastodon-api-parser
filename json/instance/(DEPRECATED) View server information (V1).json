@@ -1,0 +1,9 @@
+{
+  "summary": "(DEPRECATED) View server information (V1)",
+  "method": "GET",
+  "router": "/api/v1/instance",
+  "description": "Obtain general information about the server.\n\n",
+  "returns": "V1::Instance",
+  "oauth": "Public",
+  "request": []
+}

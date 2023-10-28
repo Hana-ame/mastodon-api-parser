@@ -1,0 +1,20 @@
+{
+  "summary": "View a specific filter",
+  "method": "GET",
+  "router": "/api/v2/filters/:id",
+  "description": "Obtain a single filter group owned by the current user.\n\n",
+  "returns": "Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Filter in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

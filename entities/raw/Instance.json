@@ -1,0 +1,232 @@
+[
+  {
+    "name": "domain",
+    "type": "Type: String",
+    "description": "Description: The domain name of the instance."
+  },
+  {
+    "name": "title",
+    "type": "Type: String",
+    "description": "Description: The title of the website."
+  },
+  {
+    "name": "version",
+    "type": "Type: String",
+    "description": "Description: The version of Mastodon installed on the instance."
+  },
+  {
+    "name": "source_url",
+    "type": "Type: String (URL)",
+    "description": "Description: The URL for the source code of the software running on this instance, in keeping with AGPL license requirements."
+  },
+  {
+    "name": "description",
+    "type": "Type: String",
+    "description": "Description: A short, plain-text description defined by the admin."
+  },
+  {
+    "name": "usage",
+    "type": "Type: Hash",
+    "description": "Description: Usage data for this instance."
+  },
+  {
+    "name": "usage[users]",
+    "type": "Type: Hash",
+    "description": "Description: Usage data related to users on this instance."
+  },
+  {
+    "name": "usage[users][active_month]",
+    "type": "Type: Integer",
+    "description": "Description: The number of active users in the past 4 weeks."
+  },
+  {
+    "name": "thumbnail",
+    "type": "Type: Hash",
+    "description": "Description: An image used to represent this instance."
+  },
+  {
+    "name": "thumbnail[url]",
+    "type": "Type: String (URL)",
+    "description": "Description: The URL for the thumbnail image."
+  },
+  {
+    "name": "thumbnail[blurhash] OPTIONAL",
+    "type": "Type: String (Blurhash)",
+    "description": "Description: A hash computed by the BlurHash algorithm, for generating colorful preview thumbnails when media has not been downloaded yet."
+  },
+  {
+    "name": "thumbnail[versions] OPTIONAL",
+    "type": "Type: Hash",
+    "description": "Description: Links to scaled resolution images, for high DPI screens."
+  },
+  {
+    "name": "thumbnail[versions][@1x] OPTIONAL",
+    "type": "Type: String (URL)",
+    "description": "Description: The URL for the thumbnail image at 1x resolution."
+  },
+  {
+    "name": "thumbnail[versions][@2x] OPTIONAL",
+    "type": "Type: String (URL)",
+    "description": "Description: The URL for the thumbnail image at 2x resolution."
+  },
+  {
+    "name": "languages",
+    "type": "Type: Array of String (ISO 639-1 two-letter code)",
+    "description": "Description: Primary languages of the website and its staff."
+  },
+  {
+    "name": "configuration",
+    "type": "Type: Hash",
+    "description": "Description: Configured values and limits for this website."
+  },
+  {
+    "name": "configuration[urls]",
+    "type": "Type: Hash",
+    "description": "Description: URLs of interest for clients apps."
+  },
+  {
+    "name": "configuration[urls][streaming_api]",
+    "type": "Type: String (URL)",
+    "description": "Description: The Websockets URL for connecting to the streaming API."
+  },
+  {
+    "name": "configuration[accounts]",
+    "type": "Type: Hash",
+    "description": "Description: Limits related to accounts."
+  },
+  {
+    "name": "configuration[accounts][max_featured_tags]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum number of featured tags allowed for each account."
+  },
+  {
+    "name": "configuration[statuses]",
+    "type": "Type: Hash",
+    "description": "Description: Limits related to authoring statuses."
+  },
+  {
+    "name": "configuration[statuses][max_characters]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum number of allowed characters per status."
+  },
+  {
+    "name": "configuration[statuses][max_media_attachments]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum number of media attachments that can be added to a status."
+  },
+  {
+    "name": "configuration[statuses][characters_reserved_per_url]",
+    "type": "Type: Integer",
+    "description": "Description: Each URL in a status will be assumed to be exactly this many characters."
+  },
+  {
+    "name": "configuration[media_attachments]",
+    "type": "Type: Hash",
+    "description": "Description: Hints for which attachments will be accepted."
+  },
+  {
+    "name": "configuration[media_attachments][supported_mime_types]",
+    "type": "Type: Array of String",
+    "description": "Description: Contains MIME types that can be uploaded."
+  },
+  {
+    "name": "configuration[media_attachments][image_size_limit]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum size of any uploaded image, in bytes."
+  },
+  {
+    "name": "configuration[media_attachments][image_matrix_limit]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum number of pixels (width times height) for image uploads."
+  },
+  {
+    "name": "configuration[media_attachments][video_size_limit]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum size of any uploaded video, in bytes."
+  },
+  {
+    "name": "configuration[media_attachments][video_frame_rate_limit]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum frame rate for any uploaded video."
+  },
+  {
+    "name": "configuration[media_attachments][video_matrix_limit]",
+    "type": "Type: Integer",
+    "description": "Description: The maximum number of pixels (width times height) for video uploads."
+  },
+  {
+    "name": "configuration[polls]",
+    "type": "Type: Hash",
+    "description": "Description: Limits related to polls."
+  },
+  {
+    "name": "configuration[polls][max_options]",
+    "type": "Type: Integer",
+    "description": "Description: Each poll is allowed to have up to this many options."
+  },
+  {
+    "name": "configuration[polls][max_characters_per_option]",
+    "type": "Type: Integer",
+    "description": "Description: Each poll option is allowed to have this many characters."
+  },
+  {
+    "name": "configuration[polls][min_expiration]",
+    "type": "Type: Integer",
+    "description": "Description: The shortest allowed poll duration, in seconds."
+  },
+  {
+    "name": "configuration[polls][max_expiration]",
+    "type": "Type: Integer",
+    "description": "Description: The longest allowed poll duration, in seconds."
+  },
+  {
+    "name": "configuration[translation]",
+    "type": "Type: Hash",
+    "description": "Description: Hints related to translation."
+  },
+  {
+    "name": "configuration[translation][enabled]",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the Translations API is available on this instance."
+  },
+  {
+    "name": "registrations",
+    "type": "Type: Hash",
+    "description": "Description: Information about registering for this website."
+  },
+  {
+    "name": "registrations[enabled]",
+    "type": "Type: Boolean",
+    "description": "Description: Whether registrations are enabled."
+  },
+  {
+    "name": "registrations[approval_required]",
+    "type": "Type: Boolean",
+    "description": "Description: Whether registrations require moderator approval."
+  },
+  {
+    "name": "registrations[message]",
+    "type": "Type: NULLABLE String (HTML) or null",
+    "description": "Description: A custom message to be shown when registrations are closed."
+  },
+  {
+    "name": "contact",
+    "type": "Type: Hash",
+    "description": "Description: Hints related to contacting a representative of the website."
+  },
+  {
+    "name": "contact[email]",
+    "type": "Type: String (Email)",
+    "description": "Description: An email address that can be messaged regarding inquiries or issues."
+  },
+  {
+    "name": "contact[account]",
+    "type": "Type: Account",
+    "description": "Description: An account that can be contacted natively over the network regarding inquiries or issues."
+  },
+  {
+    "name": "rules",
+    "type": "Type: Array of Rule",
+    "description": "Description: An itemized list of rules for this website."
+  }
+]

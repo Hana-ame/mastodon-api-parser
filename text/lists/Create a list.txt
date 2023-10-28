@@ -1,0 +1,50 @@
+Create a list
+POST /api/v1/lists HTTP/1.1
+Create a new list.
+
+Returns: List
+OAuth: User token + write:lists
+Version history:
+2.1.0 - added
+3.3.0 - added replies_policy
+4.2.0 - added exclusive
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+title
+REQUIRED String. The title of the list to be created.
+replies_policy
+String. One of followed, list, or none. Defaults to list.
+exclusive
+Boolean. Whether members of this list need to get removed from the “Home” feed
+Response
+200: OK
+A sample list was created with a title of “test”.
+
+{
+"id": "13585",
+"title": "test",
+"replies_policy": "list"
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+If the title is missing:
+
+{
+"error": "Validation failed: Title can't be blank"
+}
+If the replies_policy is not understood:
+
+{
+"error": "'some' is not a valid replies_policy"
+}
+–>
+

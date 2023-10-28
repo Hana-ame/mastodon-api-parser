@@ -1,0 +1,20 @@
+{
+  "summary": "Get parent and child statuses in context",
+  "method": "GET",
+  "router": "/api/v1/statuses/:id/context",
+  "description": "View statuses above and below this status in the thread.\n\n",
+  "returns": "Context",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

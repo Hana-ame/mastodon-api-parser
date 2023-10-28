@@ -1,10 +1,5 @@
 node_modules
 
-html
-text
-json
-entities
-
 *.js
 *.db
-*.json
+*.tar

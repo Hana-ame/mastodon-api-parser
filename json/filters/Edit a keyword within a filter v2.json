@@ -1,0 +1,30 @@
+{
+  "summary": "Edit a keyword within a filter",
+  "method": "PUT",
+  "router": "/api/v2/filters/keywords/:id",
+  "description": "Update the given filter keyword.\n\n",
+  "returns": "FilterKeyword",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the FilterKeyword in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "keyword",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The keyword to be added to the filter group."
+    },
+    {
+      "name": "whole_word",
+      "paramType": "formData",
+      "comment": "Boolean. Whether the keyword should consider word boundaries."
+    }
+  ]
+}

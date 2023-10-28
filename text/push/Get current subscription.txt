@@ -1,0 +1,39 @@
+Get current subscription
+GET /api/v1/push/subscription HTTP/1.1
+View the PushSubscription currently associated with this access token.
+
+Returns: WebPushSubscription
+OAuth: User token + push
+Version history:
+2.4.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": 328183,
+"endpoint": "https://yourdomain.example/listener",
+"alerts": {
+"follow": true,
+"favourite": true,
+"reblog": true,
+"mention": true,
+"poll": true
+},
+"server_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+A PushSubscription does not exist for this token.
+
+{
+"error": "Record not found"
+}

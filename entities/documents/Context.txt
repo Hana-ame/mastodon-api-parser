@@ -1,0 +1,224 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Context
+Represents the tree around a given status. Used for reconstructing threads of statuses.
+
+Example
+Attributes
+ancestors
+descendants
+See also
+Example
+{
+  "ancestors": [
+    {
+      "id": "103188938570975982",
+      "created_at": "2019-11-23T19:44:00.124Z",
+      "in_reply_to_id": null,
+      // ...
+    },
+    {
+      "id": "103188971072973252",
+      "created_at": "2019-11-23T19:52:23.398Z",
+      "in_reply_to_id": "103188938570975982",
+      // ...
+    },
+    {
+      "id": "103188982235527758",
+      "created_at": "2019-11-23T19:55:08.208Z",
+      "in_reply_to_id": "103188971072973252",
+      // ...
+    }
+  ],
+  "descendants": [
+    {
+      "id": "103189026958574542",
+      "created_at": "2019-11-23T20:06:36.011Z",
+      "in_reply_to_id": "103189005915505698",
+      // ...
+    }
+  ]
+}
+Attributes
+ancestors
+Description: Parents in the thread.
+Type: Array of Status
+Version history:
+0.6.0 - added
+
+descendants
+Description: Children in the thread.
+Type: Array of Status
+Version history:
+0.6.0 - added
+
+See also
+GET /api/v1/statuses/:id/context
+app/serializers/rest/context_serializer.rb
+Last updated November 20, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

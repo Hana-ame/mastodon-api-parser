@@ -1,0 +1,37 @@
+Authorize a user
+GET /oauth/authorize HTTP/1.1
+Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired redirect_uri, or show the authorization code if urn:ietf:wg:oauth:2.0:oob was requested. The authorization code can be used while requesting a token to obtain access to user-level methods.
+
+Returns: String (URL) or HTML response
+OAuth: Public
+Version history:
+0.1.0 - added
+2.6.0 - added force_login
+3.5.0 - added lang
+
+Request
+Query parameters
+response_type
+REQUIRED String. Should be set equal to code.
+client_id
+REQUIRED String. The client ID, obtained during app registration.
+redirect_uri
+REQUIRED String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the authorization code will be shown instead. Must match one of the redirect_uris declared during app registration.
+scope
+String. List of requested OAuth scopes, separated by spaces (or by pluses, if using query parameters). Must be a subset of scopes declared during app registration. If not provided, defaults to read.
+force_login
+Boolean. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance.
+lang
+String. The ISO 639-1 two-letter language code to use while rendering the authorization form.
+Response
+200: OK
+The authorization code will be returned as a query parameter named code.
+
+redirect_uri?code=qDFUEaYrRK5c-HNmTCJbAzazwLRInJ7VHFat0wcMgCU
+400: Client error
+If the authorization code is incorrect or has been used already, the request will fail.
+
+{
+"error": "invalid_grant",
+"error_description": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+}

@@ -1,0 +1,41 @@
+View moderated servers
+GET /api/v1/instance/domain_blocks HTTP/1.1
+Obtain a list of domains that have been blocked.
+
+Returns: Array of DomainBlock
+OAuth: Public, or User token if limited to users
+Version history:
+4.0.0 - added
+
+Request
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+The complete list of domains blocked by this instance
+
+[
+{
+"domain":"birb.elfenban.de",
+"digest":"5d2c6e02a0cced8fb05f32626437e3d23096480b47efbba659b6d9e80c85d280",
+"severity":"suspend",
+"comment":"Third-party bots"
+},
+{
+"domain":"birdbots.leptonics.com",
+"digest":"ce019d8d32cce8e369ac4367f4dc232103e6f489fbdd247fb99f9c8a646078a4",
+"severity":"suspend",
+"comment":"Third-party bots"
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header, if the admin has chosen to show domain blocks to users.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+The admin has chosen to show domain blocks to no one. The response body is empty; only the HTTP 404 error code is relevant.
+

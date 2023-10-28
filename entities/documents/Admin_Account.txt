@@ -1,0 +1,362 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::Account
+Admin-level information about a given account.
+
+Example
+Attributes
+id
+username
+domain
+created_at
+email
+ip
+ips
+locale
+invite_request
+role
+confirmed
+approved
+disabled
+silenced
+suspended
+account
+created_by_application_id OPTIONAL
+invited_by_account_id OPTIONAL
+See also
+Example
+{
+  "id": "108965278956942133",
+  "username": "admin",
+  "domain": null,
+  "created_at": "2022-09-08T23:03:26.762Z",
+  "email": "admin@mastodon.local",
+  "ip": "192.168.42.1",
+  "role": {
+    "id": 3,
+    "name": "Owner",
+    "color": "",
+    "position": 1000,
+    "permissions": 1,
+    "highlighted": true,
+    "created_at": "2022-09-08T22:48:07.983Z",
+    "updated_at": "2022-09-08T22:48:07.983Z"
+  },
+  "confirmed": true,
+  "suspended": false,
+  "silenced": false,
+  "disabled": false,
+  "approved": true,
+  "locale": null,
+  "invite_request": null,
+  "ips": [
+    {
+      "ip": "192.168.42.1",
+      "used_at": "2022-09-15T01:38:58.851Z"
+    }
+  ],
+  "account": {
+    "id": "108965278956942133",
+    "username": "admin",
+    "acct": "admin",
+    "display_name": "",
+    "locked": false,
+    "bot": false,
+    "discoverable": null,
+    "group": false,
+    "created_at": "2022-09-08T00:00:00.000Z",
+    "note": "",
+    "url": "http://mastodon.local/@admin",
+    "avatar": "http://mastodon.local/avatars/original/missing.png",
+    "avatar_static": "http://mastodon.local/avatars/original/missing.png",
+    "header": "http://mastodon.local/headers/original/missing.png",
+    "header_static": "http://mastodon.local/headers/original/missing.png",
+    "followers_count": 0,
+    "following_count": 0,
+    "statuses_count": 0,
+    "last_status_at": null,
+    "emojis": [],
+    "fields": []
+  }
+}
+Attributes
+id
+Description: The ID of the account in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+2.9.1 - added
+
+username
+Description: The username of the account.
+Type: String
+Version history:
+2.9.1 - added
+
+domain
+Description: The domain of the account, if it is remote.
+Type: NULLABLE String, or null for local accounts
+Version history:
+2.9.1 - added
+
+created_at
+Description: When the account was first discovered.
+Type: String (ISO 8601 Datetime)
+Version history:
+2.9.1 - added
+
+email
+Description: The email address associated with the account.
+Type: String
+Version history:
+2.9.1 - added
+
+ip
+Description: The IP address last used to login to this account.
+Type: NULLABLE String
+Version history:
+2.9.1 - added
+3.5.0 - return type changed from String to Admin::Ip due to a bug
+4.0.0 - bug fixed, return type is now a String again
+
+ips
+Description: All known IP addresses associated with this account.
+Type: Array of Admin::Ip
+Version history:
+3.5.0 - added
+
+locale
+Description: The locale of the account.
+Type: String (ISO 639 Part 1 two-letter language code)
+Version history:
+2.9.1 - added
+
+invite_request
+Description: The reason given when requesting an invite (for instances that require manual approval of registrations)
+Type: NULLABLE String
+Version history:
+2.9.1 - added
+
+role
+Description: The current role of the account.
+Type: Role
+Version history:
+2.9.1 - added, returns a String (enumerable, oneOf user moderator admin)
+4.0.0 - now uses Role entity
+
+confirmed
+Description: Whether the account has confirmed their email address.
+Type: Boolean
+Version history:
+2.9.1 - added
+
+approved
+Description: Whether the account is currently approved.
+Type: Boolean
+Version history:
+2.9.1 - added
+
+disabled
+Description: Whether the account is currently disabled.
+Type: Boolean
+Version history:
+2.9.1 - added
+
+silenced
+Description: Whether the account is currently silenced. Type: Boolean
+Version history:
+2.9.1 - added
+
+suspended
+Description: Whether the account is currently suspended.
+Type: Boolean
+Version history:
+2.9.1 - added
+
+account
+Description: User-level information about the account.
+Type: Account
+Version history:
+2.9.1 - added
+
+created_by_application_id OPTIONAL
+Description: The ID of the Application that created this account, if applicable.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+2.9.1 - added
+
+invited_by_account_id OPTIONAL
+Description: The ID of the Account that invited this user, if applicable.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+2.9.1 - added
+
+See also
+admin/accounts API methods
+app/serializers/rest/admin/account_serializer.rb
+Last updated March 8, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

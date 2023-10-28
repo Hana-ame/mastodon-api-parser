@@ -1,0 +1,38 @@
+Remove a reaction from an announcement
+DELETE /api/v1/announcements/:id/reactions/:name HTTP/1.1
+Undo a react emoji to an announcement.
+
+Returns: Empty
+OAuth: User token + write:favourites
+Version history:
+3.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Announcement in the database.
+:name
+REQUIRED String. Unicode emoji, or the shortcode of a custom emoji.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Announcement with given ID does not exist
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+{
+"error": "Validation failed: Name is not a recognized emoji"
+}
+

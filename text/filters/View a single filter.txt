@@ -1,0 +1,42 @@
+View a single filter
+GET /api/v1/filters/:id HTTP/1.1
+Returns: V1::Filter
+OAuth: User token + read:filters
+Version history:
+2.4.3 - added
+4.0.0 - deprecated. For compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the keyword being presented in the phrase attribute)
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the FilterKeyword in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": "8449",
+"phrase": "test",
+"context": [
+"home",
+"notifications",
+"public",
+"thread"
+],
+"whole_word": false,
+"expires_at": "2019-11-26T09:08:06.254Z",
+"irreversible": true
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter ID does not exist, or is not owned by you
+
+{
+"error": "Record not found"
+}

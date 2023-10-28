@@ -1,0 +1,67 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the account in the database."
+  },
+  {
+    "name": "username",
+    "type": "Type: String",
+    "description": "Description: The username of the account."
+  },
+  {
+    "name": "domain",
+    "type": "Type: NULLABLE String, or null for local accounts",
+    "description": "Description: The domain of the account, if it is remote."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the account was first discovered."
+  },
+  {
+    "name": "email",
+    "type": "Type: String",
+    "description": "Description: The email address associated with the account."
+  },
+  {
+    "name": "ip",
+    "type": "Type: NULLABLE String",
+    "description": "Description: The IP address last used to login to this account."
+  },
+  {
+    "name": "ips",
+    "type": "Type: Array of Admin::Ip",
+    "description": "Description: All known IP addresses associated with this account."
+  },
+  {
+    "name": "locale",
+    "type": "Type: String (ISO 639 Part 1 two-letter language code)",
+    "description": "Description: The locale of the account."
+  },
+  {
+    "name": "invite_request",
+    "type": "Type: NULLABLE String",
+    "description": "Description: The reason given when requesting an invite (for instances that require manual approval of registrations)"
+  },
+  {
+    "name": "role",
+    "type": "Type: Role",
+    "description": "Description: The current role of the account."
+  },
+  {
+    "name": "confirmed",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the account has confirmed their email address."
+  },
+  {
+    "name": "approved",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the account is currently approved."
+  },
+  {
+    "name": "disabled",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the account is currently disabled."
+  }
+]

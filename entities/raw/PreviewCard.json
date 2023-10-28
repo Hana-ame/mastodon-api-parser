@@ -1,0 +1,72 @@
+[
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: Location of linked resource."
+  },
+  {
+    "name": "title",
+    "type": "Type: String",
+    "description": "Description: Title of linked resource."
+  },
+  {
+    "name": "description",
+    "type": "Type: String",
+    "description": "Description: Description of preview."
+  },
+  {
+    "name": "type",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: The type of the preview card."
+  },
+  {
+    "name": "author_name",
+    "type": "Type: String",
+    "description": "Description: The author of the original resource."
+  },
+  {
+    "name": "author_url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to the author of the original resource."
+  },
+  {
+    "name": "provider_name",
+    "type": "Type: String",
+    "description": "Description: The provider of the original resource."
+  },
+  {
+    "name": "provider_url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to the provider of the original resource."
+  },
+  {
+    "name": "html",
+    "type": "Type: String (HTML)",
+    "description": "Description: HTML to be used for generating the preview card."
+  },
+  {
+    "name": "width",
+    "type": "Type: Integer",
+    "description": "Description: Width of preview, in pixels."
+  },
+  {
+    "name": "height",
+    "type": "Type: Integer",
+    "description": "Description: Height of preview, in pixels."
+  },
+  {
+    "name": "image",
+    "type": "Type: NULLABLE String (URL)",
+    "description": "Description: Preview thumbnail."
+  },
+  {
+    "name": "embed_url",
+    "type": "Type: String (URL)",
+    "description": "Description: Used for photo embeds, instead of custom html."
+  },
+  {
+    "name": "blurhash",
+    "type": "Type: NULLABLE String",
+    "description": "Description: A hash computed by the BlurHash algorithm, for generating colorful preview thumbnails when media has not been downloaded yet."
+  }
+]

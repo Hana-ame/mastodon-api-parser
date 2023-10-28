@@ -1,0 +1,20 @@
+{
+  "summary": "Remove a status from a filter group",
+  "method": "DELETE",
+  "router": "/api/v2/filters/statuses/:id",
+  "description": "Add a status filter to the current filter group.\n\n",
+  "returns": "FilterStatus",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the FilterStatus in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

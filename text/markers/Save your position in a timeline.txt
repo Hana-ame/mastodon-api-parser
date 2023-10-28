@@ -1,0 +1,40 @@
+Save your position in a timeline
+POST /api/v1/markers HTTP/1.1
+Returns: Marker
+OAuth: User token + write:statuses
+Version history:
+3.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+home[last_read_id]
+String. ID of the last status read in the home timeline.
+notifications[last_read_id]
+String. ID of the last notification read.
+Response
+200: OK
+Calling this API with home[last_read_id] causes a marker to be created for the home timeline.
+
+{
+"home": {
+"last_read_id": "103194548672408537",
+"version": 462,
+"updated_at": "2019-11-24T19:39:39.337Z"
+}
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+409: Conflict
+If object is stale while being updated, an error will occur.
+
+{
+"error": "Conflict during update, please try again"
+}
+

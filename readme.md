@@ -37,6 +37,14 @@
 
 TODO:看到的话先去写entities的东西好了.
 
+entities做好了cooked json
+接下来请做好golang的表示
+hash可能要手动修
+请以尽快为目的写出代码，不必纠结正确与否，做了再说。
+
+api部分可能需要从raw json思考一下如何制作cooked json
+
+PS：一些工具在`LineReader.ts`里面
 
 
 ### ./html

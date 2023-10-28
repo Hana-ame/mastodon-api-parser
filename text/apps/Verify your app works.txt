@@ -1,0 +1,30 @@
+Verify your app works
+GET /api/v1/apps/verify_credentials HTTP/1.1
+Confirm that the app’s OAuth2 credentials work.
+
+Returns: Application, but without client_id or client_secret
+OAuth level: App token
+Version history:
+2.0.0 - added
+2.7.2 - now returns vapid_key
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+If the Authorization header was provided with a valid token, you should see your app returned as an Application entity.
+
+{
+"name": "test app",
+"website": null,
+"vapid_key": "BCk-QqERU0q-CfYZjcuB6lnyyOYfJ2AifKqfeGIm7Z-HiTU5T9eTG5GxVA0_OH5mMlI4UkkDTpaZwozy0TzdZ2M="
+}
+401: Unauthorized
+If the Authorization header contains an invalid token, is malformed, or is not present, an error will be returned indicating an authorization failure.
+
+{
+"error": "The access token is invalid"
+}
+

@@ -1,0 +1,15 @@
+{
+  "summary": "View all filters",
+  "method": "GET",
+  "router": "/api/v2/filters",
+  "description": "Obtain a list of all filter groups for the current user.\n\n",
+  "returns": "Array of Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

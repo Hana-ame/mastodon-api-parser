@@ -1,0 +1,72 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the report in the database."
+  },
+  {
+    "name": "action_taken",
+    "type": "Type: Boolean",
+    "description": "Description: Whether an action was taken to resolve this report."
+  },
+  {
+    "name": "action_taken_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "description": "Description: When an action was taken, if this report is currently resolved."
+  },
+  {
+    "name": "category",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The category under which the report is classified."
+  },
+  {
+    "name": "comment",
+    "type": "Type: String",
+    "description": "Description: An optional reason for reporting."
+  },
+  {
+    "name": "forwarded",
+    "type": "Type: Boolean",
+    "description": "Description: Whether a report was forwarded to a remote instance."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The time the report was filed."
+  },
+  {
+    "name": "updated_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The time of last action on this report."
+  },
+  {
+    "name": "account",
+    "type": "Type: Admin::Account",
+    "description": "Description: The account which filed the report."
+  },
+  {
+    "name": "target_account",
+    "type": "Type: Admin::Account",
+    "description": "Description: The account being reported."
+  },
+  {
+    "name": "assigned_account",
+    "type": "Type: NULLABLE Admin::Account or null",
+    "description": "Description: The account of the moderator assigned to this report."
+  },
+  {
+    "name": "action_taken_by_account",
+    "type": "Type: NULLABLE Admin::Account or null",
+    "description": "Description: The account of the moderator who handled the report."
+  },
+  {
+    "name": "statuses",
+    "type": "Type: Array of Status",
+    "description": "Description: Statuses attached to the report, for context."
+  },
+  {
+    "name": "rules",
+    "type": "Type: Array of Rule",
+    "description": "Description: Rules attached to the report, for context."
+  }
+]

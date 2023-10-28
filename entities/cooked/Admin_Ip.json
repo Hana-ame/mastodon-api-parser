@@ -1,0 +1,24 @@
+[
+  {
+    "name": "ip",
+    "jsonName": "ip",
+    "valueName": "Ip",
+    "optional": false,
+    "type": "Type: String (IP address)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The IP address."
+  },
+  {
+    "name": "used_at",
+    "jsonName": "used_at",
+    "valueName": "UsedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp of when the IP address was last used for this account."
+  }
+]

@@ -1,0 +1,348 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Tag
+Represents a hashtag used within the content of a status.
+
+Example
+Attributes
+name
+url
+history
+following OPTIONAL
+Admin::Tag attributes
+id
+trendable
+usable
+requires_review
+See also
+Example
+{
+  "name": "nowplaying",
+  "url": "https://mastodon.social/tags/nowplaying",
+  "history": [
+    {
+      "day": "1574553600",
+      "uses": "200",
+      "accounts": "31"
+    },
+    {
+      "day": "1574467200",
+      "uses": "272",
+      "accounts": "39"
+    },
+    {
+      "day": "1574380800",
+      "uses": "345",
+      "accounts": "40"
+    },
+    {
+      "day": "1574294400",
+      "uses": "366",
+      "accounts": "46"
+    },
+    {
+      "day": "1574208000",
+      "uses": "226",
+      "accounts": "32"
+    },
+    {
+      "day": "1574121600",
+      "uses": "217",
+      "accounts": "42"
+    },
+    {
+      "day": "1574035200",
+      "uses": "214",
+      "accounts": "34"
+    }
+  ],
+  "following": false
+}
+Attributes
+name
+Description: The value of the hashtag after the # sign.
+Type: String
+Version history:
+0.9.0 - added
+
+url
+Description: A link to the hashtag on the instance.
+Type: String (URL)
+Version history:
+0.9.0 - added
+
+history
+Description: Usage statistics for given days (typically the past week).
+Type: Array of Hash
+Version history:
+2.4.1 - added
+
+history[][day]
+Description: UNIX timestamp on midnight of the given day.
+Type: String (UNIX timestamp)
+Version history:
+2.4.1 - added
+
+history[][uses]
+Description: The counted usage of the tag within that day.
+Type: String (cast from an integer)
+Version history:
+2.4.1 - added
+
+history[][accounts]
+Description: The total of accounts using the tag within that day.
+Type: String (cast from an integer)
+Version history:
+2.4.1 - added
+
+following OPTIONAL
+Description: Whether the current token’s authorized user is following this tag.
+Type: Boolean
+Version history:
+4.0.0 - added
+
+Admin::Tag attributes
+{
+  "name": "caturday",
+  "url": "https://mastodon.example/tags/caturday",
+  "history": [
+    {
+      "day": "1669507200",
+      "accounts": "53",
+      "uses": "56"
+    },
+    {
+      "day": "1669420800",
+      "accounts": "142",
+      "uses": "171"
+    },
+    {
+      "day": "1669334400",
+      "accounts": "11",
+      "uses": "11"
+    },
+    {
+      "day": "1669248000",
+      "accounts": "8",
+      "uses": "9"
+    },
+    {
+      "day": "1669161600",
+      "accounts": "8",
+      "uses": "20"
+    },
+    {
+      "day": "1669075200",
+      "accounts": "11",
+      "uses": "11"
+    },
+    {
+      "day": "1668988800",
+      "accounts": "17",
+      "uses": "22"
+    }
+  ],
+  "id": "802",
+  "trendable": true,
+  "usable": true,
+  "requires_review": false
+}
+id
+Description: The ID of the Tag in the database.
+Type: String (cast from integer, but not guaranteed to be a number)
+Version history:
+3.5.0 - added
+
+trendable
+Description: Whether the hashtag has been approved to trend.
+Type: Boolean
+Version history:
+3.5.0 - added
+
+usable
+Description: Whether the hashtag has not been disabled from auto-linking.
+Type: Boolean
+Version history:
+3.5.0 - added
+
+requires_review
+Description: Whether the hashtag has not been reviewed yet to approve or deny its trending.
+Type: Boolean
+Version history:
+3.5.0 - added
+
+See also
+Search (tags attribute)
+tags API methods
+GET /api/v1/featured_tags/suggestions
+app/serializers/rest/tag_serializer.rb
+app/serializers/rest/admin/tag_serializer.rb
+app/models/tag.rb
+app/models/trends/history.rb
+Last updated December 14, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

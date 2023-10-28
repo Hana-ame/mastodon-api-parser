@@ -1,0 +1,366 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Announcement
+Represents an announcement set by an administrator.
+
+Example
+Attributes
+id
+content
+starts_at
+ends_at
+published
+all_day
+published_at
+updated_at
+read OPTIONAL
+mentions
+statuses
+tags
+emojis
+reactions
+Announcement::Account attributes
+id
+username
+url
+acct
+Announcement::Status attributes
+id
+url
+See also
+Example
+{
+  "id": "8",
+  "content": "<p>Looks like there was an issue processing audio attachments without embedded art since yesterday due to an experimental new feature. That issue has now been fixed, so you may see older posts with audio from other servers pop up in your feeds now as they are being finally properly processed. Sorry!</p>",
+  "starts_at": null,
+  "ends_at": null,
+  "all_day": false,
+  "published_at": "2020-07-03T01:27:38.726Z",
+  "updated_at": "2020-07-03T01:27:38.752Z",
+  "read": true,
+  "mentions": [],
+  "statuses": [],
+  "tags": [],
+  "emojis": [],
+  "reactions": [
+    {
+      "name": "bongoCat",
+      "count": 9,
+      "me": false,
+      "url": "https://files.mastodon.social/custom_emojis/images/000/067/715/original/fdba57dff7576d53.png",
+      "static_url": "https://files.mastodon.social/custom_emojis/images/000/067/715/static/fdba57dff7576d53.png"
+    },
+    {
+      "name": "thonking",
+      "count": 1,
+      "me": false,
+      "url": "https://files.mastodon.social/custom_emojis/images/000/098/690/original/a8d36edc4a7032e8.png",
+      "static_url": "https://files.mastodon.social/custom_emojis/images/000/098/690/static/a8d36edc4a7032e8.png"
+    },
+    {
+      "name": "AAAAAA",
+      "count": 1,
+      "me": false,
+      "url": "https://files.mastodon.social/custom_emojis/images/000/071/387/original/AAAAAA.png",
+      "static_url": "https://files.mastodon.social/custom_emojis/images/000/071/387/static/AAAAAA.png"
+    },
+    {
+      "name": "🤔",
+      "count": 1,
+      "me": true
+    }
+  ]
+}
+Attributes
+id
+Description: The ID of the announcement in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+3.1.0 - added
+
+content
+Description: The text of the announcement.
+Type: String (HTML)
+Version history:
+3.1.0 - added
+
+starts_at
+Description: When the announcement will start.
+Type: NULLABLE String (ISO 8601 Datetime) or null
+Version history:
+3.1.0 - added
+
+ends_at
+Description: When the announcement will end.
+Type: NULLABLE String (ISO 8601 Datetime) or null
+Version history:
+3.1.0 - added
+
+published
+Description: Whether the announcement is currently active.
+Type: Boolean
+Version history:
+3.1.0 - added
+
+all_day
+Description: Whether the announcement should start and end on dates only instead of datetimes. Will be false if there is no starts_at or ends_at time.
+Type: Boolean
+Version history:
+3.1.0 - added
+
+published_at
+Description: When the announcement was published.
+Type: String (ISO 8601 Datetime)
+Version history:
+3.1.0 - added
+
+updated_at
+Description: When the announcement was last updated.
+Type: String (ISO 8601 Datetime)
+Version history:
+3.1.0 - added
+
+read OPTIONAL
+Description: Whether the announcement has been read by the current user.
+Type: Boolean
+Version history:
+3.1.0 - added
+
+mentions
+Description: Accounts mentioned in the announcement text.
+Type: Array of Announcement::Account
+Version history:
+3.1.0 - added
+
+statuses
+Description: Statuses linked in the announcement text.
+Type: Array of Announcement::Status
+Version history:
+3.1.0 - added
+
+tags
+Description: Tags linked in the announcement text.
+Type: Array of Status::Tag
+Version history:
+3.1.0 - added
+
+emojis
+Description: Custom emoji used in the announcement text.
+Type: Array of CustomEmoji
+Version history:
+3.1.0 - added
+
+reactions
+Description: Emoji reactions attached to the announcement.
+Type: Array of Reaction
+Version history:
+3.1.0 - added
+
+Announcement::Account attributes
+id
+Description: The account ID of the mentioned user.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+3.1.0 - added
+
+username
+Description: The username of the mentioned user.
+Type: String
+Version history:
+3.1.0 - added
+
+url
+Description: The location of the mentioned user’s profile.
+Type: String (URL)
+Version history:
+3.1.0 - added
+
+acct
+Description: The webfinger acct: URI of the mentioned user. Equivalent to username for local users, or username@domain for remote users.
+Type: String
+Version history:
+3.1.0 - added
+
+Announcement::Status attributes
+id
+Description: The ID of an attached Status in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+3.1.0 - added
+
+url
+Description: The URL of an attached Status.
+Type: String (URL)
+Version history:
+3.1.0 - added
+
+See also
+announcements API methods
+app/serializers/rest/announcement_serializer.rb
+Last updated November 20, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

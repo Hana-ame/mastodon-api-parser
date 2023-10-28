@@ -1,0 +1,27 @@
+[
+  {
+    "name": "posting:default:visibility",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: Default visibility for new posts. Equivalent to CredentialAccount#source[privacy]."
+  },
+  {
+    "name": "posting:default:sensitive",
+    "type": "Type: Boolean",
+    "description": "Description: Default sensitivity flag for new posts. Equivalent to CredentialAccount#source[sensitive]."
+  },
+  {
+    "name": "posting:default:language",
+    "type": "Type: NULLABLE String (ISO 639-1 language two-letter code), or null",
+    "description": "Description: Default language for new posts. Equivalent to CredentialAccount#source[language]"
+  },
+  {
+    "name": "reading:expand:media",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: Whether media attachments should be automatically displayed or blurred/hidden."
+  },
+  {
+    "name": "reading:expand:spoilers",
+    "type": "Type: Boolean",
+    "description": "Description: Whether CWs should be expanded by default."
+  }
+]

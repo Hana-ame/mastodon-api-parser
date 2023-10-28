@@ -1,0 +1,12 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the FilterStatus in the database."
+  },
+  {
+    "name": "status_id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the Status that will be filtered."
+  }
+]

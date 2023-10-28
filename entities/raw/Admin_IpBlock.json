@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the DomainBlock in the database."
+  },
+  {
+    "name": "ip",
+    "type": "Type: String (IP address and prefix)",
+    "description": "Description: The IP address range that is not allowed to federate."
+  },
+  {
+    "name": "severity",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: The associated policy with this IP block."
+  },
+  {
+    "name": "comment",
+    "type": "Type: String",
+    "description": "Description: The recorded reason for this IP block."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the IP block was created."
+  },
+  {
+    "name": "expires_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime)",
+    "description": "Description: When the IP block will expire."
+  }
+]

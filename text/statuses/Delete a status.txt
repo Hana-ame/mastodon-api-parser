@@ -1,0 +1,164 @@
+Delete a status
+DELETE /api/v1/statuses/:id HTTP/1.1
+Delete one of your own statuses.
+
+Returns: Status with source text and poll or media_attachments
+OAuth: User token + write:statuses
+Version history:
+0.0.0 - added
+2.9.0 - return source properties, for use with delete and redraft
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Note the special properties text and poll or media_attachments which may be used to repost the status, e.g. in case of delete-and-redraft functionality. With POST /api/v1/statuses, use text as the value for status parameter, media_attachments[n]["id"] for the media_ids array parameter, and poll properties with the corresponding parameters (e.g. poll[multiple] and poll[options], with a new poll[expires_in] and poll[hide_totals] per user input.
+
+Example of deleting a media post:
+
+{
+"id": "103254193998341330",
+"created_at": "2019-12-05T08:19:26.052Z",
+"in_reply_to_id": null,
+"in_reply_to_account_id": null,
+"sensitive": false,
+"spoiler_text": "",
+"visibility": "public",
+"language": "en",
+"uri": "https://mastodon.social/users/trwnh/statuses/103254193998341330",
+"url": "https://mastodon.social/@trwnh/103254193998341330",
+"replies_count": 0,
+"reblogs_count": 0,
+"favourites_count": 0,
+"favourited": false,
+"reblogged": false,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+"text": "test",
+"reblog": null,
+"application": {
+"name": "Web",
+"website": null
+},
+"account": {
+"id": "14715",
+"username": "trwnh",
+"acct": "trwnh",
+"display_name": "infinite love ⴳ",
+// ...
+},
+"media_attachments": [
+{
+"id": "22345792",
+"type": "image",
+"url": "https://files.mastodon.social/media_attachments/files/022/345/792/original/57859aede991da25.jpeg",
+"preview_url": "https://files.mastodon.social/media_attachments/files/022/345/792/small/57859aede991da25.jpeg",
+"remote_url": null,
+"text_url": "https://mastodon.social/media/2N4uvkuUtPVrkZGysms",
+"meta": {
+"original": {
+"width": 640,
+"height": 480,
+"size": "640x480",
+"aspect": 1.3333333333333333
+},
+"small": {
+"width": 461,
+"height": 346,
+"size": "461x346",
+"aspect": 1.3323699421965318
+},
+"focus": {
+"x": -0.27,
+"y": 0.51
+}
+},
+"description": "test media description",
+"blurhash": "UFBWY:8_0Jxv4mx]t8t64.%M-:IUWGWAt6M}"
+}
+],
+"mentions": [],
+"tags": [],
+"emojis": [],
+"card": null,
+"poll": null
+}
+Example of deleting a poll:
+
+{
+"id": "103254222827484720",
+"created_at": "2019-12-05T08:26:45.958Z",
+"in_reply_to_id": null,
+"in_reply_to_account_id": null,
+"sensitive": false,
+"spoiler_text": "",
+"visibility": "public",
+"language": "en",
+"uri": "https://mastodon.social/users/trwnh/statuses/103254222827484720",
+"url": "https://mastodon.social/@trwnh/103254222827484720",
+"replies_count": 0,
+"reblogs_count": 0,
+"favourites_count": 0,
+"favourited": false,
+"reblogged": false,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+"text": "test",
+"reblog": null,
+"application": {
+"name": "Web",
+"website": null
+},
+"account": {
+"id": "14715",
+"username": "trwnh",
+"acct": "trwnh",
+"display_name": "infinite love ⴳ",
+// ...
+},
+"media_attachments": [],
+"mentions": [],
+"tags": [],
+"emojis": [],
+"card": null,
+"poll": {
+"id": "34858",
+"expires_at": "2019-12-06T08:26:45.945Z",
+"expired": false,
+"multiple": false,
+"votes_count": 1,
+"voters_count": 1,
+"voted": true,
+"own_votes": [],
+"options": [
+{
+"title": "test 1",
+"votes_count": 1
+},
+{
+"title": "test 2",
+"votes_count": 0
+}
+],
+"emojis": []
+}
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

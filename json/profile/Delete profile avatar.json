@@ -1,0 +1,9 @@
+{
+  "summary": "Delete profile avatar",
+  "method": "DELETE",
+  "router": "/api/v1/profile/avatar",
+  "description": "",
+  "returns": "CredentialAccount",
+  "oauth": "User",
+  "request": []
+}

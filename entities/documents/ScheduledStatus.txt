@@ -1,0 +1,351 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+ScheduledStatus
+Represents a status that will be published at a future scheduled date.
+
+Example
+Attributes
+id
+scheduled_at
+params
+media_attachments
+See also
+Example
+Returned from POST /api/v1/statuses?status=test post&scheduled_at=2022-09-29
+
+{
+  "id": "1",
+  "scheduled_at": "2022-09-29T00:00:00.000Z",
+  "params": {
+    "text": "test post",
+    "media_ids": null,
+    "sensitive": null,
+    "spoiler_text": null,
+    "visibility": null,
+    "language": null,
+    "scheduled_at": null,
+    "poll": null,
+    "idempotency": null,
+    "with_rate_limit": false,
+    "in_reply_to_id": null,
+    "application_id": 3
+  },
+  "media_attachments": []
+}
+Returned from GET /api/v1/scheduled_statuses:
+
+{
+  "id": "1",
+  "scheduled_at": "2022-09-29T00:00:00.000Z",
+  "params": {
+    "poll": null,
+    "text": "test post",
+    "language": null,
+    "media_ids": null,
+    "sensitive": null,
+    "visibility": null,
+    "idempotency": null,
+    "scheduled_at": null,
+    "spoiler_text": null,
+    "application_id": 3,
+    "in_reply_to_id": null,
+    "with_rate_limit": false
+  },
+  "media_attachments": []
+}
+Attributes
+id
+Description: ID of the scheduled status in the database.
+Type: String (cast from an integer but not guaranteed to be a number)
+Version history:
+2.7.0 - added
+
+scheduled_at
+Description: The timestamp for when the status will be posted.
+Type: String (ISO 8601 Datetime)
+Version history:
+2.7.0 - added
+
+params
+Description: The parameters that were used when scheduling the status, to be used when the status is posted.
+Type: Hash
+Version history:
+2.7.0 - added
+
+params[text]
+Description: Text to be used as status content.
+Type: String
+Version history:
+2.7.0 - added
+
+params[poll]
+Description: Poll to be attached to the status.
+Type: NULLABLE Hash
+Version history:
+2.8.0 - added
+
+params[poll][options[]]
+Description: The poll options to be used.
+Type: Array of String
+Version history:
+2.8.0 - added
+
+params[poll][expires_in]
+Description: How many seconds the poll should last before closing.
+Type: String (cast from integer)
+Version history:
+2.8.0 - added
+
+params[poll][multiple]
+Description: Whether the poll allows multiple choices.
+Type: OPTIONAL Boolean
+Version history:
+2.8.0 - added
+
+params[poll][hide_totals]
+Description: Whether the poll should hide total votes until after voting has ended.
+Type: OPTIONAL Boolean
+Version history:
+2.8.0 - added
+
+params[media_ids]
+Description: IDs of the MediaAttachments that will be attached to the status.
+Type: NULLABLE Array of String
+Version history:
+2.7.0 - added
+
+params[sensitive]
+Description: Whether the status will be marked as sensitive.
+Type: NULLABLE Boolean
+Version history:
+2.7.0 - added
+
+params[spoiler_text]
+Description: The text of the content warning or summary for the status.
+Type: NULLABLE String
+Version history:
+2.7.0 - added
+
+params[visibility]
+Description: The visibility that the status will have once it is posted.
+Type: String (Enumerable oneOf)
+public = Visible to everyone, shown in public timelines.
+unlisted = Visible to public, but not included in public timelines.
+private = Visible to followers only, and to any mentioned users.
+direct = Visible only to mentioned users.
+Version history:
+2.7.0 - added
+
+params[in_reply_to_id]
+Description: ID of the Status that will be replied to.
+Type: NULLABLE Integer
+Version history:
+2.7.0 - added
+
+params[language]
+Description: The language that will be used for the status.
+Type: NULLABLE String (ISO 639-1 two-letter language code)
+Version history:
+2.7.0 - added
+
+params[application_id]
+Description: ID of the Application that posted the status.
+Type: Integer
+Version history:
+2.7.0 - added
+
+params[scheduled_at]
+Description: When the status will be scheduled. This will be null because the status is only scheduled once.
+Type: NULLABLE Null
+Version history:
+2.7.0 - added
+
+params[idempotency]
+Description: Idempotency key to prevent duplicate statuses.
+Type: NULLABLE String
+Version history:
+2.7.0 - added
+
+params[with_rate_limit]
+Description: Whether the status should be rate limited .
+Type: Boolean
+Version history:
+2.7.0 - added
+
+media_attachments
+Description: Media that will be attached when the status is posted.
+Type: Array of MediaAttachment
+Version history:
+2.7.0 - added
+
+See also
+POST /api/v1/statuses (with scheduled_at parameter)
+scheduled_statuses API methods
+app/serializers/rest/scheduled_status_serializer.rb
+Last updated February 6, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

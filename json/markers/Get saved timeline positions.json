@@ -1,0 +1,20 @@
+{
+  "summary": "Get saved timeline positions",
+  "method": "GET",
+  "router": "/api/v1/markers",
+  "description": "",
+  "returns": "Hash of timeline key and associated Marker",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "timeline[]",
+      "paramType": "query",
+      "comment": "Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: home, notifications. If not provided, an empty object will be returned."
+    }
+  ]
+}

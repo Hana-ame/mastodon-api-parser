@@ -1,0 +1,25 @@
+{
+  "summary": "Set private note on profile",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/note",
+  "description": "Sets a private note on a user.\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "comment",
+      "paramType": "formData",
+      "comment": "String. The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note."
+    }
+  ]
+}

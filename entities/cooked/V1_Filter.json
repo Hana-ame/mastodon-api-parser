@@ -1,0 +1,68 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the filter in the database."
+  },
+  {
+    "name": "phrase",
+    "jsonName": "phrase",
+    "valueName": "Phrase",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The text to be filtered."
+  },
+  {
+    "name": "context",
+    "jsonName": "context",
+    "valueName": "Context",
+    "optional": false,
+    "type": "Type: Array of String (Enumerable anyOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The contexts in which the filter should be applied."
+  },
+  {
+    "name": "expires_at",
+    "jsonName": "expires_at",
+    "valueName": "ExpiresAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the filter does not expire",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the filter should no longer be applied."
+  },
+  {
+    "name": "irreversible",
+    "jsonName": "irreversible",
+    "valueName": "Irreversible",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Should matching entities in home and notifications be dropped by the server? See implementation guidelines for filters."
+  },
+  {
+    "name": "whole_word",
+    "jsonName": "whole_word",
+    "valueName": "WholeWord",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Should the filter consider word boundaries? See implementation guidelines for filters."
+  }
+]

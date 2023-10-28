@@ -1,0 +1,79 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the Filter in the database."
+  },
+  {
+    "name": "title",
+    "jsonName": "title",
+    "valueName": "Title",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A title given by the user to name the filter."
+  },
+  {
+    "name": "context",
+    "jsonName": "context",
+    "valueName": "Context",
+    "optional": false,
+    "type": "Type: Array of String (Enumerable, anyOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The contexts in which the filter should be applied."
+  },
+  {
+    "name": "expires_at",
+    "jsonName": "expires_at",
+    "valueName": "ExpiresAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the filter does not expire",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the filter should no longer be applied."
+  },
+  {
+    "name": "filter_action",
+    "jsonName": "filter_action",
+    "valueName": "FilterAction",
+    "optional": false,
+    "type": "Type: String (Enumerable, oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The action to be taken when a status matches this filter."
+  },
+  {
+    "name": "keywords",
+    "jsonName": "keywords",
+    "valueName": "Keywords",
+    "optional": false,
+    "type": "Type: Array of FilterKeyword",
+    "valueType": "FilterKeyword",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The keywords grouped under this filter."
+  },
+  {
+    "name": "statuses",
+    "jsonName": "statuses",
+    "valueName": "Statuses",
+    "optional": false,
+    "type": "Type: Array of FilterStatus",
+    "valueType": "FilterStatus",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The statuses grouped under this filter."
+  }
+]

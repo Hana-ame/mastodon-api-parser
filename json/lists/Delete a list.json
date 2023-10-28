@@ -1,0 +1,20 @@
+{
+  "summary": "Delete a list",
+  "method": "DELETE",
+  "router": "/api/v1/lists/:id",
+  "description": "",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the List in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

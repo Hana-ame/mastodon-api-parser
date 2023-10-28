@@ -1,0 +1,80 @@
+{
+  "summary": "Change types of notifications",
+  "method": "PUT",
+  "router": "/api/v1/push/subscription",
+  "description": "Updates the current push subscription. Only the data part can be updated. To change fundamentals, a new subscription must be created instead.\n\n",
+  "returns": "WebPushSubscription",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "data[alerts][mention]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive mention notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][status]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive new subscribed account notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][reblog]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive reblog notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][follow]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive follow notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][follow_request]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive follow request notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][favourite]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive favourite notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][poll]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive poll notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][update]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive status edited notifications? Defaults to false."
+    },
+    {
+      "name": "data[alerts][update]",
+      "paramType": "formData",
+      "comment": "data[alerts][admin.sign_up]"
+    },
+    {
+      "name": "data[alerts][update]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive new user signup notifications? Defaults to false. Must have a role with the appropriate permissions."
+    },
+    {
+      "name": "data[alerts][update]",
+      "paramType": "formData",
+      "comment": "data[alerts][admin.report]"
+    },
+    {
+      "name": "data[alerts][update]",
+      "paramType": "formData",
+      "comment": "Boolean. Receive new report notifications? Defaults to false. Must have a role with the appropriate permissions."
+    },
+    {
+      "name": "policy",
+      "paramType": "formData",
+      "comment": "String. Specify whether to receive push notifications from all, followed, follower, or none users."
+    }
+  ]
+}

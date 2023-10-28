@@ -1,0 +1,9 @@
+{
+  "summary": "Unblock a domain",
+  "method": "DELETE",
+  "router": "/api/v1/domain_blocks",
+  "description": "Remove a domain block, if it exists in the user’s array of blocked domains.\n\n",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": []
+}

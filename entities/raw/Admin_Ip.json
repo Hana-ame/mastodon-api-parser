@@ -1,0 +1,12 @@
+[
+  {
+    "name": "ip",
+    "type": "Type: String (IP address)",
+    "description": "Description: The IP address."
+  },
+  {
+    "name": "used_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp of when the IP address was last used for this account."
+  }
+]

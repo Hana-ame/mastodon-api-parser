@@ -1,0 +1,38 @@
+Unblock a domain
+DELETE /api/v1/domain_blocks HTTP/1.1
+Remove a domain block, if it exists in the user’s array of blocked domains.
+
+Returns: empty object
+OAuth: User token + write:blocks or follow
+Version history:
+1.4.0 - added
+
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+domain
+REQUIRED String. Domain to unblock.
+Response
+200: OK
+If the call was successful, an empty object will be returned. Note that the call will be successful even if the domain was not previously blocked.
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+If domain is not provided, the request will fail.
+
+{
+"error": "Validation failed: Domain can't be blank"
+}
+If domain contains spaces, the request will fail.
+
+{
+"error": "Validation failed: Domain is not a valid domain name"
+}
+

@@ -1,0 +1,167 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "description": "Description: ID of the status in the database."
+  },
+  {
+    "name": "uri",
+    "type": "Type: String",
+    "description": "Description: URI of the status used for federation."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The date when this status was created."
+  },
+  {
+    "name": "account",
+    "type": "Type: Account",
+    "description": "Description: The account that authored this status."
+  },
+  {
+    "name": "content",
+    "type": "Type: String (HTML)",
+    "description": "Description: HTML-encoded status content."
+  },
+  {
+    "name": "visibility",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: Visibility of this status."
+  },
+  {
+    "name": "sensitive",
+    "type": "Type: Boolean",
+    "description": "Description: Is this status marked as sensitive content?"
+  },
+  {
+    "name": "spoiler_text",
+    "type": "Type: String",
+    "description": "Description: Subject or summary line, below which status content is collapsed until expanded."
+  },
+  {
+    "name": "media_attachments",
+    "type": "Type: Array of MediaAttachment",
+    "description": "Description: Media that is attached to this status."
+  },
+  {
+    "name": "application OPTIONAL",
+    "type": "Type: Hash",
+    "description": "Description: The application used to post this status."
+  },
+  {
+    "name": "application[name]",
+    "type": "Type: String",
+    "description": "Description: The name of the application that posted this status."
+  },
+  {
+    "name": "application[website]",
+    "type": "Type: NULLABLE String (URL) or null",
+    "description": "Description: The website associated with the application that posted this status."
+  },
+  {
+    "name": "mentions",
+    "type": "Type: Array of Status::Mention",
+    "description": "Description: Mentions of users within the status content."
+  },
+  {
+    "name": "tags",
+    "type": "Type: Array of Status::Tag",
+    "description": "Description: Hashtags used within the status content."
+  },
+  {
+    "name": "emojis",
+    "type": "Type: Array of CustomEmoji",
+    "description": "Description: Custom emoji to be used when rendering status content."
+  },
+  {
+    "name": "reblogs_count",
+    "type": "Type: Integer",
+    "description": "Description: How many boosts this status has received."
+  },
+  {
+    "name": "favourites_count",
+    "type": "Type: Integer",
+    "description": "Description: How many favourites this status has received."
+  },
+  {
+    "name": "replies_count",
+    "type": "Type: Integer",
+    "description": "Description: How many replies this status has received."
+  },
+  {
+    "name": "url",
+    "type": "Type: NULLABLE String (URL) or null",
+    "description": "Description: A link to the status’s HTML representation."
+  },
+  {
+    "name": "in_reply_to_id",
+    "type": "Type: NULLABLE String (cast from an integer but not guaranteed to be a number) or null",
+    "description": "Description: ID of the status being replied to."
+  },
+  {
+    "name": "in_reply_to_account_id",
+    "type": "Type: NULLABLE String (cast from an integer but not guaranteed to be a number) or null",
+    "description": "Description: ID of the account that authored the status being replied to."
+  },
+  {
+    "name": "reblog",
+    "type": "Type: NULLABLE Status or null",
+    "description": "Description: The status being reblogged."
+  },
+  {
+    "name": "poll",
+    "type": "Type: NULLABLE Poll or null",
+    "description": "Description: The poll attached to the status."
+  },
+  {
+    "name": "card",
+    "type": "Type: NULLABLE PreviewCard or null",
+    "description": "Description: Preview card for links included within status content."
+  },
+  {
+    "name": "language",
+    "type": "Type: NULLABLE String (ISO 639 Part 1 two-letter language code) or null",
+    "description": "Description: Primary language of this status."
+  },
+  {
+    "name": "text",
+    "type": "Type: NULLABLE String or null",
+    "description": "Description: Plain-text source of a status. Returned instead of content when status is deleted, so the user may redraft from the source text without the client having to reverse-engineer the original text from the HTML content."
+  },
+  {
+    "name": "edited_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime)",
+    "description": "Description: Timestamp of when the status was last edited."
+  },
+  {
+    "name": "favourited OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If the current token has an authorized user: Have you favourited this status?"
+  },
+  {
+    "name": "reblogged OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If the current token has an authorized user: Have you boosted this status?"
+  },
+  {
+    "name": "muted OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If the current token has an authorized user: Have you muted notifications for this status’s conversation?"
+  },
+  {
+    "name": "bookmarked OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If the current token has an authorized user: Have you bookmarked this status?"
+  },
+  {
+    "name": "pinned OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If the current token has an authorized user: Have you pinned this status? Only appears if the status is pinnable."
+  },
+  {
+    "name": "filtered OPTIONAL",
+    "type": "Type: Array of FilterResult",
+    "description": "Description: If the current token has an authorized user: The filter and keywords that matched this status."
+  }
+]

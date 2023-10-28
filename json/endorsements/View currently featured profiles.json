@@ -1,0 +1,30 @@
+{
+  "summary": "View currently featured profiles",
+  "method": "GET",
+  "router": "/api/v1/endorsements",
+  "description": "Accounts that the user is currently featuring on their profile.\n\n",
+  "returns": "Array of Account",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts."
+    }
+  ]
+}

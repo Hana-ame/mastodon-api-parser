@@ -1,0 +1,59 @@
+Search for matching accounts
+GET /api/v1/accounts/search HTTP/1.1
+Search for matching accounts by username or display name.
+
+Returns: Array of Account
+OAuth: User token + read:accounts
+Version history:
+0.0.0 - added
+2.8.0 - add limit, offset and following
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+q
+REQUIRED String. Search query for accounts.
+limit
+Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts.
+offset
+Integer. Skip the first n results.
+resolve
+Boolean. Attempt WebFinger lookup. Defaults to false. Use this when q is an exact address.
+following
+Boolean. Limit the search to users you are following. Defaults to false.
+Response
+200: OK
+Accounts matching “trwnh” in username or display name
+
+[
+{
+"id": "14715",
+"username": "trwnh",
+"acct": "trwnh",
+"display_name": "infinite love ⴳ",
+// ...
+},
+{
+"id": "418714",
+"username": "trwnh",
+"acct": "trwnh@pixelfed.social",
+"display_name": "Abdullah Tarawneh",
+// ...
+},
+{
+"id": "419674",
+"username": "trwnh",
+"acct": "trwnh@write.as",
+"display_name": "trwnh",
+// ...
+},
+// ...
+]
+503: Service Unavailable
+resolve=true, but the domain part of the user@domain address is not a currently live website
+
+{
+"error": "Remote data could not be fetched"
+}

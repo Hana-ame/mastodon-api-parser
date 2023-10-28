@@ -1,0 +1,51 @@
+View list timeline
+GET /api/v1/timelines/list/:list_id HTTP/1.1
+View statuses in the given list timeline.
+
+Returns: Array of Status
+OAuth: User token + read:lists
+Version history:
+2.1.0 - added
+2.6.0 - add min_id
+3.3.0 - both min_id and max_id can be used at the same time now
+
+Request
+Path parameters
+:list_id
+REQUIRED String. Local ID of the List in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+since_id
+String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+Response
+200: OK
+Statuses in this list will be returned.
+
+[
+{
+"id": "103206791453397862",
+"created_at": "2019-11-26T23:24:13.113Z",
+// ...
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+List is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "ancestors",
+    "jsonName": "ancestors",
+    "valueName": "Ancestors",
+    "optional": false,
+    "type": "Type: Array of Status",
+    "valueType": "Status",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Parents in the thread."
+  },
+  {
+    "name": "descendants",
+    "jsonName": "descendants",
+    "valueName": "Descendants",
+    "optional": false,
+    "type": "Type: Array of Status",
+    "valueType": "Status",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Children in the thread."
+  }
+]

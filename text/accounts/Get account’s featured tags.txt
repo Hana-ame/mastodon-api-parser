@@ -1,0 +1,26 @@
+Get account’s featured tags
+GET /api/v1/accounts/:id/featured_tags HTTP/1.1
+Tags featured by this account.
+
+Returns: Array of FeaturedTag
+OAuth: Public
+Version history:
+3.3.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+[
+{
+"id": "627",
+"name": "nowplaying",
+"statuses_count": 36,
+"last_status_at": "2019-11-15T07:14:43.524Z"
+}
+]

@@ -1,0 +1,265 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Role
+Represents a custom user role that grants permissions.
+
+Example
+Attributes
+id
+name
+color
+permissions
+highlighted
+Permission flags
+See also
+Example
+{
+	"id": 3,
+	"name": "Owner",
+	"color": "#ff3838",
+	"permissions": 1048575,
+	"highlighted": true
+}
+Attributes
+id
+Description: The ID of the Role in the database.
+Type: Integer
+Version history:
+4.0.0 - added
+
+name
+Description: The name of the role.
+Type: String
+Version history:
+4.0.0 - added
+
+color
+Description: The hex code assigned to this role. If no hex code is assigned, the string will be empty.
+Type: String
+Version history:
+4.0.0 - added
+
+permissions
+Description: A bitmask that represents the sum of all permissions granted to the role.
+Type: Integer
+Version history:
+4.0.0 - added
+
+highlighted
+Description: Whether the role is publicly visible as a badge on user profiles.
+Type: Boolean
+Version history:
+4.0.0 - added
+
+Permission flags
+To determine the permissions available to a certain role, convert the permissions attribute to binary and compare from the least significant bit upwards. For convenience (and to prevent the terms from growing too long), permissions will be presented below using hexadecimal values.
+
+0x1
+Administrator. Users with this permission bypass all permissions.
+0x2
+Devops. Allows users to access Sidekiq and pgHero dashboards.
+0x4
+View Audit Log. Allows users to see history of admin actions.
+0x8
+View Dashboard. Allows users to access the dashboard and various metrics.
+0x10
+Manage Reports. Allows users to review reports and perform moderation actions against them.
+0x20
+Manage Federation. Allows users to block or allow federation with other domains, and control deliverability.
+0x40
+Manage Settings. Allows users to change site settings.
+0x80
+Manage Blocks. Allows users to block e-mail providers and IP addresses.
+0x100
+Manage Taxonomies. Allows users to review trending content and update hashtag settings.
+0x200
+Manage Appeals. Allows users to review appeals against moderation actions.
+0x400
+Manage Users. Allows users to view other users’ details and perform moderation actions against them.
+0x800
+Manage Invites. Allows users to browse and deactivate invite links.
+0x1000
+Manage Rules. Allows users to change server rules.
+0x2000
+Manage Announcements. Allows users to manage announcements on the server.
+0x4000
+Manage Custom Emojis. Allows users to manage custom emojis on the server.
+0x8000
+Manage Webhooks. Allows users to set up webhooks for administrative events.
+0x10000
+Invite Users. Allows users to invite new people to the server.
+0x20000
+Manage Roles. Allows users to manage and assign roles below theirs.
+0x40000
+Manage User Access. Allows users to disable other users’ two-factor authentication, change their e-mail address, and reset their password.
+0x80000
+Delete User Data. Allows users to delete other users’ data without delay.
+See also
+app/serializers/rest/role_serializer.rb
+Last updated September 20, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

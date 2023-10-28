@@ -1,0 +1,17 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the FilterKeyword in the database."
+  },
+  {
+    "name": "keyword",
+    "type": "Type: String",
+    "description": "Description: The phrase to be matched against."
+  },
+  {
+    "name": "whole_word",
+    "type": "Type: Boolean",
+    "description": "Description: Should the filter consider word boundaries? See implementation guidelines for filters."
+  }
+]

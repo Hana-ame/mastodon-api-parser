@@ -1,0 +1,5 @@
+Get all notifications
+Get a single notification
+Dismiss all notifications
+Dismiss a single notification
+(REMOVED) Dismiss a single notification

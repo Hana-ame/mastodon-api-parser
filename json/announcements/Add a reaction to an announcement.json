@@ -1,0 +1,25 @@
+{
+  "summary": "Add a reaction to an announcement",
+  "method": "PUT",
+  "router": "/api/v1/announcements/:id/reactions/:name",
+  "description": "React to an announcement with an emoji.\n\n",
+  "returns": "Empty",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Announcement in the database."
+    },
+    {
+      "name": ":name",
+      "paramType": "path",
+      "comment": "REQUIRED String. Unicode emoji, or the shortcode of a custom emoji."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

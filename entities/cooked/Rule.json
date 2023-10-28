@@ -1,0 +1,24 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: An identifier for the rule."
+  },
+  {
+    "name": "text",
+    "jsonName": "text",
+    "valueName": "Text",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The rule to be followed."
+  }
+]

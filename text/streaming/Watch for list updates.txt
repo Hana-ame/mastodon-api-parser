@@ -1,0 +1,30 @@
+Watch for list updates
+GET /api/v1/streaming/list HTTP/1.1
+Returns statuses for a list
+
+Returns: update, delete, status.update
+OAuth: User token + read:statuses
+Version history:
+2.1.0 - added
+3.5.0 - now returns status.update
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+list
+REQUIRED String. The ID of the list to watch.
+Events
+An example update to the list timeline:
+
+event: update
+data: {"id":"108914327388663283","created_at":"2022-08-30T23:05:46.839Z","in_reply_to_id":"108914298452377720","in_reply_to_account_id":"107946650784398271","sensitive":false,"spoiler_text":"","visibility":"unlisted","language":null,"uri":"https://letsalllovela.in/objects/e9cebb0c-7c75-414f-9608-20b5628e52d7","url":"https://letsalllovela.in/objects/e9cebb0c-7c75-414f-9608-20b5628e52d7","replies_count":0,"reblogs_count":0,"favourites_count":0,"edited_at":null,"favourited":false,"reblogged":false,"muted":false,"bookmarked":false,"content":"<span class=\"h-card\"><a class=\"u-url mention\" href=\"https://pl.nulled.red/users/disarray\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>disarray</span></a></span> glad i was able to help","filtered":[],"reblog":null,"account":{"id":"464472","username":"freon","acct":"freon@letsalllovela.in","display_name":"freon","locked":false,"bot":false,"discoverable":true,"group":false,"created_at":"2018-08-18T00:00:00.000Z","note":"tech archaeologist, unix weenie<br><a class=\"hashtag\" href=\"https://letsalllovela.in/tag/nobot\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#nobot</a>","url":"https://letsalllovela.in/users/freon","avatar":"https://files.mastodon.social/cache/accounts/avatars/000/464/472/original/bfc518d70cf6f13a.png","avatar_static":"https://files.mastodon.social/cache/accounts/avatars/000/464/472/original/bfc518d70cf6f13a.png","header":"https://files.mastodon.social/cache/accounts/headers/000/464/472/original/2e94bd33745f86a6.gif","header_static":"https://files.mastodon.social/cache/accounts/headers/000/464/472/static/2e94bd33745f86a6.png","followers_count":37,"following_count":41,"statuses_count":18442,"last_status_at":"2022-08-30","emojis":[],"fields":[{"name":"pronouns","value":"emacs/xemacs (or he/they)","verified_at":null},{"name":"age","value":"23.66667","verified_at":null}]},"media_attachments":[],"mentions":[{"id":"107946650784398271","username":"disarray","url":"https://pl.nulled.red/users/disarray","acct":"disarray@pl.nulled.red"}],"tags":[],"emojis":[],"card":null,"poll":null}
+An example delete:
+
+event: delete
+data: 108914398911648589
+An example status edit:
+
+event: status.update
+data: {"id":"108914327388663283","created_at":"2022-08-30T23:05:53.839Z","in_reply_to_id":"108914298452377720","in_reply_to_account_id":"107946650784398271","sensitive":false,"spoiler_text":"","visibility":"unlisted","language":null,"uri":"https://letsalllovela.in/objects/e9cebb0c-7c75-414f-9608-20b5628e52d7","url":"https://letsalllovela.in/objects/e9cebb0c-7c75-414f-9608-20b5628e52d7","replies_count":0,"reblogs_count":0,"favourites_count":0,"edited_at":null,"favourited":false,"reblogged":false,"muted":false,"bookmarked":false,"content":"<span class=\"h-card\"><a class=\"u-url mention\" href=\"https://pl.nulled.red/users/disarray\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">@<span>disarray</span></a></span> glad i was able to help","filtered":[],"reblog":null,"account":{"id":"464472","username":"freon","acct":"freon@letsalllovela.in","display_name":"freon","locked":false,"bot":false,"discoverable":true,"group":false,"created_at":"2018-08-18T00:00:00.000Z","note":"tech archaeologist, unix weenie<br><a class=\"hashtag\" href=\"https://letsalllovela.in/tag/nobot\" rel=\"nofollow noopener noreferrer\" target=\"_blank\">#nobot</a>","url":"https://letsalllovela.in/users/freon","avatar":"https://files.mastodon.social/cache/accounts/avatars/000/464/472/original/bfc518d70cf6f13a.png","avatar_static":"https://files.mastodon.social/cache/accounts/avatars/000/464/472/original/bfc518d70cf6f13a.png","header":"https://files.mastodon.social/cache/accounts/headers/000/464/472/original/2e94bd33745f86a6.gif","header_static":"https://files.mastodon.social/cache/accounts/headers/000/464/472/static/2e94bd33745f86a6.png","followers_count":37,"following_count":41,"statuses_count":18442,"last_status_at":"2022-08-30","emojis":[],"fields":[{"name":"pronouns","value":"emacs/xemacs (or he/they)","verified_at":null},{"name":"age","value":"23.66667","verified_at":null}]},"media_attachments":[],"mentions":[{"id":"107946650784398271","username":"disarray","url":"https://pl.nulled.red/users/disarray","acct":"disarray@pl.nulled.red"}],"tags":[],"emojis":[],"card":null,"poll":null}

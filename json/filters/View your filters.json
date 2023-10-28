@@ -1,0 +1,15 @@
+{
+  "summary": "View your filters",
+  "method": "GET",
+  "router": "/api/v1/filters",
+  "description": "",
+  "returns": "List of V1::Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

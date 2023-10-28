@@ -1,0 +1,57 @@
+View trending tags
+GET /api/v1/trends/tags HTTP/1.1
+Tags that are being used more frequently within the past week.
+
+Returns: Array of Tag
+OAuth: Public
+Version history:
+3.0.0 - added
+3.5.0 - method signature changed from GET /api/v1/trends to GET /api/v1/trends/tags. The former is a deprecated alias that may be removed in the future.
+
+Request
+Query parameters
+limit
+Integer. Maximum number of results to return. Defaults to 10 tags. Max 20 tags.
+offset
+Integer. Skip the first n results.
+Response
+200: OK
+[
+{
+"name": "hola",
+"url": "https://mastodon.social/tags/hola",
+"history": [
+{
+"day": "1574726400",
+"uses": "13",
+"accounts": "10"
+},
+// ...
+]
+},
+{
+"name": "SaveDotOrg",
+"url": "https://mastodon.social/tags/SaveDotOrg",
+"history": [
+{
+"day": "1574726400",
+"uses": "9",
+"accounts": "9"
+},
+// ...
+]
+},
+{
+"name": "introduction",
+"url": "https://mastodon.social/tags/introduction",
+"history": [
+{
+"day": "1574726400",
+"uses": "15",
+"accounts": "14"
+},
+// ...
+]
+},
+// ...
+]

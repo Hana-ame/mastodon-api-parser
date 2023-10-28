@@ -1,0 +1,37 @@
+[
+  {
+    "name": "name",
+    "type": "Type: String",
+    "description": "Description: The value of the hashtag after the # sign."
+  },
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to the hashtag on the instance."
+  },
+  {
+    "name": "history",
+    "type": "Type: Array of Hash",
+    "description": "Description: Usage statistics for given days (typically the past week)."
+  },
+  {
+    "name": "history[][day]",
+    "type": "Type: String (UNIX timestamp)",
+    "description": "Description: UNIX timestamp on midnight of the given day."
+  },
+  {
+    "name": "history[][uses]",
+    "type": "Type: String (cast from an integer)",
+    "description": "Description: The counted usage of the tag within that day."
+  },
+  {
+    "name": "history[][accounts]",
+    "type": "Type: String (cast from an integer)",
+    "description": "Description: The total of accounts using the tag within that day."
+  },
+  {
+    "name": "following OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the current token’s authorized user is following this tag."
+  }
+]

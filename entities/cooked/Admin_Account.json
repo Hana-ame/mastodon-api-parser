@@ -1,0 +1,145 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the account in the database."
+  },
+  {
+    "name": "username",
+    "jsonName": "username",
+    "valueName": "Username",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The username of the account."
+  },
+  {
+    "name": "domain",
+    "jsonName": "domain",
+    "valueName": "Domain",
+    "optional": false,
+    "type": "Type: NULLABLE String, or null for local accounts",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The domain of the account, if it is remote."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When the account was first discovered."
+  },
+  {
+    "name": "email",
+    "jsonName": "email",
+    "valueName": "Email",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The email address associated with the account."
+  },
+  {
+    "name": "ip",
+    "jsonName": "ip",
+    "valueName": "Ip",
+    "optional": false,
+    "type": "Type: NULLABLE String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The IP address last used to login to this account."
+  },
+  {
+    "name": "ips",
+    "jsonName": "ips",
+    "valueName": "Ips",
+    "optional": false,
+    "type": "Type: Array of Admin::Ip",
+    "valueType": "AdminIp",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: All known IP addresses associated with this account."
+  },
+  {
+    "name": "locale",
+    "jsonName": "locale",
+    "valueName": "Locale",
+    "optional": false,
+    "type": "Type: String (ISO 639 Part 1 two-letter language code)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The locale of the account."
+  },
+  {
+    "name": "invite_request",
+    "jsonName": "invite_request",
+    "valueName": "InviteRequest",
+    "optional": false,
+    "type": "Type: NULLABLE String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The reason given when requesting an invite (for instances that require manual approval of registrations)"
+  },
+  {
+    "name": "role",
+    "jsonName": "role",
+    "valueName": "Role",
+    "optional": false,
+    "type": "Type: Role",
+    "valueType": "Role",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The current role of the account."
+  },
+  {
+    "name": "confirmed",
+    "jsonName": "confirmed",
+    "valueName": "Confirmed",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the account has confirmed their email address."
+  },
+  {
+    "name": "approved",
+    "jsonName": "approved",
+    "valueName": "Approved",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the account is currently approved."
+  },
+  {
+    "name": "disabled",
+    "jsonName": "disabled",
+    "valueName": "Disabled",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the account is currently disabled."
+  }
+]

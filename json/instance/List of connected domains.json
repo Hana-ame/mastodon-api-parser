@@ -1,0 +1,15 @@
+{
+  "summary": "List of connected domains",
+  "method": "GET",
+  "router": "/api/v1/instance/peers",
+  "description": "Domains that this instance is aware of.\n\n",
+  "returns": "Array of String",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

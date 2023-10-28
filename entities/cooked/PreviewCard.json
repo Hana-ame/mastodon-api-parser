@@ -1,0 +1,156 @@
+[
+  {
+    "name": "url",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Location of linked resource."
+  },
+  {
+    "name": "title",
+    "jsonName": "title",
+    "valueName": "Title",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Title of linked resource."
+  },
+  {
+    "name": "description",
+    "jsonName": "description",
+    "valueName": "Description",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Description of preview."
+  },
+  {
+    "name": "type",
+    "jsonName": "type",
+    "valueName": "Type",
+    "optional": false,
+    "type": "Type: String (Enumerable, oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The type of the preview card."
+  },
+  {
+    "name": "author_name",
+    "jsonName": "author_name",
+    "valueName": "AuthorName",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The author of the original resource."
+  },
+  {
+    "name": "author_url",
+    "jsonName": "author_url",
+    "valueName": "AuthorUrl",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to the author of the original resource."
+  },
+  {
+    "name": "provider_name",
+    "jsonName": "provider_name",
+    "valueName": "ProviderName",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The provider of the original resource."
+  },
+  {
+    "name": "provider_url",
+    "jsonName": "provider_url",
+    "valueName": "ProviderUrl",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to the provider of the original resource."
+  },
+  {
+    "name": "html",
+    "jsonName": "html",
+    "valueName": "Html",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: HTML to be used for generating the preview card."
+  },
+  {
+    "name": "width",
+    "jsonName": "width",
+    "valueName": "Width",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Width of preview, in pixels."
+  },
+  {
+    "name": "height",
+    "jsonName": "height",
+    "valueName": "Height",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Height of preview, in pixels."
+  },
+  {
+    "name": "image",
+    "jsonName": "image",
+    "valueName": "Image",
+    "optional": false,
+    "type": "Type: NULLABLE String (URL)",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: Preview thumbnail."
+  },
+  {
+    "name": "embed_url",
+    "jsonName": "embed_url",
+    "valueName": "EmbedUrl",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Used for photo embeds, instead of custom html."
+  },
+  {
+    "name": "blurhash",
+    "jsonName": "blurhash",
+    "valueName": "Blurhash",
+    "optional": false,
+    "type": "Type: NULLABLE String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: A hash computed by the BlurHash algorithm, for generating colorful preview thumbnails when media has not been downloaded yet."
+  }
+]

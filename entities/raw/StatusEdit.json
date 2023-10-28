@@ -1,0 +1,52 @@
+[
+  {
+    "name": "content",
+    "type": "Type: String (HTML)",
+    "description": "Description: The content of the status at this revision."
+  },
+  {
+    "name": "spoiler_text",
+    "type": "Type: String (HTML)",
+    "description": "Description: The content of the subject or content warning at this revision."
+  },
+  {
+    "name": "sensitive",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the status was marked sensitive at this revision."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp of when the revision was published."
+  },
+  {
+    "name": "account",
+    "type": "Type: Account",
+    "description": "Description: The account that published this revision."
+  },
+  {
+    "name": "poll OPTIONAL",
+    "type": "Type: Hash",
+    "description": "Description: The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll."
+  },
+  {
+    "name": "poll.options[]",
+    "type": "Type: Array of Hash",
+    "description": "Description: The poll options at this revision."
+  },
+  {
+    "name": "poll.options[].title",
+    "type": "Type: String",
+    "description": "Description: The text for a poll option."
+  },
+  {
+    "name": "media_attachments",
+    "type": "Type: Array of MediaAttachment",
+    "description": "Description: The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll."
+  },
+  {
+    "name": "emojis",
+    "type": "Type: Array of CustomEmoji",
+    "description": "Description: Any custom emoji that are used in the current revision."
+  }
+]

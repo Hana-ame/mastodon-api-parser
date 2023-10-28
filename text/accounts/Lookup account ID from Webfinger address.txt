@@ -1,0 +1,41 @@
+Lookup account ID from Webfinger address
+GET /api/v1/accounts/lookup HTTP/1.1
+Quickly lookup a username to see if it is available, skipping WebFinger resolution.
+
+Returns: Account
+OAuth: Public
+Version history:
+3.4.0 - added
+
+Request
+Query parameters
+acct
+REQUIRED String. The username or Webfinger address to lookup.
+Response
+200: OK
+Sample call with ?acct=trwnh
+
+{
+"id": "14715",
+"username": "trwnh",
+"acct": "trwnh",
+"display_name": "infinite love ⴳ",
+"locked": false,
+// ...
+}
+Sample call with ?acct=trwnh@pixelfed.social
+
+{
+"id": "418714",
+"username": "trwnh",
+"acct": "trwnh@pixelfed.social",
+"display_name": "Abdullah Tarawneh",
+"locked": false,
+// ...
+}
+404: Not found
+Username or address does not map to an account
+
+{
+"error": "Record not found"
+}

@@ -1,0 +1,40 @@
+{
+  "summary": "Search for matching accounts",
+  "method": "GET",
+  "router": "/api/v1/accounts/search",
+  "description": "Search for matching accounts by username or display name.\n\n",
+  "returns": "Array of Account",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "q",
+      "paramType": "query",
+      "comment": "REQUIRED String. Search query for accounts."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts."
+    },
+    {
+      "name": "offset",
+      "paramType": "query",
+      "comment": "Integer. Skip the first n results."
+    },
+    {
+      "name": "resolve",
+      "paramType": "query",
+      "comment": "Boolean. Attempt WebFinger lookup. Defaults to false. Use this when q is an exact address."
+    },
+    {
+      "name": "following",
+      "paramType": "query",
+      "comment": "Boolean. Limit the search to users you are following. Defaults to false."
+    }
+  ]
+}

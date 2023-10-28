@@ -1,0 +1,35 @@
+[
+  {
+    "name": "accounts",
+    "jsonName": "accounts",
+    "valueName": "Accounts",
+    "optional": false,
+    "type": "Type: Array of Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Accounts which match the given query"
+  },
+  {
+    "name": "statuses",
+    "jsonName": "statuses",
+    "valueName": "Statuses",
+    "optional": false,
+    "type": "Type: Array of Status",
+    "valueType": "Status",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Statuses which match the given query"
+  },
+  {
+    "name": "hashtags",
+    "jsonName": "hashtags",
+    "valueName": "Hashtags",
+    "optional": false,
+    "type": "Type: Array of Tag",
+    "valueType": "Tag",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Hashtags which match the given query"
+  }
+]

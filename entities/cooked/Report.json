@@ -1,0 +1,112 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the report in the database."
+  },
+  {
+    "name": "action_taken",
+    "jsonName": "action_taken",
+    "valueName": "ActionTaken",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether an action was taken yet."
+  },
+  {
+    "name": "action_taken_at",
+    "jsonName": "action_taken_at",
+    "valueName": "ActionTakenAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When an action was taken against the report."
+  },
+  {
+    "name": "category",
+    "jsonName": "category",
+    "valueName": "Category",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The generic reason for the report."
+  },
+  {
+    "name": "comment",
+    "jsonName": "comment",
+    "valueName": "Comment",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The reason for the report."
+  },
+  {
+    "name": "forwarded",
+    "jsonName": "forwarded",
+    "valueName": "Forwarded",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the report was forwarded to a remote domain."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When the report was created."
+  },
+  {
+    "name": "status_ids",
+    "jsonName": "status_ids",
+    "valueName": "StatusIDs",
+    "optional": false,
+    "type": "Type: NULLABLE Array of String (cast from integer), or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": true,
+    "description": "Description: IDs of statuses that have been attached to this report for additional context."
+  },
+  {
+    "name": "rule_ids",
+    "jsonName": "rule_ids",
+    "valueName": "RuleIDs",
+    "optional": false,
+    "type": "Type: NULLABLE Array of String (cast from integer), or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": true,
+    "description": "Description: IDs of the rules that have been cited as a violation by this report."
+  },
+  {
+    "name": "target_account",
+    "jsonName": "target_account",
+    "valueName": "TargetAccount",
+    "optional": false,
+    "type": "Type: Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account that was reported."
+  }
+]

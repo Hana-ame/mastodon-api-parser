@@ -1,0 +1,20 @@
+{
+  "summary": "Feature a tag",
+  "method": "POST",
+  "router": "/api/v1/featured_tags",
+  "description": "Promote a hashtag on your profile.\n\n",
+  "returns": "FeaturedTag",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "name",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The hashtag to be featured, without the hash sign."
+    }
+  ]
+}

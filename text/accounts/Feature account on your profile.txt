@@ -1,0 +1,66 @@
+Feature account on your profile
+POST /api/v1/accounts/:id/pin HTTP/1.1
+Add the given account to the user’s featured profiles. (Featured profiles are currently shown on the user’s own public profile.)
+
+Returns: Relationship
+OAuth: User token + write:accounts
+Version history:
+2.5.0 - added
+4.0.0 - calling this method is now idempotent
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Successfully endorsed, or was already endorsing.
+
+{
+"id": "1",
+"following": true,
+"showing_reblogs": true,
+"notifying": false,
+"followed_by": true,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": true
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+403: Forbidden
+Token is missing a required scope
+
+{
+"error": "This action is outside the authorized scopes"
+}
+422: Unprocessable entity
+You are not following this account
+
+{
+"error": "Validation failed: You must be already following the person you want to endorse"
+}
+Alternatively, the token is not authorized with a user
+
+{
+"error": "This method requires an authenticated user"
+}
+Alternatively (prior to 4.0), the account may already be endorsed
+
+{
+"error": "Duplicate record"
+}
+500: Server error
+Can sometimes be returned if the account already endorsed.
+

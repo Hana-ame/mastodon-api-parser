@@ -1,0 +1,75 @@
+Create a filter
+POST /api/v2/filters HTTP/1.1
+Create a filter group with the given parameters.
+
+Returns: Filter
+OAuth: User token + write:filters
+Version history:
+4.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+title
+REQUIRED String. The name of the filter group.
+context[]
+REQUIRED Array of String. Where the filter should be applied. Specify at least one of home, notifications, public, thread, account.
+filter_action
+String. The policy to be applied when the filter is matched. Specify warn or hide.
+expires_in
+Integer. How many seconds from now should the filter expire?
+keywords_attributes[][keyword]
+String. A keyword to be added to the newly-created filter group.
+keywords_attributes[][whole_word]
+Boolean. Whether the keyword should consider word boundaries.
+Response
+200: OK
+Sample of a Filter created by the call:
+
+POST https://mastodon.example/api/v2/filters
+?title=test
+&context[]=public
+&keywords_attributes[][keyword]=foo
+&keywords_attributes[][whole_word]=false
+&keywords_attributes[][keyword]=bar
+&keywords_attributes[][whole_word]=true
+{
+"id": "25933",
+"title": "test",
+"context": [
+"public"
+],
+"expires_at": null,
+"filter_action": "warn",
+"keywords": [
+{
+"id": "34978",
+"keyword": "foo",
+"whole_word": false
+},
+{
+"id": "34979",
+"keyword": "bar",
+"whole_word": true
+}
+],
+"statuses": []
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter keyword ID was specified
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+{
+"error": "Validation failed: Title can't be blank, Context can't be blank, Context None or invalid context supplied"
+}

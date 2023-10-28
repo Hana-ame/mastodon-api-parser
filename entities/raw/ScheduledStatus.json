@@ -1,0 +1,102 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "description": "Description: ID of the scheduled status in the database."
+  },
+  {
+    "name": "scheduled_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp for when the status will be posted."
+  },
+  {
+    "name": "params",
+    "type": "Type: Hash",
+    "description": "Description: The parameters that were used when scheduling the status, to be used when the status is posted."
+  },
+  {
+    "name": "params[text]",
+    "type": "Type: String",
+    "description": "Description: Text to be used as status content."
+  },
+  {
+    "name": "params[poll]",
+    "type": "Type: NULLABLE Hash",
+    "description": "Description: Poll to be attached to the status."
+  },
+  {
+    "name": "params[poll][options[]]",
+    "type": "Type: Array of String",
+    "description": "Description: The poll options to be used."
+  },
+  {
+    "name": "params[poll][expires_in]",
+    "type": "Type: String (cast from integer)",
+    "description": "Description: How many seconds the poll should last before closing."
+  },
+  {
+    "name": "params[poll][multiple]",
+    "type": "Type: OPTIONAL Boolean",
+    "description": "Description: Whether the poll allows multiple choices."
+  },
+  {
+    "name": "params[poll][hide_totals]",
+    "type": "Type: OPTIONAL Boolean",
+    "description": "Description: Whether the poll should hide total votes until after voting has ended."
+  },
+  {
+    "name": "params[media_ids]",
+    "type": "Type: NULLABLE Array of String",
+    "description": "Description: IDs of the MediaAttachments that will be attached to the status."
+  },
+  {
+    "name": "params[sensitive]",
+    "type": "Type: NULLABLE Boolean",
+    "description": "Description: Whether the status will be marked as sensitive."
+  },
+  {
+    "name": "params[spoiler_text]",
+    "type": "Type: NULLABLE String",
+    "description": "Description: The text of the content warning or summary for the status."
+  },
+  {
+    "name": "params[visibility]",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The visibility that the status will have once it is posted."
+  },
+  {
+    "name": "params[in_reply_to_id]",
+    "type": "Type: NULLABLE Integer",
+    "description": "Description: ID of the Status that will be replied to."
+  },
+  {
+    "name": "params[language]",
+    "type": "Type: NULLABLE String (ISO 639-1 two-letter language code)",
+    "description": "Description: The language that will be used for the status."
+  },
+  {
+    "name": "params[application_id]",
+    "type": "Type: Integer",
+    "description": "Description: ID of the Application that posted the status."
+  },
+  {
+    "name": "params[scheduled_at]",
+    "type": "Type: NULLABLE Null",
+    "description": "Description: When the status will be scheduled. This will be null because the status is only scheduled once."
+  },
+  {
+    "name": "params[idempotency]",
+    "type": "Type: NULLABLE String",
+    "description": "Description: Idempotency key to prevent duplicate statuses."
+  },
+  {
+    "name": "params[with_rate_limit]",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the status should be rate limited ."
+  },
+  {
+    "name": "media_attachments",
+    "type": "Type: Array of MediaAttachment",
+    "description": "Description: Media that will be attached when the status is posted."
+  }
+]

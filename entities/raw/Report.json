@@ -1,0 +1,52 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from integer)",
+    "description": "Description: The ID of the report in the database."
+  },
+  {
+    "name": "action_taken",
+    "type": "Type: Boolean",
+    "description": "Description: Whether an action was taken yet."
+  },
+  {
+    "name": "action_taken_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "description": "Description: When an action was taken against the report."
+  },
+  {
+    "name": "category",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The generic reason for the report."
+  },
+  {
+    "name": "comment",
+    "type": "Type: String",
+    "description": "Description: The reason for the report."
+  },
+  {
+    "name": "forwarded",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the report was forwarded to a remote domain."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the report was created."
+  },
+  {
+    "name": "status_ids",
+    "type": "Type: NULLABLE Array of String (cast from integer), or null",
+    "description": "Description: IDs of statuses that have been attached to this report for additional context."
+  },
+  {
+    "name": "rule_ids",
+    "type": "Type: NULLABLE Array of String (cast from integer), or null",
+    "description": "Description: IDs of the rules that have been cited as a violation by this report."
+  },
+  {
+    "name": "target_account",
+    "type": "Type: Account",
+    "description": "Description: The account that was reported."
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "summary": "Delete profile header",
+  "method": "DELETE",
+  "router": "/api/v1/profile/header",
+  "description": "",
+  "returns": "CredentialAccount",
+  "oauth": "User",
+  "request": []
+}

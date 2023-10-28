@@ -1,0 +1,69 @@
+Update a filter
+PUT /api/v1/filters/:id HTTP/1.1
+Replaces a filter’s parameters in-place.
+
+Returns: V1::Filter
+OAuth: User token + write:filters
+Version history:
+2.4.3 - added
+3.1.0 - added account context to filter in profile views
+4.0.0 - deprecated. or compatibility purposes, now returns a V1::Filter representing one FilterKeyword (with the keyword being presented in the phrase attribute). This method will return an error if you attempt to change expires_in, irreversible, or context for a filter with multiple keywords. Changing phrase and whole_word is always safe.
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the FilterKeyword in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+phrase
+REQUIRED String. The text to be filtered.
+context[]
+REQUIRED Array of String. Specify at least one of home, notifications, public, thread, account.
+irreversible
+Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false.
+whole_word
+Boolean. Should the filter consider word boundaries? Defaults to false.
+expires_in
+Integer. Number of seconds from now that the filter should expire. Otherwise, null for a filter that doesn’t expire.
+Response
+200: OK
+Filter updated
+
+{
+"id": "8449",
+"phrase": "test",
+"context": [
+"home",
+"notifications",
+"public",
+"thread"
+],
+"whole_word": false,
+"expires_at": null,
+"irreversible": true
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter does not exist or is not owned by you
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+If phrase is not provided properly:
+
+{
+"error": "Validation failed: Phrase can't be blank"
+}
+If context is not provided properly:
+
+{
+"error": "Validation failed: Context can't be blank, Context None or invalid context supplied"
+}

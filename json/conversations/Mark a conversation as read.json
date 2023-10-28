@@ -1,0 +1,20 @@
+{
+  "summary": "Mark a conversation as read",
+  "method": "POST",
+  "router": "/api/v1/conversations/:id/read",
+  "description": "",
+  "returns": "Conversation",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Conversation in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

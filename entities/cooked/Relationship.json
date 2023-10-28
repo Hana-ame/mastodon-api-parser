@@ -1,0 +1,156 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account ID."
+  },
+  {
+    "name": "following",
+    "jsonName": "following",
+    "valueName": "Following",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you following this user?"
+  },
+  {
+    "name": "showing_reblogs",
+    "jsonName": "showing_reblogs",
+    "valueName": "ShowingReblogs",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you receiving this user’s boosts in your home timeline?"
+  },
+  {
+    "name": "notifying",
+    "jsonName": "notifying",
+    "valueName": "Notifying",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Have you enabled notifications for this user?"
+  },
+  {
+    "name": "languages",
+    "jsonName": "languages",
+    "valueName": "Languages",
+    "optional": false,
+    "type": "Type: Array of String (ISO 639-1 language two-letter code)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Which languages are you following from this user?"
+  },
+  {
+    "name": "followed_by",
+    "jsonName": "followed_by",
+    "valueName": "FollowedBy",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you followed by this user?"
+  },
+  {
+    "name": "blocking",
+    "jsonName": "blocking",
+    "valueName": "Blocking",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you blocking this user?"
+  },
+  {
+    "name": "blocked_by",
+    "jsonName": "blocked_by",
+    "valueName": "BlockedBy",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Is this user blocking you?"
+  },
+  {
+    "name": "muting",
+    "jsonName": "muting",
+    "valueName": "Muting",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you muting this user?"
+  },
+  {
+    "name": "muting_notifications",
+    "jsonName": "muting_notifications",
+    "valueName": "MutingNotifications",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you muting notifications from this user?"
+  },
+  {
+    "name": "requested",
+    "jsonName": "requested",
+    "valueName": "Requested",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Do you have a pending follow request for this user?"
+  },
+  {
+    "name": "domain_blocking",
+    "jsonName": "domain_blocking",
+    "valueName": "DomainBlocking",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you blocking this user’s domain?"
+  },
+  {
+    "name": "endorsed",
+    "jsonName": "endorsed",
+    "valueName": "Endorsed",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Are you featuring this user on your profile?"
+  },
+  {
+    "name": "note",
+    "jsonName": "note",
+    "valueName": "Note",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: This user’s profile bio"
+  }
+]

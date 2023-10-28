@@ -1,0 +1,60 @@
+View information about a single tag
+GET /api/v1/tags/:id HTTP/1.1
+Show a hashtag and its associated information
+
+Returns: Tag
+OAuth: Public, or User token
+Version history:
+4.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The name of the hashtag.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"name": "Test",
+"url": "http://mastodon.example/tags/test",
+"history": [
+{
+"day": "1668556800",
+"accounts": "0",
+"uses": "0"
+},
+{
+"day": "1668470400",
+"accounts": "0",
+"uses": "0"
+},
+{
+"day": "1668384000",
+"accounts": "0",
+"uses": "0"
+},
+{
+"day": "1668297600",
+"accounts": "1",
+"uses": "1"
+},
+{
+"day": "1668211200",
+"accounts": "0",
+"uses": "0"
+},
+{
+"day": "1668124800",
+"accounts": "0",
+"uses": "0"
+},
+{
+"day": "1668038400",
+"accounts": "0",
+"uses": "0"
+}
+],
+"following": false
+}

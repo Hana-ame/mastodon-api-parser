@@ -1,0 +1,40 @@
+{
+  "summary": "Create a filter",
+  "method": "POST",
+  "router": "/api/v1/filters",
+  "description": "",
+  "returns": "V1::Filter",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "phrase",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The text to be filtered."
+    },
+    {
+      "name": "context[]",
+      "paramType": "formData",
+      "comment": "REQUIRED Array of String. Where the filter should be applied. Specify at least one of home, notifications, public, thread, account."
+    },
+    {
+      "name": "irreversible",
+      "paramType": "formData",
+      "comment": "Boolean. Should the server irreversibly drop matching entities from home and notifications? Defaults to false."
+    },
+    {
+      "name": "whole_word",
+      "paramType": "formData",
+      "comment": "Boolean. Should the filter consider word boundaries for this keyword? Defaults to false."
+    },
+    {
+      "name": "expires_in",
+      "paramType": "formData",
+      "comment": "Integer. Number of seconds from now that the filter should expire. Otherwise, null for a filter that doesn’t expire."
+    }
+  ]
+}

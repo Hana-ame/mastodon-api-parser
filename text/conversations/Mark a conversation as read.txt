@@ -1,0 +1,45 @@
+Mark a conversation as read
+POST /api/v1/conversations/:id/read HTTP/1.1
+Returns: Conversation
+OAuth: User token + write:conversations
+Version history:
+2.6.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Conversation in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+The value of unread has been changed to false.
+
+{
+"id": "418450",
+"unread": false,
+"accounts": [
+{
+"id": "482403",
+// ...
+}
+],
+"last_status": {
+"id": "103196583826321184",
+// ...
+}
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+The conversation does not exist, or is not owned by you.
+
+{
+"error": "Record not found"
+}
+

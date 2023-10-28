@@ -1,0 +1,20 @@
+{
+  "summary": "View trending links",
+  "method": "GET",
+  "router": "/api/v1/trends/links",
+  "description": "Links that have been shared more than others.\n\n",
+  "returns": "Array of Trends::Link",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 10 links. Max 20 links."
+    },
+    {
+      "name": "offset",
+      "paramType": "query",
+      "comment": "Integer. Skip the first n results."
+    }
+  ]
+}

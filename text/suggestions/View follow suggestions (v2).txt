@@ -1,0 +1,43 @@
+View follow suggestions (v2)
+GET /api/v2/suggestions HTTP/1.1
+Accounts that are promoted by staff, or that the user has had past positive interactions with, but is not yet following.
+
+Returns: Array of Suggestion
+OAuth: User token + read
+Version history:
+3.4.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+limit
+Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+Response
+200: OK
+[
+{
+"source": "past_interactions",
+"account": {
+"id": "784058",
+"username": "katie",
+"acct": "katie@pleroma.voidlurker.net",
+// ...
+},
+// ...
+{
+"source": "global",
+"account": {
+"id": "108194863260762493",
+"username": "thunderbird",
+"acct": "thunderbird@mastodon.online",
+// ...
+}
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

@@ -1,0 +1,31 @@
+Dismiss an announcement
+POST /api/v1/announcements/:id/dismiss HTTP/1.1
+Allows a user to mark the announcement as read.
+
+Returns: Empty
+OAuth: User token + write:accounts
+Version history:
+3.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Announcement in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Announcement with given ID does not exist
+
+{
+"error": "Record not found"
+}

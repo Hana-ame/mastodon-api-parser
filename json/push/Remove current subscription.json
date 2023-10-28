@@ -1,0 +1,15 @@
+{
+  "summary": "Remove current subscription",
+  "method": "DELETE",
+  "router": "/api/v1/push/subscription",
+  "description": "Removes the current Web Push API subscription.\n\n",
+  "returns": "none",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

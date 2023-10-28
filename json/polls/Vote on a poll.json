@@ -1,0 +1,25 @@
+{
+  "summary": "Vote on a poll",
+  "method": "POST",
+  "router": "/api/v1/polls/:id/votes",
+  "description": "",
+  "returns": "Poll",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Poll in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "choices[]",
+      "paramType": "formData",
+      "comment": "REQUIRED Array of Integer. Provide your own votes as an index for each option (starting from 0)."
+    }
+  ]
+}

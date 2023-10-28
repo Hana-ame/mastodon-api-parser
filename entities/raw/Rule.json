@@ -1,0 +1,12 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from integer, but not guaranteed to be a number)",
+    "description": "Description: An identifier for the rule."
+  },
+  {
+    "name": "text",
+    "type": "Type: String",
+    "description": "Description: The rule to be followed."
+  }
+]

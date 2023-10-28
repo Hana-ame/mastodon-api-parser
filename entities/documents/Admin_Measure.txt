@@ -1,0 +1,895 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::Measure
+Represents quantitative data about the server.
+
+Attributes
+key
+unit
+total
+human_value OPTIONAL
+previous_total OPTIONAL
+data
+Examples
+active_users
+new_users
+interactions
+opened_reports
+resolved_reports
+tag_accounts
+tag_uses
+tag_servers
+instance_accounts
+instance_media_attachments
+instance_reports
+instance_statuses
+instance_follows
+instance_followers
+See also
+Attributes
+key
+Description: The unique keystring for the requested measure.
+Type: String
+Version history:
+3.5.0 - added
+
+unit
+Description: The units associated with this data item’s value, if applicable.
+Type: NULLABLE String or null
+Version history:
+3.5.0 - added
+
+total
+Description: The numeric total associated with the requested measure.
+Type: String (cast from integer)
+Version history:
+3.5.0 - added
+
+human_value OPTIONAL
+Description: A human-readable formatted value for this data item.
+Type: String
+Version history:
+3.5.0 - added
+
+previous_total OPTIONAL
+Description: The numeric total associated with the requested measure, in the previous period. Previous period is calculated by subtracting the start_at and end_at dates, then offsetting both start and end dates backwards by the length of the time period.
+Type: String (cast from integer)
+Version history:
+3.5.0 - added
+
+data
+Description: The data available for the requested measure, split into daily buckets.
+Type: Array of Hash
+Version history:
+3.5.0 - added
+
+data[][date]
+Description: Midnight on the requested day in the time period.
+Type: String (ISO 8601 Datetime)
+Version history:
+3.5.0 - added
+
+data[][value]
+Description: The numeric value for the requested measure.
+Type: String (cast from integer)
+Version history:
+3.5.0 - added
+
+Examples
+active_users
+Total active users on your instance within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "active_users",
+  "unit": null,
+  "total": "2",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00Z",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-18T00:00:00Z",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-19T00:00:00Z",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-20T00:00:00Z",
+      "value": "2"
+    },
+    {
+      "date": "2022-09-21T00:00:00Z",
+      "value": "1"
+    }
+  ]
+}
+new_users
+Users who joined your instance within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "new_users",
+  "unit": null,
+  "total": "2",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+interactions
+Total interactions (favourites, boosts, replies) on local statuses within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "interactions",
+  "unit": null,
+  "total": "0",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00Z",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00Z",
+      "value": "0"
+    }
+  ]
+}
+opened_reports
+Total reports filed within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+        "key": "opened_reports",
+        "unit": null,
+        "total": "0",
+        "previous_total": "0",
+        "data": [
+            {
+                "date": "2022-09-14T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-15T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-16T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-17T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-18T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-19T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-20T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-21T00:00:00.000+00:00",
+                "value": "0"
+            },
+            {
+                "date": "2022-09-22T00:00:00.000+00:00",
+                "value": "0"
+            }
+        ]
+    }
+resolved_reports
+Total reports resolved within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "resolved_reports",
+  "unit": null,
+  "total": "0",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+tag_accounts
+Total accounts who used a tag in at least one status within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "tag_accounts",
+  "unit": null,
+  "total": "1",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+tag_uses
+Total statuses which used a tag within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "tag_uses",
+  "unit": null,
+  "total": "2",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "1"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "1"
+    }
+  ]
+}
+tag_servers
+Total remote origin servers for statuses which used a tag within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "tag_servers",
+  "unit": null,
+  "total": "0",
+  "previous_total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+instance_accounts
+Total accounts originating from a remote domain within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_accounts",
+  "unit": null,
+  "total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+instance_media_attachments
+Total space used by media attachments from a remote domain within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_media_attachments",
+  "unit": "bytes",
+  "total": "0",
+  "human_value": "0 Bytes",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": ""
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": ""
+    }
+  ]
+}
+instance_reports
+Total reports filed against accounts from a remote domain within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_reports",
+  "unit": null,
+  "total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+instance_statuses
+Total statuses originating from a remote domain within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_statuses",
+  "unit": null,
+  "total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+instance_follows
+Total accounts from a remote domain followed by a local user within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_follows",
+  "unit": null,
+  "total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+instance_followers
+Total local accounts followed by accounts from a remote domain within the time period starting at 2022-09-14 and ending at 2022-09-22
+
+{
+  "key": "instance_followers",
+  "unit": null,
+  "total": "0",
+  "data": [
+    {
+      "date": "2022-09-14T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-15T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-16T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-17T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-18T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-19T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-20T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-21T00:00:00.000+00:00",
+      "value": "0"
+    },
+    {
+      "date": "2022-09-22T00:00:00.000+00:00",
+      "value": "0"
+    }
+  ]
+}
+See also
+admin/dimensions API methods
+app/serializers/rest/admin/measure_serializer.rb
+app/lib/admin/metrics/measure.rb
+app/lib/admin/metrics/measure/
+Last updated November 20, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

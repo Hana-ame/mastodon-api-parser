@@ -1,0 +1,20 @@
+{
+  "summary": "Get lists containing this account",
+  "method": "GET",
+  "router": "/api/v1/accounts/:id/lists",
+  "description": "User lists that you have added this account to.\n\n",
+  "returns": "Array of List",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

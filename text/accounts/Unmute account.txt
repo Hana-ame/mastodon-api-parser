@@ -1,0 +1,47 @@
+Unmute account
+POST /api/v1/accounts/:id/unmute HTTP/1.1
+Unmute the given account.
+
+Returns: Relationship
+OAuth: User token + write:mutes
+Version history:
+0.0.0 - added
+3.5.0 - deprecated follow scope. now additionally accepts write
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Successfully unmuted, or account was already unmuted
+
+{
+"id": "3",
+"following": false,
+"showing_reblogs": false,
+"notifying": false,
+"followed_by": false,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

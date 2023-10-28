@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the DomainBlock in the database."
+  },
+  {
+    "name": "domain",
+    "type": "Type: String",
+    "description": "Description: The domain that is not allowed to federate."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the domain was blocked from federating."
+  },
+  {
+    "name": "severity",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The policy to be applied by this domain block."
+  },
+  {
+    "name": "reject_media",
+    "type": "Type: Boolean",
+    "description": "Description: Whether to reject media attachments from this domain"
+  },
+  {
+    "name": "reject_reports",
+    "type": "Type: Boolean",
+    "description": "Description: Whether to reject reports from this domain"
+  }
+]

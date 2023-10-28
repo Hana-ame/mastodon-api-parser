@@ -1,0 +1,37 @@
+View your lists
+GET /api/v1/lists HTTP/1.1
+Fetch all lists that the user owns.
+
+Returns: Array of List
+OAuth: User token + read:lists
+Version history:
+2.1.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Use id as a parameter for related API calls.
+
+[
+{
+"id": "12249",
+"title": "Friends",
+"replies_policy": "followed",
+"exclusive": false
+},
+{
+"id": "13585",
+"title": "test",
+"replies_policy": "list",
+"exclusive": true
+}
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

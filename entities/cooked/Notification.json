@@ -1,0 +1,68 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The id of the notification in the database."
+  },
+  {
+    "name": "type",
+    "jsonName": "type",
+    "valueName": "Type",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The type of event that resulted in the notification."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp of the notification."
+  },
+  {
+    "name": "account",
+    "jsonName": "account",
+    "valueName": "Account",
+    "optional": false,
+    "type": "Type: Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account that performed the action that generated the notification."
+  },
+  {
+    "name": "status OPTIONAL",
+    "jsonName": "status",
+    "valueName": "Status",
+    "optional": true,
+    "type": "Type: Status",
+    "valueType": "Status",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Status that was the object of the notification. Attached when type of the notification is favourite, reblog, status, mention, poll, or update."
+  },
+  {
+    "name": "report OPTIONAL",
+    "jsonName": "report",
+    "valueName": "Report",
+    "optional": true,
+    "type": "Type: Report",
+    "valueType": "Report",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Report that was the object of the notification. Attached when type of the notification is admin.report."
+  }
+]

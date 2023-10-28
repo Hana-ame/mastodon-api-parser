@@ -1,0 +1,20 @@
+{
+  "summary": "View follow suggestions (v2)",
+  "method": "GET",
+  "router": "/api/v2/suggestions",
+  "description": "Accounts that are promoted by staff, or that the user has had past positive interactions with, but is not yet following.\n\n",
+  "returns": "Array of Suggestion",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts."
+    }
+  ]
+}

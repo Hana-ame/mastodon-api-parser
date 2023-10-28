@@ -1,0 +1,35 @@
+{
+  "summary": "Update media attachment",
+  "method": "PUT",
+  "router": "/api/v1/media/:id",
+  "description": "Update a MediaAttachment’s parameters, before it is attached to a status and posted.\n\n",
+  "returns": "MediaAttachment",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the MediaAttachment in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "thumbnail",
+      "paramType": "formData",
+      "comment": "Object. The custom thumbnail of the media to be attached, encoded using multipart form data."
+    },
+    {
+      "name": "description",
+      "paramType": "formData",
+      "comment": "String. A plain-text description of the media, for accessibility purposes."
+    },
+    {
+      "name": "focus",
+      "paramType": "formData",
+      "comment": "String. Two floating points (x,y), comma-delimited, ranging from -1.0 to 1.0. See Focal points for cropping media thumbnails for more information."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the Filter in the database."
+  },
+  {
+    "name": "title",
+    "type": "Type: String",
+    "description": "Description: A title given by the user to name the filter."
+  },
+  {
+    "name": "context",
+    "type": "Type: Array of String (Enumerable, anyOf)",
+    "description": "Description: The contexts in which the filter should be applied."
+  },
+  {
+    "name": "expires_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the filter does not expire",
+    "description": "Description: When the filter should no longer be applied."
+  },
+  {
+    "name": "filter_action",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: The action to be taken when a status matches this filter."
+  },
+  {
+    "name": "keywords",
+    "type": "Type: Array of FilterKeyword",
+    "description": "Description: The keywords grouped under this filter."
+  },
+  {
+    "name": "statuses",
+    "type": "Type: Array of FilterStatus",
+    "description": "Description: The statuses grouped under this filter."
+  }
+]

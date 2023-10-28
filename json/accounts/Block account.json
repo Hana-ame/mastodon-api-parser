@@ -1,0 +1,20 @@
+{
+  "summary": "Block account",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/block",
+  "description": "Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

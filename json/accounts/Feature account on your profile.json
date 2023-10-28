@@ -1,0 +1,20 @@
+{
+  "summary": "Feature account on your profile",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/pin",
+  "description": "Add the given account to the user’s featured profiles. (Featured profiles are currently shown on the user’s own public profile.)\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

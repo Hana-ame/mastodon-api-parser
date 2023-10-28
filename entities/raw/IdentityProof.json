@@ -1,0 +1,27 @@
+[
+  {
+    "name": "provider",
+    "type": "Type: String",
+    "description": "Description: The name of the identity provider."
+  },
+  {
+    "name": "provider_username",
+    "type": "Type: String",
+    "description": "Description: The account owner’s username on the identity provider’s service."
+  },
+  {
+    "name": "updated_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the identity proof was last updated."
+  },
+  {
+    "name": "proof_url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to a statement of identity proof, hosted by the identity provider."
+  },
+  {
+    "name": "profile_url",
+    "type": "Type: String (URL)",
+    "description": "Description: The account owner’s profile URL on the identity provider."
+  }
+]

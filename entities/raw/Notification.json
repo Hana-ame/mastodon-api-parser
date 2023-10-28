@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The id of the notification in the database."
+  },
+  {
+    "name": "type",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The type of event that resulted in the notification."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp of the notification."
+  },
+  {
+    "name": "account",
+    "type": "Type: Account",
+    "description": "Description: The account that performed the action that generated the notification."
+  },
+  {
+    "name": "status OPTIONAL",
+    "type": "Type: Status",
+    "description": "Description: Status that was the object of the notification. Attached when type of the notification is favourite, reblog, status, mention, poll, or update."
+  },
+  {
+    "name": "report OPTIONAL",
+    "type": "Type: Report",
+    "description": "Description: Report that was the object of the notification. Attached when type of the notification is admin.report."
+  }
+]

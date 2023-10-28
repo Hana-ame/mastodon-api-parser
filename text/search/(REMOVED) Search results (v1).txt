@@ -1,0 +1,48 @@
+(REMOVED) Search results (v1)
+GET /api/v1/search HTTP/1.1
+Returns: Search, but hashtags is an array of strings instead of an array of Tag.
+OAuth: User token + read:search
+Version history:
+1.1 - added, limit hardcoded to 5
+1.5.0 - now requires authentication
+2.4.1 - deprecated in favor of v2 search
+2.8.0 - added limit, pagination, and account options
+3.0.0 - removed; use v2 search instead
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+q
+REQUIRED String. The search query.
+type
+String. Specify whether to search for only accounts, hashtags, statuses
+resolve
+Boolean. Attempt WebFinger lookup? Defaults to false.
+account_id
+String. If provided, will only return statuses authored by this account.
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category.
+offset
+Integer. Offset in search results, used for pagination. Defaults to 0.
+Response
+200: OK
+v1 search was deprecated because hashtags were returned as strings instead of as Tag entities.
+
+{
+"accounts": [...],
+"statuses": [...],
+"hashtags": ["cats","catsofmastodon"]
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+

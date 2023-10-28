@@ -1,0 +1,76 @@
+Get account’s statuses
+GET /api/v1/accounts/:id/statuses HTTP/1.1
+Statuses posted to the given account.
+
+Returns: Array of Status
+OAuth: Public (for public statuses only), or user token + read:statuses (for private statuses the user is authorized to see)
+Version history:
+0.0.0 - added
+1.4.2 - add only_media and exclude_replies
+1.6.0 - add pinned
+2.6.0 - add min_id
+2.7.0 - add exclude_reblogs and allow unauthed use
+2.8.0 - add tagged parameter
+3.3.0 - both min_id and max_id can be used at the same time now
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+since_id
+String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+only_media
+Boolean. Filter out statuses without attachments.
+exclude_replies
+Boolean. Filter out statuses in reply to a different account.
+exclude_reblogs
+Boolean. Filter out boosts from the response.
+pinned
+Boolean. Filter for pinned statuses only. Defaults to false, which includes all statuses. Pinned statuses do not receive special priority in the order of the returned results.
+tagged
+String. Filter for statuses using a specific hashtag.
+Response
+200: OK
+[
+{
+"id": "108880211901672326",
+"created_at": "2022-08-24T22:29:46.493Z",
+"in_reply_to_id": "108880209317577809",
+"in_reply_to_account_id": "103641",
+"sensitive": false,
+// ...
+},
+// ...
+]
+401: Unauthorized
+If the instance is in whitelist mode and the Authorization header is missing or invalid
+
+Sample response for whitelist mode:
+
+{
+"error": "This API requires an authenticated user"
+}
+Sample response before 2.7.0:
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Account does not exist
+
+{
+"error": "Record not found"
+}
+410: Gone
+Account is suspended (since 2.4.0 and until 3.3.0)
+

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the announcement in the database."
+  },
+  {
+    "name": "content",
+    "type": "Type: String (HTML)",
+    "description": "Description: The text of the announcement."
+  },
+  {
+    "name": "starts_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "description": "Description: When the announcement will start."
+  },
+  {
+    "name": "ends_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime) or null",
+    "description": "Description: When the announcement will end."
+  },
+  {
+    "name": "published",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the announcement is currently active."
+  },
+  {
+    "name": "all_day",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the announcement should start and end on dates only instead of datetimes. Will be false if there is no starts_at or ends_at time."
+  },
+  {
+    "name": "published_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the announcement was published."
+  },
+  {
+    "name": "updated_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the announcement was last updated."
+  },
+  {
+    "name": "read OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the announcement has been read by the current user."
+  },
+  {
+    "name": "mentions",
+    "type": "Type: Array of Announcement::Account",
+    "description": "Description: Accounts mentioned in the announcement text."
+  },
+  {
+    "name": "statuses",
+    "type": "Type: Array of Announcement::Status",
+    "description": "Description: Statuses linked in the announcement text."
+  },
+  {
+    "name": "tags",
+    "type": "Type: Array of Status::Tag",
+    "description": "Description: Tags linked in the announcement text."
+  },
+  {
+    "name": "emojis",
+    "type": "Type: Array of CustomEmoji",
+    "description": "Description: Custom emoji used in the announcement text."
+  },
+  {
+    "name": "reactions",
+    "type": "Type: Array of Reaction",
+    "description": "Description: Emoji reactions attached to the announcement."
+  }
+]

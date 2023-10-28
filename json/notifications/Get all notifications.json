@@ -1,0 +1,50 @@
+{
+  "summary": "Get all notifications",
+  "method": "GET",
+  "router": "/api/v1/notifications",
+  "description": "Notifications concerning the user. This API returns Link headers containing links to the next/previous page. However, the links can also be constructed dynamically using query params and id values.\n\nTypes to filter include:\n\nmention = Someone mentioned you in their status\nstatus = Someone you enabled notifications for has posted a status\nreblog = Someone boosted one of your statuses\nfollow = Someone followed you\nfollow_request = Someone requested to follow you\nfavourite = Someone favourited one of your statuses\npoll = A poll you have voted in or created has ended\nupdate = A status you boosted with has been edited\nadmin.sign_up = Someone signed up (optionally sent to admins)\nadmin.report = A new report has been filed\n",
+  "returns": "Array of Notification",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be lesser than this ID. In effect, sets an upper bound on results."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be greater than this ID. In effect, sets a lower bound on results."
+    },
+    {
+      "name": "min_id",
+      "paramType": "query",
+      "comment": "String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 15 notifications. Max 30 notifications."
+    },
+    {
+      "name": "types[]",
+      "paramType": "query",
+      "comment": "Array of String. Types to include in the result."
+    },
+    {
+      "name": "exclude_types[]",
+      "paramType": "query",
+      "comment": "Array of String. Types to exclude from the results."
+    },
+    {
+      "name": "account_id",
+      "paramType": "query",
+      "comment": "String. Return only notifications received from the specified account."
+    }
+  ]
+}

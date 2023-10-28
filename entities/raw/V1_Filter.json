@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the filter in the database."
+  },
+  {
+    "name": "phrase",
+    "type": "Type: String",
+    "description": "Description: The text to be filtered."
+  },
+  {
+    "name": "context",
+    "type": "Type: Array of String (Enumerable anyOf)",
+    "description": "Description: The contexts in which the filter should be applied."
+  },
+  {
+    "name": "expires_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the filter does not expire",
+    "description": "Description: When the filter should no longer be applied."
+  },
+  {
+    "name": "irreversible",
+    "type": "Type: Boolean",
+    "description": "Description: Should matching entities in home and notifications be dropped by the server? See implementation guidelines for filters."
+  },
+  {
+    "name": "whole_word",
+    "type": "Type: Boolean",
+    "description": "Description: Should the filter consider word boundaries? See implementation guidelines for filters."
+  }
+]

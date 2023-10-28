@@ -1,0 +1,9 @@
+{
+  "summary": "List of rules",
+  "method": "GET",
+  "router": "/api/v1/instance/rules",
+  "description": "Rules that the users of this service should follow.\n\n",
+  "returns": "Array of Rule",
+  "oauth": "Public",
+  "request": []
+}

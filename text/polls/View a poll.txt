@@ -1,0 +1,45 @@
+View a poll
+GET /api/v1/polls/:id HTTP/1.1
+Returns: Poll
+OAuth: Public if parent status is public. User token + read:statuses if parent status is private.
+Version history:
+2.8.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Poll in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": "34830",
+"expires_at": "2019-12-05T04:05:08.302Z",
+"expired": true,
+"multiple": false,
+"votes_count": 10,
+"voters_count": null,
+"voted": true,
+"own_votes": [
+1
+],
+"options": [
+{
+"title": "accept",
+"votes_count": 6
+},
+{
+"title": "deny",
+"votes_count": 4
+}
+],
+"emojis": []
+}
+404: Not found
+Poll does not exist, or poll’s parent status is private
+
+{
+"error": "Record not found"
+}

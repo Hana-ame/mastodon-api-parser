@@ -1,0 +1,30 @@
+{
+  "summary": "Update a list",
+  "method": "PUT",
+  "router": "/api/v1/lists/:id",
+  "description": "Change the title of a list, or which replies to show.\n\n",
+  "returns": "List",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the List in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "title",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The title of the list to be created."
+    },
+    {
+      "name": "replies_policy",
+      "paramType": "formData",
+      "comment": "String. One of followed, list, or none. Defaults to list."
+    }
+  ]
+}

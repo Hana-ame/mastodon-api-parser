@@ -1,0 +1,17 @@
+[
+  {
+    "name": "accounts",
+    "type": "Type: Array of Account",
+    "description": "Description: Accounts which match the given query"
+  },
+  {
+    "name": "statuses",
+    "type": "Type: Array of Status",
+    "description": "Description: Statuses which match the given query"
+  },
+  {
+    "name": "hashtags",
+    "type": "Type: Array of Tag",
+    "description": "Description: Hashtags which match the given query"
+  }
+]

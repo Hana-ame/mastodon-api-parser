@@ -1,0 +1,24 @@
+[
+  {
+    "name": "source",
+    "jsonName": "source",
+    "valueName": "Source",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The reason this account is being suggested."
+  },
+  {
+    "name": "account",
+    "jsonName": "account",
+    "valueName": "Account",
+    "optional": false,
+    "type": "Type: Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account being recommended to follow."
+  }
+]

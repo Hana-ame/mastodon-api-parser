@@ -1,0 +1,45 @@
+{
+  "summary": "Register an account",
+  "method": "POST",
+  "router": "/api/v1/accounts",
+  "description": "Creates a user and account records. Returns an account access token for the app that initiated the request. The app should save this token for later, and should wait for the user to confirm their account by clicking a link in their email inbox.\n\n",
+  "returns": "Token",
+  "oauth": "App",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "username",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The desired username for the account"
+    },
+    {
+      "name": "email",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The email address to be used for login"
+    },
+    {
+      "name": "password",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The password to be used for login"
+    },
+    {
+      "name": "agreement",
+      "paramType": "formData",
+      "comment": "REQUIRED Boolean. Whether the user agrees to the local rules, terms, and policies. These should be presented to the user in order to allow them to consent before setting this parameter to TRUE."
+    },
+    {
+      "name": "locale",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The language of the confirmation email that will be sent."
+    },
+    {
+      "name": "reason",
+      "paramType": "formData",
+      "comment": "String. If registrations require manual approval, this text will be reviewed by moderators."
+    }
+  ]
+}

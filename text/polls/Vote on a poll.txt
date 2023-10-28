@@ -1,0 +1,104 @@
+Vote on a poll
+POST /api/v1/polls/:id/votes HTTP/1.1
+Returns: Poll
+OAuth: User token + write:statuses
+Version history:
+2.8.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Poll in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+choices[]
+REQUIRED Array of Integer. Provide your own votes as an index for each option (starting from 0).
+Response
+200: OK
+Poll was voted on
+
+{
+"id": "34873",
+"expires_at": "2019-12-05T11:16:17.426Z",
+"expired": false,
+"multiple": true,
+"votes_count": 5,
+"voters_count": null,
+"voted": true,
+"own_votes": [
+0,
+2,
+4,
+9,
+6
+],
+"options": [
+{
+"title": "option 0",
+"votes_count": 1
+},
+{
+"title": "option 1",
+"votes_count": 0
+},
+{
+"title": "option 2",
+"votes_count": 1
+},
+{
+"title": "option 3",
+"votes_count": 0
+},
+{
+"title": "option 4",
+"votes_count": 1
+},
+{
+"title": "option 5",
+"votes_count": 0
+},
+{
+"title": "option 6",
+"votes_count": 1
+},
+{
+"title": "option 7",
+"votes_count": 0
+},
+{
+"title": "option 8",
+"votes_count": 0
+},
+{
+"title": "option 9",
+"votes_count": 1
+}
+],
+"emojis": []
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Poll does not exist, or poll’s parent status is private
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+The poll has expired
+
+{
+"error": "Validation failed: The poll has already ended"
+}
+Alternatively, you have already voted
+
+{
+"error": "Validation failed: You have already voted on this poll"
+}
+

@@ -1,0 +1,25 @@
+{
+  "summary": "Boost a status",
+  "method": "POST",
+  "router": "/api/v1/statuses/:id/reblog",
+  "description": "Reshare a status on your own profile.\n\n",
+  "returns": "Status",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "visibility",
+      "paramType": "formData",
+      "comment": "String. Any visibility except limited or direct (i.e. public, unlisted, private). Defaults to public. Currently unused in UI."
+    }
+  ]
+}

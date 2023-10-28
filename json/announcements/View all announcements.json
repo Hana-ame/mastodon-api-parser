@@ -1,0 +1,20 @@
+{
+  "summary": "View all announcements",
+  "method": "GET",
+  "router": "/api/v1/announcements",
+  "description": "See all currently active announcements set by admins.\n\n",
+  "returns": "Array of Announcement",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "with_dismissed",
+      "paramType": "query",
+      "comment": "Boolean. If true, response will include announcements dismissed by the user. Defaults to false."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "period",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp for the start of the period, at midnight."
+  },
+  {
+    "name": "frequency",
+    "type": "Type: String (Enumerable oneOf)",
+    "description": "Description: The size of the bucket for the returned data."
+  },
+  {
+    "name": "data",
+    "type": "Type: Array of CohortData",
+    "description": "Description: Retention data for users who registered during the given period."
+  }
+]

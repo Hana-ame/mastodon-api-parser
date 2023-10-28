@@ -1,0 +1,45 @@
+See who favourited a status
+GET /api/v1/statuses/:id/favourited_by HTTP/1.1
+View who favourited a given status.
+
+Returns: Array of Account
+OAuth: Public for public statuses. User token + read:statuses for private statuses.
+Version history:
+0.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+Internal parameter. Use HTTP Link header for pagination.
+since_id
+Internal parameter. Use HTTP Link header for pagination.
+limit
+Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+Response
+200: OK
+A list of accounts who favourited the status
+
+[
+{
+"id": "828600",
+"username": "fructose_dealer",
+"acct": "fructose_dealer@radical.town",
+// ...
+},
+// ...
+]
+Because Favourite IDs are generally not exposed via any API responses, you will have to parse the HTTP Link header to load older or newer results. See Paginating through API responses for more information.
+
+Link: <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&max_id=53286827>; rel="next", <https://mastodon.example/api/v1/statuses/109419880690343548/favourited_by?limit=1&since_id=53286827>; rel="prev"
+404: Not found
+Status does not exist or is private
+
+{
+"error": "Record not found"
+}

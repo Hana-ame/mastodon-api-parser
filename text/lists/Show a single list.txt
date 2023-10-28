@@ -1,0 +1,38 @@
+Show a single list
+GET /api/v1/lists/:id HTTP/1.1
+Fetch the list with the given ID. Used for verifying the title of a list, and which replies to show within that list.
+
+Returns: List
+OAuth: User token + read:lists
+Version history:
+2.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the List in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+The list 12249 exists and is owned by you
+
+{
+"id": "12249",
+"title": "Friends",
+"replies_policy": "followed",
+"exclusive": false
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+List does not exist or is not owned by you
+
+{
+"error": "Record not found"
+}

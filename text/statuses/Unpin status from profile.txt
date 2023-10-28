@@ -1,0 +1,52 @@
+Unpin status from profile
+POST /api/v1/statuses/:id/unpin HTTP/1.1
+Unfeature a status from the top of your profile.
+
+Returns: Status
+OAuth: User token + write:accounts
+Version history:
+1.6.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The local ID of the Status in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Status unpinned, or was already not pinned
+
+{
+"id": "99734435964706331",
+"created_at": "2018-03-23T17:38:40.700Z",
+// ...
+"favourited": false,
+"reblogged": false,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+// ...
+"reblog": null,
+// ...
+"account": {
+"id": "14715",
+"username": "trwnh",
+"acct": "trwnh",
+// ...
+},
+// ...
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status does not exist or is private.
+
+{
+"error": "Record not found"
+}

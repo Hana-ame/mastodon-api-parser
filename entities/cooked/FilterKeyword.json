@@ -1,0 +1,35 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the FilterKeyword in the database."
+  },
+  {
+    "name": "keyword",
+    "jsonName": "keyword",
+    "valueName": "Keyword",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The phrase to be matched against."
+  },
+  {
+    "name": "whole_word",
+    "jsonName": "whole_word",
+    "valueName": "WholeWord",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Should the filter consider word boundaries? See implementation guidelines for filters."
+  }
+]

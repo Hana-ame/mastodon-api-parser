@@ -1,0 +1,20 @@
+{
+  "summary": "View status source",
+  "method": "GET",
+  "router": "/api/v1/statuses/:id/source",
+  "description": "Obtain the source properties for a status so that it can be edited.\n\n",
+  "returns": "StatusSource",
+  "oauth": "App",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The local ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

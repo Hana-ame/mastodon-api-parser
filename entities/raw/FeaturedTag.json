@@ -1,0 +1,27 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from integer but not guaranteed to be a number)",
+    "description": "Description: The internal ID of the featured tag in the database."
+  },
+  {
+    "name": "name",
+    "type": "Type: String",
+    "description": "Description: The name of the hashtag being featured."
+  },
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to all statuses by a user that contain this hashtag."
+  },
+  {
+    "name": "statuses_count",
+    "type": "Type: Integer",
+    "description": "Description: The number of authored statuses containing this hashtag."
+  },
+  {
+    "name": "last_status_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: The timestamp of the last authored status containing this hashtag."
+  }
+]

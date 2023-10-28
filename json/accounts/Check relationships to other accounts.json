@@ -1,0 +1,20 @@
+{
+  "summary": "Check relationships to other accounts",
+  "method": "GET",
+  "router": "/api/v1/accounts/relationships",
+  "description": "Find out whether a given account is followed, blocked, muted, etc.\n\n",
+  "returns": "Array of Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "id[]",
+      "paramType": "query",
+      "comment": "Array. Check relationships for the provided account IDs."
+    }
+  ]
+}

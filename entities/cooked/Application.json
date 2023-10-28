@@ -1,0 +1,57 @@
+[
+  {
+    "name": "name",
+    "jsonName": "name",
+    "valueName": "Name",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The name of your application."
+  },
+  {
+    "name": "website OPTIONAL",
+    "jsonName": "website",
+    "valueName": "Website",
+    "optional": true,
+    "type": "Type: NULLABLE String (URL)",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The website associated with your application."
+  },
+  {
+    "name": "vapid_key",
+    "jsonName": "vapid_key",
+    "valueName": "VapidKey",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Used for Push Streaming API. Returned with POST /api/v1/apps. Equivalent to WebPushSubscription#server_key"
+  },
+  {
+    "name": "client_id OPTIONAL",
+    "jsonName": "client_id",
+    "valueName": "ClientID",
+    "optional": true,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Client ID key, to be used for obtaining OAuth tokens"
+  },
+  {
+    "name": "client_secret OPTIONAL",
+    "jsonName": "client_secret",
+    "valueName": "ClientSecret",
+    "optional": true,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Client secret key, to be used for obtaining OAuth tokens"
+  }
+]

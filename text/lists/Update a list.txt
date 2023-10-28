@@ -1,0 +1,48 @@
+Update a list
+PUT /api/v1/lists/:id HTTP/1.1
+Change the title of a list, or which replies to show.
+
+Returns: List
+OAuth: User token + write:lists
+Version history:
+2.1.0 - added
+3.3.0 - added replies_policy
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the List in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+title
+REQUIRED String. The title of the list to be created.
+replies_policy
+String. One of followed, list, or none. Defaults to list.
+Response
+200: OK
+The title of list 13585 was successfully updated to “testing”
+
+{
+"id": "13585",
+"title": "test",
+"replies_policy": "list"
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+If the title is missing:
+
+{
+"error": "Validation failed: Title can't be blank"
+}
+If the replies_policy is not understood:
+
+{
+"error": "'some' is not a valid replies_policy"
+}

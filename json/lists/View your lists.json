@@ -1,0 +1,15 @@
+{
+  "summary": "View your lists",
+  "method": "GET",
+  "router": "/api/v1/lists",
+  "description": "Fetch all lists that the user owns.\n\n",
+  "returns": "Array of List",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the email block in the database."
+  },
+  {
+    "name": "canonical_email_hash",
+    "jsonName": "canonical_email_hash",
+    "valueName": "CanonicalEmailHash",
+    "optional": false,
+    "type": "Type: String (SHA256)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The SHA256 hash of the canonical email address."
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "summary": "View hashtag timeline",
+  "method": "GET",
+  "router": "/api/v1/timelines/tag/:hashtag",
+  "description": "View public statuses containing the given hashtag.\n\n",
+  "returns": "Array of Status",
+  "oauth": "Public.",
+  "request": [
+    {
+      "name": ":hashtag",
+      "paramType": "path",
+      "comment": "REQUIRED String. The name of the hashtag (not including the # symbol)."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "any[]",
+      "paramType": "query",
+      "comment": "Array of String. Return statuses that contain any of these additional tags."
+    },
+    {
+      "name": "all[]",
+      "paramType": "query",
+      "comment": "Array of String. Return statuses that contain all of these additional tags."
+    },
+    {
+      "name": "none[]",
+      "paramType": "query",
+      "comment": "Array of String. Return statuses that contain none of these additional tags."
+    },
+    {
+      "name": "local",
+      "paramType": "query",
+      "comment": "Boolean. Return only local statuses? Defaults to false."
+    },
+    {
+      "name": "remote",
+      "paramType": "query",
+      "comment": "Boolean. Return only remote statuses? Defaults to false."
+    },
+    {
+      "name": "only_media",
+      "paramType": "query",
+      "comment": "Boolean. Return only statuses with media attachments? Defaults to false."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be lesser than this ID. In effect, sets an upper bound on results."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be greater than this ID. In effect, sets a lower bound on results."
+    },
+    {
+      "name": "min_id",
+      "paramType": "query",
+      "comment": "String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses."
+    }
+  ]
+}

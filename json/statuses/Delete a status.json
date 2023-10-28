@@ -1,0 +1,20 @@
+{
+  "summary": "Delete a status",
+  "method": "DELETE",
+  "router": "/api/v1/statuses/:id",
+  "description": "Delete one of your own statuses.\n\n",
+  "returns": "Status with source text and poll or media_attachments",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

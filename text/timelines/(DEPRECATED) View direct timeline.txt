@@ -1,0 +1,45 @@
+(DEPRECATED) View direct timeline
+GET /api/v1/timelines/direct HTTP/1.1
+View statuses with a “direct” privacy, from your account or in your notifications.
+
+Returns: Array of Status
+OAuth: User token + read:statuses
+Version history:
+x.x.x - added
+2.6.0 - add min_id. deprecated in favor of Conversations API
+3.0.0 - removed
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+since_id
+String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+Response
+200: OK
+Statuses with direct visibility, authored by you or mentioning you. Statuses are not grouped by conversation, but are returned in chronological order.
+
+[
+{
+"id": "103206185588894565",
+"created_at": "2019-11-26T20:50:15.866Z",
+// ...
+"visibility": "direct",
+// ...
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+

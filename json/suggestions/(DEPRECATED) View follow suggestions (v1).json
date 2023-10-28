@@ -1,0 +1,20 @@
+{
+  "summary": "(DEPRECATED) View follow suggestions (v1)",
+  "method": "GET",
+  "router": "/api/v1/suggestions",
+  "description": "Accounts the user has had past positive interactions with, but is not yet following.\n\n",
+  "returns": "Array of Account",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts."
+    }
+  ]
+}

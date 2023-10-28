@@ -1,0 +1,46 @@
+[
+  {
+    "name": "domain",
+    "jsonName": "domain",
+    "valueName": "Domain",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The domain which is blocked. This may be obfuscated or partially censored."
+  },
+  {
+    "name": "digest",
+    "jsonName": "digest",
+    "valueName": "Digest",
+    "optional": false,
+    "type": "Type: String (SHA256)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The SHA256 hash digest of the domain string."
+  },
+  {
+    "name": "severity",
+    "jsonName": "severity",
+    "valueName": "Severity",
+    "optional": false,
+    "type": "Type: String (Enumerable, oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The level to which the domain is blocked."
+  },
+  {
+    "name": "comment OPTIONAL",
+    "jsonName": "comment",
+    "valueName": "Comment",
+    "optional": true,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: An optional reason for the domain block."
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "summary": "Remove keywords from a filter",
+  "method": "DELETE",
+  "router": "/api/v2/filters/keywords/:id",
+  "description": "Deletes the given filter keyword.\n\n",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the FilterKeyword in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

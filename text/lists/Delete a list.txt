@@ -1,0 +1,31 @@
+Delete a list
+DELETE /api/v1/lists/:id HTTP/1.1
+Returns: empty object
+OAuth: User token + write:lists
+Version history:
+2.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the List in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+List was successfully deleted
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+List does not exist or is not owned by you
+
+{
+"error": "Record not found"
+}

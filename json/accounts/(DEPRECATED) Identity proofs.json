@@ -1,0 +1,15 @@
+{
+  "summary": "(DEPRECATED) Identity proofs",
+  "method": "GET",
+  "router": "/api/v1/accounts/:id/identity_proofs",
+  "description": "",
+  "returns": "Array of IdentityProof",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    }
+  ]
+}

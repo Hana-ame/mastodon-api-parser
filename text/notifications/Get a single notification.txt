@@ -1,0 +1,62 @@
+Get a single notification
+GET /api/v1/notifications/:id HTTP/1.1
+View information about a notification with a given ID.
+
+Returns: Notification
+OAuth: User token + read:notifications
+Version history:
+0.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Notification in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+A single Notification
+
+{
+"id": "34975861",
+"type": "mention",
+"created_at": "2019-11-23T07:49:02.064Z",
+"account": {
+"id": "971724",
+"username": "zsc",
+"acct": "zsc",
+// ...
+},
+"status": {
+"id": "103186126728896492",
+"created_at": "2019-11-23T07:49:01.940Z",
+"in_reply_to_id": "103186038209478945",
+"in_reply_to_account_id": "14715",
+// ...
+"content": "<p><span class=\"h-card\"><a href=\"https://mastodon.social/@trwnh\" class=\"u-url mention\">@<span>trwnh</span></a></span> sup!</p>",
+// ...
+"account": {
+"id": "971724",
+"username": "zsc",
+"acct": "zsc",
+// ...
+},
+// ...
+"mentions": [
+{
+"id": "14715",
+"username": "trwnh",
+"url": "https://mastodon.social/@trwnh",
+"acct": "trwnh"
+}
+],
+// ...
+}
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

@@ -1,0 +1,35 @@
+{
+  "summary": "(DEPRECATED) View direct timeline",
+  "method": "GET",
+  "router": "/api/v1/timelines/direct",
+  "description": "View statuses with a “direct” privacy, from your account or in your notifications.\n\n",
+  "returns": "Array of Status",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be lesser than this ID. In effect, sets an upper bound on results."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be greater than this ID. In effect, sets a lower bound on results."
+    },
+    {
+      "name": "min_id",
+      "paramType": "query",
+      "comment": "String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses."
+    }
+  ]
+}

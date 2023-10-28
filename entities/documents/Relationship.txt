@@ -1,0 +1,293 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Relationship
+Represents the relationship between accounts, such as following / blocking / muting / etc.
+
+Example
+Attributes
+id
+following
+showing_reblogs
+notifying
+languages
+followed_by
+blocking
+blocked_by
+muting
+muting_notifications
+requested
+domain_blocking
+endorsed
+note
+See also
+Example
+{
+  "id": "1",
+  "following": true,
+  "showing_reblogs": true,
+  "notifying": false,
+  "followed_by": true,
+  "blocking": false,
+  "blocked_by": false,
+  "muting": false,
+  "muting_notifications": false,
+  "requested": false,
+  "domain_blocking": false,
+  "endorsed": false,
+  "note": ""
+}
+Attributes
+id
+Description: The account ID.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+0.6.0 - added
+
+following
+Description: Are you following this user?
+Type: Boolean
+Version history:
+0.6.0 - added
+
+showing_reblogs
+Description: Are you receiving this user’s boosts in your home timeline?
+Type: Boolean
+Version history:
+2.1.0 - added
+
+notifying
+Description: Have you enabled notifications for this user?
+Type: Boolean
+Version history:
+3.3.0 - added
+
+languages
+Description: Which languages are you following from this user?
+Type: Array of String (ISO 639-1 language two-letter code)
+Version history:
+4.0.0 - added
+
+followed_by
+Description: Are you followed by this user?
+Type: Boolean
+Version history:
+0.6.0 - added
+
+blocking
+Description: Are you blocking this user?
+Type: Boolean
+Version history:
+0.6.0 - added
+
+blocked_by
+Description: Is this user blocking you?
+Type: Boolean
+Version history:
+2.8.0 - added
+
+muting
+Description: Are you muting this user?
+Type: Boolean
+Version history:
+1.1.0 - added
+
+muting_notifications
+Description: Are you muting notifications from this user?
+Type: Boolean
+Version history:
+2.1.0 - added
+
+requested
+Description: Do you have a pending follow request for this user?
+Type: Boolean
+Version history:
+0.9.9 - added
+
+domain_blocking
+Description: Are you blocking this user’s domain?
+Type: Boolean
+Version history:
+1.4.0 - added
+
+endorsed
+Description: Are you featuring this user on your profile?
+Type: Boolean
+Version history:
+2.5.0 - added
+
+note
+Description: This user’s profile bio
+Type: String
+Version history:
+3.2.0 - added
+
+See also
+GET /api/v1/accounts/relationships
+app/serializers/rest/relationship_serializer.rb
+Last updated March 8, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

@@ -1,0 +1,30 @@
+Revoke a token
+POST /oauth/revoke HTTP/1.1
+Revoke an access token to make it no longer valid for use.
+
+Returns: empty object
+OAuth: Public
+Version history:
+x.x.x - added
+
+Request
+Form data parameters
+client_id
+REQUIRED String. The client ID, obtained during app registration.
+client_secret
+REQUIRED String. The client secret, obtained during app registration.
+token
+REQUIRED String. The previously obtained token, to be invalidated.
+Response
+200: OK
+If you own the provided token, the API call will provide an empty response. This operation is idempotent, so calling this API multiple times will still return OK.
+
+{}
+403: Forbidden
+If you provide a token you do not own, or no token at all, the API call will return a 403 error.
+
+{
+"error": "unauthorized_client",
+"error_description": "You are not authorized to revoke this token"
+}
+

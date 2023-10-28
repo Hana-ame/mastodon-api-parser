@@ -1,0 +1,25 @@
+{
+  "summary": "Update a scheduled status’s publishing date",
+  "method": "PUT",
+  "router": "/api/v1/scheduled_statuses/:id",
+  "description": "",
+  "returns": "ScheduledStatus",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the ScheduledStatus in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "scheduled_at",
+      "paramType": "formData",
+      "comment": "String. ISO 8601 Datetime at which the status will be published. Must be at least 5 minutes into the future."
+    }
+  ]
+}

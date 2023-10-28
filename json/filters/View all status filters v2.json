@@ -1,0 +1,20 @@
+{
+  "summary": "View all status filters",
+  "method": "GET",
+  "router": "/api/v2/filters/:filter_id/statuses",
+  "description": "Obtain a list of all status filters within this filter group.\n\n",
+  "returns": "Array of FilterStatus",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":filter_id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Filter in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

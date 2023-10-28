@@ -1,0 +1,56 @@
+Follow account
+POST /api/v1/accounts/:id/follow HTTP/1.1
+Follow the given account. Can also be used to update whether to show reblogs or enable notifications.
+
+Returns: Relationship
+OAuth: User token + write:follows
+Version history:
+0.0.0 - added
+3.3.0 - added notify
+3.5.0 - deprecated follow scope. now additionally accepts write
+4.0.0 - added languages
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+reblogs
+Boolean. Receive this account’s reblogs in home timeline? Defaults to true.
+notify
+Boolean. Receive notifications when this account posts a status? Defaults to false.
+languages
+Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account’s posts in all languages.
+Response
+200: OK
+Successfully followed, or account was already followed
+
+{
+"id": "3",
+"following": true,
+"showing_reblogs": false,
+"notifying": false,
+"followed_by": false,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+403: Forbidden
+Trying to follow someone that you block or that blocks you
+
+{
+"error": "This action is not allowed"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

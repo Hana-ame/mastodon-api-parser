@@ -1,0 +1,67 @@
+Set private note on profile
+POST /api/v1/accounts/:id/note HTTP/1.1
+Sets a private note on a user.
+
+Returns: Relationship
+OAuth: User + write:accounts
+Version history:
+3.2.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+comment
+String. The comment to be set on that user. Provide an empty string or leave out this parameter to clear the currently set note.
+Response
+200: OK
+Successfully updated profile note
+
+{
+"id": "1",
+"following": true,
+"showing_reblogs": true,
+"notifying": false,
+"followed_by": true,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false,
+"note": "this is a comment"
+}
+Successfully removed profile note
+
+{
+"id": "1",
+"following": true,
+"showing_reblogs": true,
+"notifying": false,
+"followed_by": true,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false,
+"note": ""
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

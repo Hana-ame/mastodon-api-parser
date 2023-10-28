@@ -1,0 +1,15 @@
+{
+  "summary": "View suggested tags to feature",
+  "method": "GET",
+  "router": "/api/v1/featured_tags/suggestions",
+  "description": "Shows up to 10 recently-used tags.\n\n",
+  "returns": "Array of Tag",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

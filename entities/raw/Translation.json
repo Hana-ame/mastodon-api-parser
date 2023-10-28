@@ -1,0 +1,12 @@
+[
+  {
+    "name": "content",
+    "type": "Type: String (HTML)",
+    "description": "Description: The translated text of the status."
+  },
+  {
+    "name": "detected_source_language",
+    "type": "Type: String (ISO 639 language code)",
+    "description": "Description: The language of the source text, as auto-detected by the machine translation provider."
+  }
+]

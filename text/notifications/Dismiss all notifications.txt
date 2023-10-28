@@ -1,0 +1,24 @@
+Dismiss all notifications
+POST /api/v1/notifications/clear HTTP/1.1
+Clear all notifications from the server.
+
+Returns: empty object
+OAuth: User token + write:notifications
+Version history:
+0.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Notifications successfully cleared.
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

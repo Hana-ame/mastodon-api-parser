@@ -1,0 +1,35 @@
+[
+  {
+    "name": "period",
+    "jsonName": "period",
+    "valueName": "Period",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp for the start of the period, at midnight."
+  },
+  {
+    "name": "frequency",
+    "jsonName": "frequency",
+    "valueName": "Frequency",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The size of the bucket for the returned data."
+  },
+  {
+    "name": "data",
+    "jsonName": "data",
+    "valueName": "Data",
+    "optional": false,
+    "type": "Type: Array of CohortData",
+    "valueType": "CohortData",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Retention data for users who registered during the given period."
+  }
+]

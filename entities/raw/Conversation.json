@@ -1,0 +1,22 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the conversation in the database."
+  },
+  {
+    "name": "unread",
+    "type": "Type: Boolean",
+    "description": "Description: Is the conversation currently marked as unread?"
+  },
+  {
+    "name": "accounts",
+    "type": "Type: Array of Account",
+    "description": "Description: Participants in the conversation."
+  },
+  {
+    "name": "last_status",
+    "type": "Type: NULLABLE Status",
+    "description": "Description: The last status in the conversation."
+  }
+]

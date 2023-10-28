@@ -1,0 +1,43 @@
+Undo bookmark of a status
+POST /api/v1/statuses/:id/unbookmark HTTP/1.1
+Remove a status from your private bookmarks.
+
+Returns: Status
+OAuth: User token + write:bookmarks
+Version history:
+3.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Status was unbookmarked or was already not bookmarked
+
+{
+"id": "99734435964706331",
+"created_at": "2018-03-23T17:38:40.700Z",
+// ...
+"favourited": false,
+"reblogged": false,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+// ...
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status does not exist or is private.
+
+{
+"error": "Record not found"
+}

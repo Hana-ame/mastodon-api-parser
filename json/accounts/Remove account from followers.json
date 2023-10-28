@@ -1,0 +1,20 @@
+{
+  "summary": "Remove account from followers",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/remove_from_followers",
+  "description": "Remove the given account from your followers.\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "name",
+    "type": "Type: String",
+    "description": "Description: The emoji used for the reaction. Either a unicode emoji, or a custom emoji’s shortcode."
+  },
+  {
+    "name": "count",
+    "type": "Type: Integer",
+    "description": "Description: The total number of users who have added this reaction."
+  },
+  {
+    "name": "me OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: If there is a currently authorized user: Have you added this reaction?"
+  },
+  {
+    "name": "url OPTIONAL",
+    "type": "Type: String (URL)",
+    "description": "Description: If the reaction is a custom emoji: A link to the custom emoji."
+  },
+  {
+    "name": "static_url OPTIONAL",
+    "type": "Type: String (URL)",
+    "description": "Description: If the reaction is a custom emoji: A link to a non-animated version of the custom emoji."
+  }
+]

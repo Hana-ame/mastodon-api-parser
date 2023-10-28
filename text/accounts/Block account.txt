@@ -1,0 +1,47 @@
+Block account
+POST /api/v1/accounts/:id/block HTTP/1.1
+Block the given account. Clients should filter statuses from this account if received (e.g. due to a boost in the Home timeline)
+
+Returns: Relationship
+OAuth: User token + write:blocks
+Version history:
+0.0.0 - added
+3.5.0 - deprecated follow scope. now additionally accepts write
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Successfully blocked, or account was already blocked
+
+{
+"id": "3",
+"following": false,
+"showing_reblogs": false,
+"notifying": false,
+"followed_by": false,
+"blocking": true,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

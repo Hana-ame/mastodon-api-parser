@@ -1,0 +1,25 @@
+{
+  "summary": "Save your position in a timeline",
+  "method": "POST",
+  "router": "/api/v1/markers",
+  "description": "",
+  "returns": "Marker",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "home[last_read_id]",
+      "paramType": "formData",
+      "comment": "String. ID of the last status read in the home timeline."
+    },
+    {
+      "name": "notifications[last_read_id]",
+      "paramType": "formData",
+      "comment": "String. ID of the last notification read."
+    }
+  ]
+}

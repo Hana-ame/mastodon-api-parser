@@ -1,0 +1,46 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the conversation in the database."
+  },
+  {
+    "name": "unread",
+    "jsonName": "unread",
+    "valueName": "Unread",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Is the conversation currently marked as unread?"
+  },
+  {
+    "name": "accounts",
+    "jsonName": "accounts",
+    "valueName": "Accounts",
+    "optional": false,
+    "type": "Type: Array of Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Participants in the conversation."
+  },
+  {
+    "name": "last_status",
+    "jsonName": "last_status",
+    "valueName": "LastStatus",
+    "optional": false,
+    "type": "Type: NULLABLE Status",
+    "valueType": "Status",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The last status in the conversation."
+  }
+]

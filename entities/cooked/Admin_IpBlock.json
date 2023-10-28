@@ -1,0 +1,68 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the DomainBlock in the database."
+  },
+  {
+    "name": "ip",
+    "jsonName": "ip",
+    "valueName": "Ip",
+    "optional": false,
+    "type": "Type: String (IP address and prefix)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The IP address range that is not allowed to federate."
+  },
+  {
+    "name": "severity",
+    "jsonName": "severity",
+    "valueName": "Severity",
+    "optional": false,
+    "type": "Type: String (Enumerable, oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The associated policy with this IP block."
+  },
+  {
+    "name": "comment",
+    "jsonName": "comment",
+    "valueName": "Comment",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The recorded reason for this IP block."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When the IP block was created."
+  },
+  {
+    "name": "expires_at",
+    "jsonName": "expires_at",
+    "valueName": "ExpiresAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the IP block will expire."
+  }
+]

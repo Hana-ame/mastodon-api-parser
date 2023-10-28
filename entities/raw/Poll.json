@@ -1,0 +1,52 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the poll in the database."
+  },
+  {
+    "name": "expires_at",
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the poll does not end",
+    "description": "Description: When the poll ends."
+  },
+  {
+    "name": "expired",
+    "type": "Type: Boolean",
+    "description": "Description: Is the poll currently expired?"
+  },
+  {
+    "name": "multiple",
+    "type": "Type: Boolean",
+    "description": "Description: Does the poll allow multiple-choice answers?"
+  },
+  {
+    "name": "votes_count",
+    "type": "Type: Integer",
+    "description": "Description: How many votes have been received."
+  },
+  {
+    "name": "voters_count",
+    "type": "Type: NULLABLE Integer, or null if multiple is false.",
+    "description": "Description: How many unique accounts have voted on a multiple-choice poll."
+  },
+  {
+    "name": "options",
+    "type": "Type: Array of Poll::Option",
+    "description": "Description: Possible answers for the poll."
+  },
+  {
+    "name": "emojis",
+    "type": "Type: Array of CustomEmoji",
+    "description": "Description: Custom emoji to be used for rendering poll options."
+  },
+  {
+    "name": "voted OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: When called with a user token, has the authorized user voted?"
+  },
+  {
+    "name": "own_votes OPTIONAL",
+    "type": "Type: Array of Integer",
+    "description": "Description: When called with a user token, which options has the authorized user chosen? Contains an array of index values for options."
+  }
+]

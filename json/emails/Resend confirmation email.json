@@ -1,0 +1,20 @@
+{
+  "summary": "Resend confirmation email",
+  "method": "POST",
+  "router": "/api/v1/emails/confirmation",
+  "description": "",
+  "returns": "Empty object",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "email",
+      "paramType": "formData",
+      "comment": "If provided, updates the unconfirmed user’s email before resending the confirmation email."
+    }
+  ]
+}

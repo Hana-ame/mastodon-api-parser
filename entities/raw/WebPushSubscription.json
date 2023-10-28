@@ -1,0 +1,72 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the Web Push subscription in the database."
+  },
+  {
+    "name": "endpoint",
+    "type": "Type: String (URL)",
+    "description": "Description: Where push alerts will be sent to."
+  },
+  {
+    "name": "server_key",
+    "type": "Type: String",
+    "description": "Description: The streaming server’s VAPID key."
+  },
+  {
+    "name": "alerts",
+    "type": "Type: Hash",
+    "description": "Description: Which alerts should be delivered to the endpoint."
+  },
+  {
+    "name": "alerts[mention]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when someone else has mentioned you in a status?"
+  },
+  {
+    "name": "alerts[status]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a subscribed account posts a status?"
+  },
+  {
+    "name": "alerts[reblog]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a status you created has been boosted by someone else?"
+  },
+  {
+    "name": "alerts[follow]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when someone has followed you?"
+  },
+  {
+    "name": "alerts[follow_request]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when someone has requested to followed you?"
+  },
+  {
+    "name": "alerts[favourite]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a status you created has been favourited by someone else?"
+  },
+  {
+    "name": "alerts[poll]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a poll you voted in or created has ended?"
+  },
+  {
+    "name": "alerts[update]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a status you interacted with has been edited?"
+  },
+  {
+    "name": "alerts[admin.sign_up]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a new user has signed up?"
+  },
+  {
+    "name": "alerts[admin.report]",
+    "type": "Type: Boolean",
+    "description": "Description: Receive a push notification when a new report has been filed?"
+  }
+]

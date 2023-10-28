@@ -1,0 +1,25 @@
+{
+  "summary": "Translate a status",
+  "method": "POST",
+  "router": "/api/v1/statuses/:id/translate",
+  "description": "Translate the status content into some language.\n\n",
+  "returns": "Translation",
+  "oauth": "App",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "lang",
+      "paramType": "formData",
+      "comment": "String (ISO 639 language code). The status content will be translated into this language. Defaults to the user’s current locale."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

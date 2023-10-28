@@ -1,0 +1,49 @@
+View your filters
+GET /api/v1/filters HTTP/1.1
+Returns: List of V1::Filter
+OAuth: User token + read:filters
+Version history:
+2.4.3 - added
+4.0.0 - deprecated. For compatibility purposes, now returns a List of V1::Filter, with each V1::Filter representing one FilterKeyword (with the keyword being presented in the phrase attribute)
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Excerpts of various filters in different contexts.
+
+[
+{
+"id": "6191",
+"phrase": ":eurovision2019:",
+"context": [
+"home"
+],
+"whole_word": true,
+"expires_at": "2019-05-21T13:47:31.333Z",
+"irreversible": false
+},
+// ...
+{
+"id": "5580",
+"phrase": "@twitter.com",
+"context": [
+"home",
+"notifications",
+"public",
+"thread"
+],
+"whole_word": false,
+"expires_at": null,
+"irreversible": true
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

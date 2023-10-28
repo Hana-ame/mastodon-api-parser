@@ -1,0 +1,12 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the email block in the database."
+  },
+  {
+    "name": "canonical_email_hash",
+    "type": "Type: String (SHA256)",
+    "description": "Description: The SHA256 hash of the canonical email address."
+  }
+]

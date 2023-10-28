@@ -1,0 +1,35 @@
+[
+  {
+    "name": "filter",
+    "jsonName": "filter",
+    "valueName": "Filter",
+    "optional": false,
+    "type": "Type: Filter",
+    "valueType": "Filter",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The filter that was matched."
+  },
+  {
+    "name": "keyword_matches",
+    "jsonName": "keyword_matches",
+    "valueName": "KeywordMatches",
+    "optional": false,
+    "type": "Type: NULLABLE Array of String, or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": true,
+    "description": "Description: The keyword within the filter that was matched."
+  },
+  {
+    "name": "status_matches",
+    "jsonName": "status_matches",
+    "valueName": "StatusMatches",
+    "optional": false,
+    "type": "Type: NULLABLE Array of String, or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": true,
+    "description": "Description: The status ID within the filter that was matched."
+  }
+]

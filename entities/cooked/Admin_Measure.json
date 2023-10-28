@@ -1,0 +1,90 @@
+[
+  {
+    "name": "key",
+    "jsonName": "key",
+    "valueName": "Key",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The unique keystring for the requested measure."
+  },
+  {
+    "name": "unit",
+    "jsonName": "unit",
+    "valueName": "Unit",
+    "optional": false,
+    "type": "Type: NULLABLE String or null",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The units associated with this data item’s value, if applicable."
+  },
+  {
+    "name": "total",
+    "jsonName": "total",
+    "valueName": "Total",
+    "optional": false,
+    "type": "Type: String (cast from integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The numeric total associated with the requested measure."
+  },
+  {
+    "name": "human_value OPTIONAL",
+    "jsonName": "human_value",
+    "valueName": "HumanValue",
+    "optional": true,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A human-readable formatted value for this data item."
+  },
+  {
+    "name": "previous_total OPTIONAL",
+    "jsonName": "previous_total",
+    "valueName": "PreviousTotal",
+    "optional": true,
+    "type": "Type: String (cast from integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The numeric total associated with the requested measure, in the previous period. Previous period is calculated by subtracting the start_at and end_at dates, then offsetting both start and end dates backwards by the length of the time period."
+  },
+  {
+    "name": "data",
+    "jsonName": "data",
+    "valueName": "Data",
+    "optional": false,
+    "type": "Type: Array of Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The data available for the requested measure, split into daily buckets."
+  },
+  {
+    "name": "data[][date]",
+    "jsonName": "date",
+    "valueName": "Date",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Midnight on the requested day in the time period."
+  },
+  {
+    "name": "data[][value]",
+    "jsonName": "value",
+    "valueName": "Value",
+    "optional": false,
+    "type": "Type: String (cast from integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The numeric value for the requested measure."
+  }
+]

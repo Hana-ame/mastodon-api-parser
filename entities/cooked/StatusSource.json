@@ -1,0 +1,35 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: ID of the status in the database."
+  },
+  {
+    "name": "text",
+    "jsonName": "text",
+    "valueName": "Text",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The plain text used to compose the status."
+  },
+  {
+    "name": "spoiler_text",
+    "jsonName": "spoiler_text",
+    "valueName": "SpoilerText",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The plain text used to compose the status’s subject or content warning."
+  }
+]

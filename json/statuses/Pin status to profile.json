@@ -1,0 +1,20 @@
+{
+  "summary": "Pin status to profile",
+  "method": "POST",
+  "router": "/api/v1/statuses/:id/pin",
+  "description": "Feature one of your own public statuses at the top of your profile.\n\n",
+  "returns": "Status",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The local ID of the Status in the database. The status should be authored by the authorized account."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

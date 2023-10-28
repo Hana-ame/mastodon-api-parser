@@ -1,0 +1,72 @@
+Get account’s followers
+GET /api/v1/accounts/:id/followers HTTP/1.1
+Accounts which follow the given account, if network is not hidden by the account owner.
+
+Returns: Array of Account
+OAuth: Public
+Version history:
+0.0.0 - added
+3.3.0 - both min_id and max_id can be used at the same time now
+4.0.0 - no longer requires an app token + read:accounts
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+Internal parameter. Use HTTP Link header for pagination.
+since_id
+Internal parameter. Use HTTP Link header for pagination.
+min_id
+Internal parameter. Use HTTP Link header for pagination.
+limit
+Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+Response
+200: OK
+Sample output with limit=2.
+
+[
+{
+"id": "1020382",
+"username": "atul13061987",
+"acct": "atul13061987",
+"display_name": "",
+// ...
+},
+{
+"id": "1020381",
+"username": "linuxliner",
+"acct": "linuxliner",
+"display_name": "",
+// ...
+}
+]
+Because Follow IDs are generally not exposed via any API responses, you will have to parse the HTTP Link header to load older or newer results. See Paginating through API responses for more information.
+
+Link: <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&max_id=7486869>; rel="next", <https://mastodon.example/api/v1/accounts/14715/followers?limit=2&since_id=7489740>; rel="prev"
+401: Unauthorized
+Invalid or missing Authorization header, or instance is in whitelist mode and your token is not authorized with a user
+
+Sample response for whitelist mode:
+
+{
+"error": "This API requires an authenticated user"
+}
+Sample response with missing header or invalid token:
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Account does not exist
+
+{
+"error": "Record not found"
+}
+410: Gone
+Account is suspended (since 2.4.0 and until 3.3.0)
+

@@ -1,0 +1,36 @@
+Get saved timeline positions
+GET /api/v1/markers HTTP/1.1
+Returns: Hash of timeline key and associated Marker
+OAuth: User token + read:statuses
+Version history:
+3.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+timeline[]
+Array of String. Specify the timeline(s) for which markers should be fetched. Possible values: home, notifications. If not provided, an empty object will be returned.
+Response
+200: OK
+A request with ?timeline[]=home&timeline[]=notifications
+
+{
+"notifications": {
+"last_read_id": "35098814",
+"version": 361,
+"updated_at": "2019-11-26T22:37:25.239Z"
+},
+"home": {
+"last_read_id": "103206604258487607",
+"version": 468,
+"updated_at": "2019-11-26T22:37:25.235Z"
+}
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "description": "Description: The ID of the attachment in the database."
+  },
+  {
+    "name": "type",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: The type of the attachment."
+  },
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: The location of the original full-size attachment."
+  },
+  {
+    "name": "preview_url",
+    "type": "Type: String (URL)",
+    "description": "Description: The location of a scaled-down preview of the attachment."
+  },
+  {
+    "name": "remote_url",
+    "type": "Type: NULLABLE String (URL), or null if the attachment is local",
+    "description": "Description: The location of the full-size original attachment on the remote website."
+  },
+  {
+    "name": "meta",
+    "type": "Type: Hash",
+    "description": "Description: Metadata returned by Paperclip."
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: ID of the scheduled status in the database."
+  },
+  {
+    "name": "scheduled_at",
+    "jsonName": "scheduled_at",
+    "valueName": "ScheduledAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp for when the status will be posted."
+  },
+  {
+    "name": "params",
+    "jsonName": "params",
+    "valueName": "Params",
+    "optional": false,
+    "type": "Type: Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The parameters that were used when scheduling the status, to be used when the status is posted."
+  },
+  {
+    "name": "params[text]",
+    "jsonName": "text",
+    "valueName": "Text",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Text to be used as status content."
+  },
+  {
+    "name": "params[poll]",
+    "jsonName": "poll",
+    "valueName": "Poll",
+    "optional": false,
+    "type": "Type: NULLABLE Hash",
+    "valueType": "map[string]any",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: Poll to be attached to the status."
+  },
+  {
+    "name": "params[poll][options[]]",
+    "jsonName": "options",
+    "valueName": "Options",
+    "optional": false,
+    "type": "Type: Array of String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The poll options to be used."
+  },
+  {
+    "name": "params[poll][expires_in]",
+    "jsonName": "expires_in",
+    "valueName": "ExpiresIn",
+    "optional": false,
+    "type": "Type: String (cast from integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: How many seconds the poll should last before closing."
+  },
+  {
+    "name": "params[poll][multiple]",
+    "jsonName": "multiple",
+    "valueName": "Multiple",
+    "optional": false,
+    "type": "Type: OPTIONAL Boolean",
+    "valueType": "OPTIONAL",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the poll allows multiple choices."
+  },
+  {
+    "name": "params[poll][hide_totals]",
+    "jsonName": "hide_totals",
+    "valueName": "HideTotals",
+    "optional": false,
+    "type": "Type: OPTIONAL Boolean",
+    "valueType": "OPTIONAL",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the poll should hide total votes until after voting has ended."
+  },
+  {
+    "name": "params[media_ids]",
+    "jsonName": "media_ids",
+    "valueName": "MediaIDs",
+    "optional": false,
+    "type": "Type: NULLABLE Array of String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": true,
+    "description": "Description: IDs of the MediaAttachments that will be attached to the status."
+  },
+  {
+    "name": "params[sensitive]",
+    "jsonName": "sensitive",
+    "valueName": "Sensitive",
+    "optional": false,
+    "type": "Type: NULLABLE Boolean",
+    "valueType": "bool",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: Whether the status will be marked as sensitive."
+  },
+  {
+    "name": "params[spoiler_text]",
+    "jsonName": "spoiler_text",
+    "valueName": "SpoilerText",
+    "optional": false,
+    "type": "Type: NULLABLE String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The text of the content warning or summary for the status."
+  },
+  {
+    "name": "params[visibility]",
+    "jsonName": "visibility",
+    "valueName": "Visibility",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The visibility that the status will have once it is posted."
+  },
+  {
+    "name": "params[in_reply_to_id]",
+    "jsonName": "in_reply_to_id",
+    "valueName": "InReplyToID",
+    "optional": false,
+    "type": "Type: NULLABLE Integer",
+    "valueType": "int",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: ID of the Status that will be replied to."
+  },
+  {
+    "name": "params[language]",
+    "jsonName": "language",
+    "valueName": "Language",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 639-1 two-letter language code)",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The language that will be used for the status."
+  },
+  {
+    "name": "params[application_id]",
+    "jsonName": "application_id",
+    "valueName": "ApplicationID",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: ID of the Application that posted the status."
+  },
+  {
+    "name": "params[scheduled_at]",
+    "jsonName": "scheduled_at",
+    "valueName": "ScheduledAt",
+    "optional": false,
+    "type": "Type: NULLABLE Null",
+    "valueType": "Null",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the status will be scheduled. This will be null because the status is only scheduled once."
+  },
+  {
+    "name": "params[idempotency]",
+    "jsonName": "idempotency",
+    "valueName": "IDempotency",
+    "optional": false,
+    "type": "Type: NULLABLE String",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: Idempotency key to prevent duplicate statuses."
+  },
+  {
+    "name": "params[with_rate_limit]",
+    "jsonName": "with_rate_limit",
+    "valueName": "WithRateLimit",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the status should be rate limited ."
+  },
+  {
+    "name": "media_attachments",
+    "jsonName": "media_attachments",
+    "valueName": "MediaAttachments",
+    "optional": false,
+    "type": "Type: Array of MediaAttachment",
+    "valueType": "MediaAttachment",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Media that will be attached when the status is posted."
+  }
+]

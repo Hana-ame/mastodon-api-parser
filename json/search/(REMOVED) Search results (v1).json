@@ -1,0 +1,55 @@
+{
+  "summary": "(REMOVED) Search results (v1)",
+  "method": "GET",
+  "router": "/api/v1/search",
+  "description": "",
+  "returns": "Search, but hashtags is an array of strings instead of an array of Tag.",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "q",
+      "paramType": "query",
+      "comment": "REQUIRED String. The search query."
+    },
+    {
+      "name": "type",
+      "paramType": "query",
+      "comment": "String. Specify whether to search for only accounts, hashtags, statuses"
+    },
+    {
+      "name": "resolve",
+      "paramType": "query",
+      "comment": "Boolean. Attempt WebFinger lookup? Defaults to false."
+    },
+    {
+      "name": "account_id",
+      "paramType": "query",
+      "comment": "String. If provided, will only return statuses authored by this account."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "String. All results returned will be lesser than this ID. In effect, sets an upper bound on results."
+    },
+    {
+      "name": "min_id",
+      "paramType": "query",
+      "comment": "String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return, per type. Defaults to 20 results per category. Max 40 results per category."
+    },
+    {
+      "name": "offset",
+      "paramType": "query",
+      "comment": "Integer. Offset in search results, used for pagination. Defaults to 0."
+    }
+  ]
+}

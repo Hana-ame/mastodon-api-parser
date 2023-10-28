@@ -1,0 +1,57 @@
+[
+  {
+    "name": "shortcode",
+    "jsonName": "shortcode",
+    "valueName": "Shortcode",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The name of the custom emoji."
+  },
+  {
+    "name": "url",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to the custom emoji."
+  },
+  {
+    "name": "static_url",
+    "jsonName": "static_url",
+    "valueName": "StaticUrl",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to a static copy of the custom emoji."
+  },
+  {
+    "name": "visible_in_picker",
+    "jsonName": "visible_in_picker",
+    "valueName": "VisibleInPicker",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether this Emoji should be visible in the picker or unlisted."
+  },
+  {
+    "name": "category",
+    "jsonName": "category",
+    "valueName": "Category",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Used for sorting custom emoji in the picker."
+  }
+]

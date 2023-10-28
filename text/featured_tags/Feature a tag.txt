@@ -1,0 +1,39 @@
+Feature a tag
+POST /api/v1/featured_tags HTTP/1.1
+Promote a hashtag on your profile.
+
+Returns: FeaturedTag
+OAuth: User token + write:accounts
+Version history:
+3.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+name
+REQUIRED String. The hashtag to be featured, without the hash sign.
+Response
+200: OK
+A FeaturedTag will be created with the specified name.
+
+{
+"id": "13174",
+"name": "circasurvive",
+"url": "https://mastodon.social/@trwnh/tagged/circasurvive",
+"statuses_count": 23,
+"last_status_at": "2021-10-22T14:47:35.357Z"
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+If name is not a valid hashtag, e.g. contains illegal characters or only numbers
+
+{
+"error": "Validation failed: Tag is invalid"
+}

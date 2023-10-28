@@ -1,0 +1,43 @@
+Unmute a conversation
+POST /api/v1/statuses/:id/unmute HTTP/1.1
+Start receiving notifications again for the thread that this status is part of.
+
+Returns: Status
+OAuth: User token + write:mutes
+Version history:
+1.4.2 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+Status’s conversation unmuted, or was already unmuted
+
+{
+"id": "99734435964706331",
+"created_at": "2018-03-23T17:38:40.700Z",
+// ...
+"favourited": false,
+"reblogged": false,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+// ...
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status does not exist or is private.
+
+{
+"error": "Record not found"
+}

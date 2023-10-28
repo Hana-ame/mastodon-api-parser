@@ -1,0 +1,47 @@
+(DEPRECATED) View follow suggestions (v1)
+GET /api/v1/suggestions HTTP/1.1
+Accounts the user has had past positive interactions with, but is not yet following.
+
+Returns: Array of Account
+OAuth: User token + read
+Version history:
+2.4.3 - added
+3.4.0 - deprecated
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+limit
+Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+Response
+200: OK
+[
+{
+"id": "332766",
+"username": "kaniini",
+"acct": "kaniini@pleroma.site",
+// ...
+},
+{
+"id": "689455",
+"username": "interneteh",
+"acct": "interneteh@sunbeam.city",
+// ...
+},
+{
+"id": "764276",
+"username": "Dee",
+"acct": "Dee@fedi.underscore.world",
+// ...
+},
+// ...
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+

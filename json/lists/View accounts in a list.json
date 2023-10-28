@@ -1,0 +1,40 @@
+{
+  "summary": "View accounts in a list",
+  "method": "GET",
+  "router": "/api/v1/lists/:id/accounts",
+  "description": "",
+  "returns": "Array of Account",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the List in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "min_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results. Defaults to 40 accounts. Max 80 accounts. Set to 0 in order to get all accounts without pagination."
+    }
+  ]
+}

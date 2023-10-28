@@ -1,0 +1,33 @@
+Remove a status from a filter group
+DELETE /api/v2/filters/statuses/:id HTTP/1.1
+Add a status filter to the current filter group.
+
+Returns: FilterStatus
+OAuth: User token + write:filters
+Version history:
+4.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the FilterStatus in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+FilterStatus deleted successfully
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+FilterStatus is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

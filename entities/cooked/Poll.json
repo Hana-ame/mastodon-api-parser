@@ -1,0 +1,112 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the poll in the database."
+  },
+  {
+    "name": "expires_at",
+    "jsonName": "expires_at",
+    "valueName": "ExpiresAt",
+    "optional": false,
+    "type": "Type: NULLABLE String (ISO 8601 Datetime), or null if the poll does not end",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: When the poll ends."
+  },
+  {
+    "name": "expired",
+    "jsonName": "expired",
+    "valueName": "Expired",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Is the poll currently expired?"
+  },
+  {
+    "name": "multiple",
+    "jsonName": "multiple",
+    "valueName": "Multiple",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Does the poll allow multiple-choice answers?"
+  },
+  {
+    "name": "votes_count",
+    "jsonName": "votes_count",
+    "valueName": "VotesCount",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: How many votes have been received."
+  },
+  {
+    "name": "voters_count",
+    "jsonName": "voters_count",
+    "valueName": "VotersCount",
+    "optional": false,
+    "type": "Type: NULLABLE Integer, or null if multiple is false.",
+    "valueType": "int",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: How many unique accounts have voted on a multiple-choice poll."
+  },
+  {
+    "name": "options",
+    "jsonName": "options",
+    "valueName": "Options",
+    "optional": false,
+    "type": "Type: Array of Poll::Option",
+    "valueType": "PollOption",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Possible answers for the poll."
+  },
+  {
+    "name": "emojis",
+    "jsonName": "emojis",
+    "valueName": "Emojis",
+    "optional": false,
+    "type": "Type: Array of CustomEmoji",
+    "valueType": "CustomEmoji",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Custom emoji to be used for rendering poll options."
+  },
+  {
+    "name": "voted OPTIONAL",
+    "jsonName": "voted",
+    "valueName": "Voted",
+    "optional": true,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: When called with a user token, has the authorized user voted?"
+  },
+  {
+    "name": "own_votes OPTIONAL",
+    "jsonName": "own_votes",
+    "valueName": "OwnVotes",
+    "optional": true,
+    "type": "Type: Array of Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: When called with a user token, which options has the authorized user chosen? Contains an array of index values for options."
+  }
+]

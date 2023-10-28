@@ -1,0 +1,17 @@
+[
+  {
+    "name": "filter",
+    "type": "Type: Filter",
+    "description": "Description: The filter that was matched."
+  },
+  {
+    "name": "keyword_matches",
+    "type": "Type: NULLABLE Array of String, or null",
+    "description": "Description: The keyword within the filter that was matched."
+  },
+  {
+    "name": "status_matches",
+    "type": "Type: NULLABLE Array of String, or null",
+    "description": "Description: The status ID within the filter that was matched."
+  }
+]

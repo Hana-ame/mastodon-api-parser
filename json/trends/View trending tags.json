@@ -1,0 +1,20 @@
+{
+  "summary": "View trending tags",
+  "method": "GET",
+  "router": "/api/v1/trends/tags",
+  "description": "Tags that are being used more frequently within the past week.\n\n",
+  "returns": "Array of Tag",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 10 tags. Max 20 tags."
+    },
+    {
+      "name": "offset",
+      "paramType": "query",
+      "comment": "Integer. Skip the first n results."
+    }
+  ]
+}

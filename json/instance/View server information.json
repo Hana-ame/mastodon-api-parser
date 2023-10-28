@@ -1,0 +1,9 @@
+{
+  "summary": "View server information",
+  "method": "GET",
+  "router": "/api/v2/instance",
+  "description": "Obtain general information about the server.\n\n",
+  "returns": "Instance",
+  "oauth": "Public",
+  "request": []
+}

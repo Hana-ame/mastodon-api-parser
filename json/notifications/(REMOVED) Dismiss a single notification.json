@@ -1,0 +1,20 @@
+{
+  "summary": "(REMOVED) Dismiss a single notification",
+  "method": "POST",
+  "router": "/api/v1/notifications/dismiss",
+  "description": "Dismiss a single notification from the server.\n\n",
+  "returns": "empty object",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "id",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The ID of the notification in the database."
+    }
+  ]
+}

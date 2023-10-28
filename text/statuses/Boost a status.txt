@@ -1,0 +1,58 @@
+Boost a status
+POST /api/v1/statuses/:id/reblog HTTP/1.1
+Reshare a status on your own profile.
+
+Returns: Status
+OAuth: User token + write:statuses
+Version history:
+0.0.0 - added
+2.8.0 - add visibility parameter
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+visibility
+String. Any visibility except limited or direct (i.e. public, unlisted, private). Defaults to public. Currently unused in UI.
+Response
+200: OK
+Status has been reblogged. Note that the top-level id has changed. The id of the boosted status is now inside the reblog property. The top-level id is the id of the reblog itself. Also note that reblogs cannot be pinned.
+
+{
+"id": "103254401326800919",
+"created_at": "2019-12-05T09:12:09.625Z",
+// ...
+"favourited": false,
+"reblogged": true,
+"muted": false,
+"bookmarked": false,
+// ...
+"reblog": {
+"id": "99734435964706331",
+"created_at": "2018-03-23T17:38:40.700Z",
+// ...
+"favourited": false,
+"reblogged": true,
+"muted": false,
+"bookmarked": false,
+"pinned": false,
+// ...
+},
+// ...
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Status does not exist or is private
+
+{
+"error": "Record not found"
+}

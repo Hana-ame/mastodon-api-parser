@@ -1,0 +1,12 @@
+[
+  {
+    "name": "ancestors",
+    "type": "Type: Array of Status",
+    "description": "Description: Parents in the thread."
+  },
+  {
+    "name": "descendants",
+    "type": "Type: Array of Status",
+    "description": "Description: Children in the thread."
+  }
+]

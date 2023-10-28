@@ -1,0 +1,15 @@
+{
+  "summary": "Lookup account ID from Webfinger address",
+  "method": "GET",
+  "router": "/api/v1/accounts/lookup",
+  "description": "Quickly lookup a username to see if it is available, skipping WebFinger resolution.\n\n",
+  "returns": "Account",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "acct",
+      "paramType": "query",
+      "comment": "REQUIRED String. The username or Webfinger address to lookup."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "summary": "Weekly activity",
+  "method": "GET",
+  "router": "/api/v1/instance/activity",
+  "description": "Instance activity over the last 3 months, binned weekly.\n\n",
+  "returns": "Array of Hash",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

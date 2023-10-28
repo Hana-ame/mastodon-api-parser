@@ -1,0 +1,45 @@
+View home timeline
+GET /api/v1/timelines/home HTTP/1.1
+View statuses from followed users and hashtags.
+
+Returns: Array of Status
+OAuth: User + read:statuses
+Version history:
+0.0.0 - added
+2.6.0 - add min_id
+3.3.0 - both min_id and max_id can be used at the same time now 4.0.0 - as users can now follow hashtags, statuses from non-followed users may appear in the timeline
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+String. All results returned will be lesser than this ID. In effect, sets an upper bound on results.
+since_id
+String. All results returned will be greater than this ID. In effect, sets a lower bound on results.
+min_id
+String. Returns results immediately newer than this ID. In effect, sets a cursor at this ID and paginates forward.
+limit
+Integer. Maximum number of results to return. Defaults to 20 statuses. Max 40 statuses.
+Response
+200: OK
+Statuses in your home timeline will be returned
+
+[
+{
+"id": "103206791453397862",
+"created_at": "2019-11-26T23:24:13.113Z",
+// ...
+},
+// ...
+]
+206: Partial content
+Home feed is regenerating
+
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

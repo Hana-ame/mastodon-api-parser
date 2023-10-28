@@ -1,0 +1,79 @@
+[
+  {
+    "name": "name",
+    "jsonName": "name",
+    "valueName": "Name",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The value of the hashtag after the # sign."
+  },
+  {
+    "name": "url",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to the hashtag on the instance."
+  },
+  {
+    "name": "history",
+    "jsonName": "history",
+    "valueName": "History",
+    "optional": false,
+    "type": "Type: Array of Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Usage statistics for given days (typically the past week)."
+  },
+  {
+    "name": "history[][day]",
+    "jsonName": "day",
+    "valueName": "Day",
+    "optional": false,
+    "type": "Type: String (UNIX timestamp)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: UNIX timestamp on midnight of the given day."
+  },
+  {
+    "name": "history[][uses]",
+    "jsonName": "uses",
+    "valueName": "Uses",
+    "optional": false,
+    "type": "Type: String (cast from an integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The counted usage of the tag within that day."
+  },
+  {
+    "name": "history[][accounts]",
+    "jsonName": "accounts",
+    "valueName": "Accounts",
+    "optional": false,
+    "type": "Type: String (cast from an integer)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The total of accounts using the tag within that day."
+  },
+  {
+    "name": "following OPTIONAL",
+    "jsonName": "following",
+    "valueName": "Following",
+    "optional": true,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the current token’s authorized user is following this tag."
+  }
+]

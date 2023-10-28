@@ -1,0 +1,127 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The account id."
+  },
+  {
+    "name": "username",
+    "type": "Type: String",
+    "description": "Description: The username of the account, not including domain."
+  },
+  {
+    "name": "acct",
+    "type": "Type: String",
+    "description": "Description: The Webfinger account URI. Equal to username for local users, or username@domain for remote users."
+  },
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: The location of the user’s profile page."
+  },
+  {
+    "name": "display_name",
+    "type": "Type: String",
+    "description": "Description: The profile’s display name."
+  },
+  {
+    "name": "note",
+    "type": "Type: String (HTML)",
+    "description": "Description: The profile’s bio or description."
+  },
+  {
+    "name": "avatar",
+    "type": "Type: String (URL)",
+    "description": "Description: An image icon that is shown next to statuses and in the profile."
+  },
+  {
+    "name": "avatar_static",
+    "type": "Type: String (URL)",
+    "description": "Description: A static version of the avatar. Equal to avatar if its value is a static image; different if avatar is an animated GIF."
+  },
+  {
+    "name": "header",
+    "type": "Type: String (URL)",
+    "description": "Description: An image banner that is shown above the profile and in profile cards."
+  },
+  {
+    "name": "header_static",
+    "type": "Type: String (URL)",
+    "description": "Description: A static version of the header. Equal to header if its value is a static image; different if header is an animated GIF."
+  },
+  {
+    "name": "locked",
+    "type": "Type: Boolean",
+    "description": "Description: Whether the account manually approves follow requests."
+  },
+  {
+    "name": "fields",
+    "type": "Type: Array of Field",
+    "description": "Description: Additional metadata attached to a profile as name-value pairs."
+  },
+  {
+    "name": "emojis",
+    "type": "Type: Array of CustomEmoji",
+    "description": "Description: Custom emoji entities to be used when rendering the profile."
+  },
+  {
+    "name": "bot",
+    "type": "Type: Boolean",
+    "description": "Description: Indicates that the account may perform automated actions, may not be monitored, or identifies as a robot."
+  },
+  {
+    "name": "group",
+    "type": "Type: Boolean",
+    "description": "Description: Indicates that the account represents a Group actor."
+  },
+  {
+    "name": "discoverable",
+    "type": "Type: NULLABLE Boolean",
+    "description": "Description: Whether the account has opted into discovery features such as the profile directory."
+  },
+  {
+    "name": "noindex OPTIONAL",
+    "type": "Type: NULLABLE Boolean",
+    "description": "Description: Whether the local user has opted out of being indexed by search engines."
+  },
+  {
+    "name": "moved OPTIONAL",
+    "type": "Type: NULLABLE Account, or null if the profile is suspended.",
+    "description": "Description: Indicates that the profile is currently inactive and that its user has moved to a new account."
+  },
+  {
+    "name": "suspended OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: An extra attribute returned only when an account is suspended."
+  },
+  {
+    "name": "limited OPTIONAL",
+    "type": "Type: Boolean",
+    "description": "Description: An extra attribute returned only when an account is silenced. If true, indicates that the account should be hidden behind a warning screen."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the account was created."
+  },
+  {
+    "name": "last_status_at",
+    "type": "Type: NULLABLE String (ISO 8601 Date), or null if no statuses",
+    "description": "Description: When the most recent status was posted."
+  },
+  {
+    "name": "statuses_count",
+    "type": "Type: Integer",
+    "description": "Description: How many statuses are attached to this account."
+  },
+  {
+    "name": "followers_count",
+    "type": "Type: Integer",
+    "description": "Description: The reported followers of this profile."
+  },
+  {
+    "name": "following_count",
+    "type": "Type: Integer",
+    "description": "Description: The reported follows of this profile."
+  }
+]

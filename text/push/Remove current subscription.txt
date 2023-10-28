@@ -1,0 +1,25 @@
+Remove current subscription
+DELETE /api/v1/push/subscription HTTP/1.1
+Removes the current Web Push API subscription.
+
+Returns: none
+OAuth: User token + push
+Version history:
+2.4.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+PushSubscription successfully deleted or did not exist previously
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+

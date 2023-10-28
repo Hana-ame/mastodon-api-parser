@@ -1,0 +1,20 @@
+{
+  "summary": "Show a single list",
+  "method": "GET",
+  "router": "/api/v1/lists/:id",
+  "description": "Fetch the list with the given ID. Used for verifying the title of a list, and which replies to show within that list.\n\n",
+  "returns": "List",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the List in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

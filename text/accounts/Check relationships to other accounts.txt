@@ -1,0 +1,62 @@
+Check relationships to other accounts
+GET /api/v1/accounts/relationships HTTP/1.1
+Find out whether a given account is followed, blocked, muted, etc.
+
+Returns: Array of Relationship
+OAuth: User token + read:follows
+Version history:
+0.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+id[]
+Array. Check relationships for the provided account IDs.
+Response
+200: OK
+Sample call with id[]=1&id[]=2
+
+[
+{
+"id": "1",
+"following": true,
+"showing_reblogs": true,
+"notifying": false,
+"followed_by": true,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+},
+{
+"id": "2",
+"following": false,
+"showing_reblogs": false,
+"notifying": false,
+"followed_by": false,
+"blocking": false,
+"blocked_by": false,
+"muting": false,
+"muting_notifications": false,
+"requested": false,
+"domain_blocking": false,
+"endorsed": false
+}
+]
+401: Unauthorized
+Invalid or missing Authorization header
+
+{
+"error": "The access token is invalid"
+}
+422: Unprocessable entity
+Token does not have an authorized user
+
+{
+"error": "This method requires an authenticated user"
+}

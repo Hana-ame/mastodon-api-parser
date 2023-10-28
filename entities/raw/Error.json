@@ -1,0 +1,12 @@
+[
+  {
+    "name": "error",
+    "type": "Type: String",
+    "description": "Description: The error message."
+  },
+  {
+    "name": "error_description OPTIONAL",
+    "type": "Type: String",
+    "description": "Description: A longer description of the error, mainly provided with the OAuth API."
+  }
+]

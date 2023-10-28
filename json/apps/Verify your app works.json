@@ -1,0 +1,15 @@
+{
+  "summary": "Verify your app works",
+  "method": "GET",
+  "router": "/api/v1/apps/verify_credentials",
+  "description": "Confirm that the app’s OAuth2 credentials work.\n\n",
+  "returns": "Application, but without client_id or client_secret",
+  "oauth": "",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

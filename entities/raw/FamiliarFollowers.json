@@ -1,0 +1,12 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the Account in the database."
+  },
+  {
+    "name": "accounts",
+    "type": "Type: Array of Account",
+    "description": "Description: Accounts you follow that also follow this account."
+  }
+]

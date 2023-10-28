@@ -1,0 +1,57 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from integer but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The internal ID of the featured tag in the database."
+  },
+  {
+    "name": "name",
+    "jsonName": "name",
+    "valueName": "Name",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The name of the hashtag being featured."
+  },
+  {
+    "name": "url",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A link to all statuses by a user that contain this hashtag."
+  },
+  {
+    "name": "statuses_count",
+    "jsonName": "statuses_count",
+    "valueName": "StatusesCount",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The number of authored statuses containing this hashtag."
+  },
+  {
+    "name": "last_status_at",
+    "jsonName": "last_status_at",
+    "valueName": "LastStatusAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp of the last authored status containing this hashtag."
+  }
+]

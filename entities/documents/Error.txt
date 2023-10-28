@@ -1,0 +1,258 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Error
+Represents an error message.
+
+Example
+Attributes
+error
+error_description OPTIONAL
+Possible reasons
+400 - Bad request
+401 - Unauthorized
+403 - Forbidden
+404 - Not found
+422 - Unprocessable entity
+429 - Too many requests
+503 - Remote service unavailable
+See also
+Example
+{
+  "error": "invalid_grant",
+  "error_description": "The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client."
+}
+The most important part of an error response is the HTTP status code. Standard semantics are followed. The body of an error is a JSON object containing more information, if available.
+Attributes
+error
+Description: The error message.
+Type: String
+Version history:
+0.6.0 - added
+
+error_description OPTIONAL
+Description: A longer description of the error, mainly provided with the OAuth API.
+Type: String
+Version history:
+0.6.0 - added
+
+Possible reasons
+400 - Bad request
+ParameterMissing
+Error: {string}. Appears when a required parameter is missing from the API call.
+
+401 - Unauthorized
+require_authenticated_user!
+Error: This API requires an authenticated user. Appears when the instance is in secure mode, which disables all public use of API methods.
+
+403 - Forbidden
+NotPermitted
+Error: This action is not allowed. Appears when trying to call a method that you do not have permission for (such as admin or staff methods), or performing actions you are not allowed to do (such as following a user that blocks you).
+
+current_user.disabled?
+Error: Your login is currently disabled. Appears when the OAuth token’s authorized user has had their account disabled by a moderator.
+
+!current_user.confirmed?
+Error: Your login is missing a confirmed e-mail address. Appears when the email address associated with the OAuth token’s authorized user’s account has not yet been confirmed.
+
+!current_user.approved?
+Error: Your login is currently pending approval. Appears when the OAuth token’s authorized user has signed up on an instance with approval-required registrations, and the user has not yet had their account approved by a moderator.
+
+404 - Not found
+RecordNotFound
+Error: Record not found. Appears when an entity record does not exist, or the authorized user is not within the audience of a private entity.operates on a user.
+
+422 - Unprocessable entity
+RecordInvalid
+Error: {string}. May appear when entity creation failed.
+
+RecordNotUnique
+Error: Duplicate record. Appears when you are trying to pin an account or status that is already pinned.
+
+!current_user
+Error: This method requires an authenticated user. Appears when using an OAuth token without an authorized user (or no token at all), while trying to call an API method that requires a user to be processed.
+
+429 - Too many requests
+Error: {translated string}. Appears when you have exceeded the rate limit. See Rate limits for more information.
+
+503 - Remote service unavailable
+UnexpectedResponseError
+Error: Remote data could not be fetched. Appears when Mastodon calls a remote service (such as WebFinger from another instance) which returns an error.
+
+SSLError
+Error: Remote SSL certificate could not be verified. Appears when a remote service is called, but it has an invalid SSL certificate.
+
+NetworkingError
+Error: There was a temporary problem serving your request, please try again. Appears when there was a failed call to an S3 storage server.
+
+RaceConditionError
+Error: There was a temporary problem serving your request, please try again. Appears when there was an error due to a race condition in server-side code.
+
+See also
+app/controllers/api/base_controller.rb
+Last updated March 8, 2023 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

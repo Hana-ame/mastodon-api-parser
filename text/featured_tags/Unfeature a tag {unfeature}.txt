@@ -1,0 +1,33 @@
+Unfeature a tag {unfeature}
+DELETE /api/v1/featured_tags/:id HTTP/1.1
+Stop promoting a hashtag on your profile.
+
+Returns: empty object
+OAuth: User token + write:accounts
+Version history:
+3.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the FeaturedTag in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+The tag was unfeatured.
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+FeaturedTag is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

@@ -1,0 +1,68 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the attachment in the database."
+  },
+  {
+    "name": "type",
+    "jsonName": "type",
+    "valueName": "Type",
+    "optional": false,
+    "type": "Type: String (Enumerable, oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The type of the attachment."
+  },
+  {
+    "name": "url",
+    "jsonName": "url",
+    "valueName": "Url",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The location of the original full-size attachment."
+  },
+  {
+    "name": "preview_url",
+    "jsonName": "preview_url",
+    "valueName": "PreviewUrl",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The location of a scaled-down preview of the attachment."
+  },
+  {
+    "name": "remote_url",
+    "jsonName": "remote_url",
+    "valueName": "RemoteUrl",
+    "optional": false,
+    "type": "Type: NULLABLE String (URL), or null if the attachment is local",
+    "valueType": "string",
+    "nullable": true,
+    "isArray": false,
+    "description": "Description: The location of the full-size original attachment on the remote website."
+  },
+  {
+    "name": "meta",
+    "jsonName": "meta",
+    "valueName": "Meta",
+    "optional": false,
+    "type": "Type: Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Metadata returned by Paperclip."
+  }
+]

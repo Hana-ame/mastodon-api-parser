@@ -1,0 +1,35 @@
+{
+  "summary": "Follow account",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/follow",
+  "description": "Follow the given account. Can also be used to update whether to show reblogs or enable notifications.\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "reblogs",
+      "paramType": "formData",
+      "comment": "Boolean. Receive this account’s reblogs in home timeline? Defaults to true."
+    },
+    {
+      "name": "notify",
+      "paramType": "formData",
+      "comment": "Boolean. Receive notifications when this account posts a status? Defaults to false."
+    },
+    {
+      "name": "languages",
+      "paramType": "formData",
+      "comment": "Array of String (ISO 639-1 language two-letter code). Filter received statuses for these languages. If not provided, you will receive this account’s posts in all languages."
+    }
+  ]
+}

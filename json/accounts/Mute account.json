@@ -1,0 +1,30 @@
+{
+  "summary": "Mute account",
+  "method": "POST",
+  "router": "/api/v1/accounts/:id/mute",
+  "description": "Mute the given account. Clients should filter statuses and notifications from this account, if received (e.g. due to a boost in the Home timeline).\n\n",
+  "returns": "Relationship",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "notifications",
+      "paramType": "formData",
+      "comment": "Boolean. Mute notifications in addition to statuses? Defaults to true."
+    },
+    {
+      "name": "duration",
+      "paramType": "formData",
+      "comment": "Number. How long the mute should last, in seconds. Defaults to 0 (indefinite)."
+    }
+  ]
+}

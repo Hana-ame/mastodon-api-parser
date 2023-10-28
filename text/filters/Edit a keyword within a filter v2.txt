@@ -1,0 +1,48 @@
+Edit a keyword within a filter
+PUT /api/v2/filters/keywords/:id HTTP/1.1
+Update the given filter keyword.
+
+Returns: FilterKeyword
+OAuth: User token + write:filters
+Version history:
+4.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the FilterKeyword in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+keyword
+REQUIRED String. The keyword to be added to the filter group.
+whole_word
+Boolean. Whether the keyword should consider word boundaries.
+Response
+200: OK
+The keyword “some” was updated to the keyword “other”
+
+{
+"id": "35583",
+"keyword": "other",
+"whole_word": false
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+FilterKeyword is not owned by you, or does not exist
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+No keyword was provided
+
+{
+"error": "Validation failed: Keyword can't be blank"
+}

@@ -1,0 +1,40 @@
+Add accounts to a list
+POST /api/v1/lists/:id/accounts HTTP/1.1
+Add accounts to the given list. Note that the user must be following these accounts.
+
+Returns: empty object
+OAuth: User token + write:lists
+Version history:
+2.1.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the List in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Form data parameters
+account_ids[]
+REQUIRED Array of String. The accounts that should be added to the list.
+Response
+200: OK
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+You are not following a given account ID, or you do not own the list ID, or list/account ID does not exist
+
+{
+"error": "Record not found"
+}
+422: Unprocessable entity
+An Account with one of the provided IDs is already in the list
+
+{
+"error": "Validation failed: Account has already been taken"
+}

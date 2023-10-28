@@ -1,0 +1,32 @@
+Remove a filter
+DELETE /api/v1/filters/:id HTTP/1.1
+Returns: empty object
+OAuth: User token + write:filters
+Version history:
+2.4.3 - added
+4.0.0 - deprecated. This method will delete only the FilterKeyword from its parent Filter. To delete the parent Filter, you must use the v2 filters API.
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Filter in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+The filter has been deleted successfully, so an empty object will be returned.
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter does not exist or is not owned by you
+
+{
+"error": "Record not found"
+}

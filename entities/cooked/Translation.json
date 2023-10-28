@@ -1,0 +1,24 @@
+[
+  {
+    "name": "content",
+    "jsonName": "content",
+    "valueName": "Content",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The translated text of the status."
+  },
+  {
+    "name": "detected_source_language",
+    "jsonName": "detected_source_language",
+    "valueName": "DetectedSourceLanguage",
+    "optional": false,
+    "type": "Type: String (ISO 639 language code)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The language of the source text, as auto-detected by the machine translation provider."
+  }
+]

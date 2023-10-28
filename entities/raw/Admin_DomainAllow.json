@@ -1,0 +1,17 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The ID of the DomainAllow in the database."
+  },
+  {
+    "name": "domain",
+    "type": "Type: String",
+    "description": "Description: The domain that is allowed to federate."
+  },
+  {
+    "name": "created_at",
+    "type": "Type: String (ISO 8601 Datetime)",
+    "description": "Description: When the domain was allowed to federate."
+  }
+]

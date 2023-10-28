@@ -1,0 +1,112 @@
+[
+  {
+    "name": "content",
+    "jsonName": "content",
+    "valueName": "Content",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The content of the status at this revision."
+  },
+  {
+    "name": "spoiler_text",
+    "jsonName": "spoiler_text",
+    "valueName": "SpoilerText",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The content of the subject or content warning at this revision."
+  },
+  {
+    "name": "sensitive",
+    "jsonName": "sensitive",
+    "valueName": "Sensitive",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the status was marked sensitive at this revision."
+  },
+  {
+    "name": "created_at",
+    "jsonName": "created_at",
+    "valueName": "CreatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The timestamp of when the revision was published."
+  },
+  {
+    "name": "account",
+    "jsonName": "account",
+    "valueName": "Account",
+    "optional": false,
+    "type": "Type: Account",
+    "valueType": "Account",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The account that published this revision."
+  },
+  {
+    "name": "poll OPTIONAL",
+    "jsonName": "poll",
+    "valueName": "Poll",
+    "optional": true,
+    "type": "Type: Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll."
+  },
+  {
+    "name": "poll.options[]",
+    "jsonName": "options",
+    "valueName": "Options",
+    "optional": false,
+    "type": "Type: Array of Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The poll options at this revision."
+  },
+  {
+    "name": "poll.options[].title",
+    "jsonName": "title",
+    "valueName": "Title",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The text for a poll option."
+  },
+  {
+    "name": "media_attachments",
+    "jsonName": "media_attachments",
+    "valueName": "MediaAttachments",
+    "optional": false,
+    "type": "Type: Array of MediaAttachment",
+    "valueType": "MediaAttachment",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: The current state of the poll options at this revision. Note that edits changing the poll options will be collapsed together into one edit, since this action resets the poll."
+  },
+  {
+    "name": "emojis",
+    "jsonName": "emojis",
+    "valueName": "Emojis",
+    "optional": false,
+    "type": "Type: Array of CustomEmoji",
+    "valueType": "CustomEmoji",
+    "nullable": false,
+    "isArray": true,
+    "description": "Description: Any custom emoji that are used in the current revision."
+  }
+]

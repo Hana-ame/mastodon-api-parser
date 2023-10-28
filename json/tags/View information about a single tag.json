@@ -1,0 +1,20 @@
+{
+  "summary": "View information about a single tag",
+  "method": "GET",
+  "router": "/api/v1/tags/:id",
+  "description": "Show a hashtag and its associated information\n\n",
+  "returns": "Tag",
+  "oauth": "Public,",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The name of the hashtag."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

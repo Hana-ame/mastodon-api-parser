@@ -1,0 +1,30 @@
+View your featured tags
+GET /api/v1/featured_tags HTTP/1.1
+List all hashtags featured on your profile.
+
+Returns: Array of FeaturedTag
+OAuth: User token + read:accounts
+Version history:
+3.0.0 - added
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+[
+{
+"id": "627",
+"name": "nowplaying",
+"url": "https://mastodon.social/@trwnh/tagged/nowplaying",
+"statuses_count": 70,
+"last_status_at": "2022-08-29T12:03:35.061Z"
+}
+]
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

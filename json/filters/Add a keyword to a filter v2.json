@@ -1,0 +1,30 @@
+{
+  "summary": "Add a keyword to a filter",
+  "method": "POST",
+  "router": "/api/v2/filters/:filter_id/keywords",
+  "description": "Add the given keyword to the specified filter group\n\n",
+  "returns": "FilterKeyword",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":filter_id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Filter in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "keyword",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The keyword to be added to the filter group."
+    },
+    {
+      "name": "whole_word",
+      "paramType": "formData",
+      "comment": "Boolean. Whether the keyword should consider word boundaries."
+    }
+  ]
+}

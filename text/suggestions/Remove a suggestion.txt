@@ -1,0 +1,27 @@
+Remove a suggestion
+DELETE /api/v1/suggestions/:account_id HTTP/1.1
+Remove an account from follow suggestions.
+
+Returns: n/a
+OAuth: User token + read
+Version history:
+2.4.3 - added
+
+Request
+Path parameters
+:account_id
+REQUIRED String. The ID of the Account in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+A successful call will return an empty object. Note the call will be successful even if the account id provided is invalid or is not a suggested account.
+
+{}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

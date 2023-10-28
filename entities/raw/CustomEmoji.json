@@ -1,0 +1,27 @@
+[
+  {
+    "name": "shortcode",
+    "type": "Type: String",
+    "description": "Description: The name of the custom emoji."
+  },
+  {
+    "name": "url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to the custom emoji."
+  },
+  {
+    "name": "static_url",
+    "type": "Type: String (URL)",
+    "description": "Description: A link to a static copy of the custom emoji."
+  },
+  {
+    "name": "visible_in_picker",
+    "type": "Type: Boolean",
+    "description": "Description: Whether this Emoji should be visible in the picker or unlisted."
+  },
+  {
+    "name": "category",
+    "type": "Type: String",
+    "description": "Description: Used for sorting custom emoji in the picker."
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "summary": "View keywords added to a filter",
+  "method": "GET",
+  "router": "/api/v2/filters/:filter_id/keywords",
+  "description": "List all keywords attached to the current filter group.\n\n",
+  "returns": "Array of FilterKeyword",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":filter_id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Filter in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

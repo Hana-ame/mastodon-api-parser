@@ -1,0 +1,57 @@
+View a specific filter
+GET /api/v2/filters/:id HTTP/1.1
+Obtain a single filter group owned by the current user.
+
+Returns: Filter
+OAuth: User token + read:filters
+Version history:
+4.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Filter in the database.
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Response
+200: OK
+{
+"id": "20060",
+"title": "Remove Twitter crossposts from public timeline",
+"context": [
+"public"
+],
+"expires_at": null,
+"filter_action": "hide",
+"keywords": [
+{
+"id": "1311",
+"keyword": "from birdsite",
+"whole_word": true
+},
+{
+"id": "1324",
+"keyword": "@twitter.com",
+"whole_word": false
+},
+{
+"id": "1325",
+"keyword": "https://t.co/",
+"whole_word": false
+}
+],
+"statuses": []
+}
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}
+404: Not found
+Filter is not owned by you or does not exist
+
+{
+"error": "Record not found"
+}

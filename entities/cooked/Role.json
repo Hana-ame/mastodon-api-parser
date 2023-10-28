@@ -1,0 +1,57 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the Role in the database."
+  },
+  {
+    "name": "name",
+    "jsonName": "name",
+    "valueName": "Name",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The name of the role."
+  },
+  {
+    "name": "color",
+    "jsonName": "color",
+    "valueName": "Color",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The hex code assigned to this role. If no hex code is assigned, the string will be empty."
+  },
+  {
+    "name": "permissions",
+    "jsonName": "permissions",
+    "valueName": "Permissions",
+    "optional": false,
+    "type": "Type: Integer",
+    "valueType": "int",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A bitmask that represents the sum of all permissions granted to the role."
+  },
+  {
+    "name": "highlighted",
+    "jsonName": "highlighted",
+    "valueName": "Highlighted",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Whether the role is publicly visible as a badge on user profiles."
+  }
+]

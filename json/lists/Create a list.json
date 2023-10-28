@@ -1,0 +1,30 @@
+{
+  "summary": "Create a list",
+  "method": "POST",
+  "router": "/api/v1/lists",
+  "description": "Create a new list.\n\n",
+  "returns": "List",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "title",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The title of the list to be created."
+    },
+    {
+      "name": "replies_policy",
+      "paramType": "formData",
+      "comment": "String. One of followed, list, or none. Defaults to list."
+    },
+    {
+      "name": "exclusive",
+      "paramType": "formData",
+      "comment": "Boolean. Whether members of this list need to get removed from the “Home” feed"
+    }
+  ]
+}

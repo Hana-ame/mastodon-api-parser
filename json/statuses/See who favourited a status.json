@@ -1,0 +1,35 @@
+{
+  "summary": "See who favourited a status",
+  "method": "GET",
+  "router": "/api/v1/statuses/:id/favourited_by",
+  "description": "View who favourited a given status.\n\n",
+  "returns": "Array of Account",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "max_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "since_id",
+      "paramType": "query",
+      "comment": "Internal parameter. Use HTTP Link header for pagination."
+    },
+    {
+      "name": "limit",
+      "paramType": "query",
+      "comment": "Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts."
+    }
+  ]
+}

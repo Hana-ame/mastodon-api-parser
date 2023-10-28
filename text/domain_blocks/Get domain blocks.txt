@@ -1,0 +1,37 @@
+Get domain blocks
+GET /api/v1/domain_blocks HTTP/1.1
+View domains the user has blocked.
+
+Returns: Array of String
+OAuth: User token + read:blocks or follow
+Version:
+1.4.0 - added
+3.3.0 - both min_id and max_id can be used at the same time now
+
+Request
+Headers
+Authorization
+REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+Internal parameter. Use HTTP Link header for pagination.
+since_id
+Internal parameter. Use HTTP Link header for pagination.
+min_id
+Internal parameter. Use HTTP Link header for pagination.
+limit
+Integer. Maximum number of results to return. Defaults to 100 domain blocks. Max 200 domain blocks.
+Response
+200: OK
+Sample call with limit=2.
+
+["nsfw.social","artalley.social"]
+Because AccountDomainBlock IDs are generally not exposed via any API responses, you will have to parse the HTTP Link header to load older or newer results. See Paginating through API responses for more information.
+
+Link: <https://mastodon.example/api/v1/domain_blocks?limit=2&max_id=16194>; rel="next", <https://mastodon.example/api/v1/domain_blocks?limit=2&since_id=16337>; rel="prev"
+401: Unauthorized
+Invalid or missing Authorization header.
+
+{
+"error": "The access token is invalid"
+}

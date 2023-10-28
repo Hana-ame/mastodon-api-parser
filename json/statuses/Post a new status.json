@@ -1,0 +1,80 @@
+{
+  "summary": "Post a new status",
+  "method": "POST",
+  "router": "/api/v1/statuses",
+  "description": "Publish a status with the given parameters.\n\n",
+  "returns": "Status. When scheduled_at is present, ScheduledStatus is returned instead.",
+  "oauth": "User",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "Idempotency-Key",
+      "paramType": "header",
+      "comment": "Provide this header with any arbitrary string to prevent duplicate submissions of the same status. Consider using a hash or UUID generated client-side. Idempotency keys are stored for up to 1 hour."
+    },
+    {
+      "name": "status",
+      "paramType": "formData",
+      "comment": "REQUIRED String. The text content of the status. If media_ids is provided, this becomes optional. Attaching a poll is optional while status is provided."
+    },
+    {
+      "name": "media_ids[]",
+      "paramType": "formData",
+      "comment": "REQUIRED Array of String. Include Attachment IDs to be attached as media. If provided, status becomes optional, and poll cannot be used."
+    },
+    {
+      "name": "poll[options][]",
+      "paramType": "formData",
+      "comment": "REQUIRED Array of String. Possible answers to the poll. If provided, media_ids cannot be used, and poll[expires_in] must be provided."
+    },
+    {
+      "name": "poll[expires_in]",
+      "paramType": "formData",
+      "comment": "REQUIRED Integer. Duration that the poll should be open, in seconds. If provided, media_ids cannot be used, and poll[options] must be provided."
+    },
+    {
+      "name": "poll[multiple]",
+      "paramType": "formData",
+      "comment": "Boolean. Allow multiple choices? Defaults to false."
+    },
+    {
+      "name": "poll[hide_totals]",
+      "paramType": "formData",
+      "comment": "Boolean. Hide vote counts until the poll ends? Defaults to false."
+    },
+    {
+      "name": "in_reply_to_id",
+      "paramType": "formData",
+      "comment": "String. ID of the status being replied to, if status is a reply."
+    },
+    {
+      "name": "sensitive",
+      "paramType": "formData",
+      "comment": "Boolean. Mark status and attached media as sensitive? Defaults to false."
+    },
+    {
+      "name": "spoiler_text",
+      "paramType": "formData",
+      "comment": "String. Text to be shown as a warning or subject before the actual content. Statuses are generally collapsed behind this field."
+    },
+    {
+      "name": "visibility",
+      "paramType": "formData",
+      "comment": "String. Sets the visibility of the posted status to public, unlisted, private, direct."
+    },
+    {
+      "name": "language",
+      "paramType": "formData",
+      "comment": "String. ISO 639 language code for this status."
+    },
+    {
+      "name": "scheduled_at",
+      "paramType": "formData",
+      "comment": "String. ISO 8601 Datetime at which to schedule a status. Providing this parameter will cause ScheduledStatus to be returned instead of Status. Must be at least 5 minutes in the future."
+    }
+  ]
+}

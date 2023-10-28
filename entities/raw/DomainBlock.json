@@ -1,0 +1,22 @@
+[
+  {
+    "name": "domain",
+    "type": "Type: String",
+    "description": "Description: The domain which is blocked. This may be obfuscated or partially censored."
+  },
+  {
+    "name": "digest",
+    "type": "Type: String (SHA256)",
+    "description": "Description: The SHA256 hash digest of the domain string."
+  },
+  {
+    "name": "severity",
+    "type": "Type: String (Enumerable, oneOf)",
+    "description": "Description: The level to which the domain is blocked."
+  },
+  {
+    "name": "comment OPTIONAL",
+    "type": "Type: String",
+    "description": "Description: An optional reason for the domain block."
+  }
+]

@@ -1,0 +1,156 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The ID of the Web Push subscription in the database."
+  },
+  {
+    "name": "endpoint",
+    "jsonName": "endpoint",
+    "valueName": "Endpoint",
+    "optional": false,
+    "type": "Type: String (URL)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Where push alerts will be sent to."
+  },
+  {
+    "name": "server_key",
+    "jsonName": "server_key",
+    "valueName": "ServerKey",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The streaming server’s VAPID key."
+  },
+  {
+    "name": "alerts",
+    "jsonName": "alerts",
+    "valueName": "Alerts",
+    "optional": false,
+    "type": "Type: Hash",
+    "valueType": "map[string]any",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Which alerts should be delivered to the endpoint."
+  },
+  {
+    "name": "alerts[mention]",
+    "jsonName": "mention",
+    "valueName": "Mention",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when someone else has mentioned you in a status?"
+  },
+  {
+    "name": "alerts[status]",
+    "jsonName": "status",
+    "valueName": "Status",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a subscribed account posts a status?"
+  },
+  {
+    "name": "alerts[reblog]",
+    "jsonName": "reblog",
+    "valueName": "Reblog",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a status you created has been boosted by someone else?"
+  },
+  {
+    "name": "alerts[follow]",
+    "jsonName": "follow",
+    "valueName": "Follow",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when someone has followed you?"
+  },
+  {
+    "name": "alerts[follow_request]",
+    "jsonName": "follow_request",
+    "valueName": "FollowRequest",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when someone has requested to followed you?"
+  },
+  {
+    "name": "alerts[favourite]",
+    "jsonName": "favourite",
+    "valueName": "Favourite",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a status you created has been favourited by someone else?"
+  },
+  {
+    "name": "alerts[poll]",
+    "jsonName": "poll",
+    "valueName": "Poll",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a poll you voted in or created has ended?"
+  },
+  {
+    "name": "alerts[update]",
+    "jsonName": "update",
+    "valueName": "Update",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a status you interacted with has been edited?"
+  },
+  {
+    "name": "alerts[admin.sign_up]",
+    "jsonName": "sign_up",
+    "valueName": "SignUp",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a new user has signed up?"
+  },
+  {
+    "name": "alerts[admin.report]",
+    "jsonName": "report",
+    "valueName": "Report",
+    "optional": false,
+    "type": "Type: Boolean",
+    "valueType": "bool",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Receive a push notification when a new report has been filed?"
+  }
+]

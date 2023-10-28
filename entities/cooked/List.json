@@ -1,0 +1,35 @@
+[
+  {
+    "name": "id",
+    "jsonName": "id",
+    "valueName": "ID",
+    "optional": false,
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The internal database ID of the list."
+  },
+  {
+    "name": "title",
+    "jsonName": "title",
+    "valueName": "Title",
+    "optional": false,
+    "type": "Type: String",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The user-defined title of the list."
+  },
+  {
+    "name": "replies_policy",
+    "jsonName": "replies_policy",
+    "valueName": "RepliesPolicy",
+    "optional": false,
+    "type": "Type: String (Enumerable oneOf)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: Which replies should be shown in the list."
+  }
+]

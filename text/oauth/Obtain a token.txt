@@ -1,0 +1,47 @@
+Obtain a token
+POST /oauth/token HTTP/1.1
+Obtain an access token, to be used during API calls that are not public.
+
+Returns: Token
+OAuth: Public
+Version history:
+0.1.0 - added
+
+Request
+Form data parameters
+grant_type
+REQUIRED String. Set equal to authorization_code if code is provided in order to gain user-level access. Otherwise, set equal to client_credentials to obtain app-level access only.
+code
+String. A user authorization code, obtained via GET /oauth/authorize.
+client_id
+REQUIRED String. The client ID, obtained during app registration.
+client_secret
+REQUIRED String. The client secret, obtained during app registration.
+redirect_uri
+REQUIRED String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the token will be shown instead. Must match one of the redirect_uris declared during app registration.
+scope
+String. List of requested OAuth scopes, separated by spaces (or by pluses, if using query parameters). If code was provided, then this must be equal to the scope requested from the user. Otherwise, it must be a subset of scopes declared during app registration. If not provided, defaults to read.
+Response
+200: OK
+Store this access_token for later use with auth-required methods. The token should be passed as an HTTP Authorization header when making API calls, with the value Bearer access_token
+
+{
+"access_token": "ZA-Yj3aBD8U8Cm7lKUp-lm9O9BmDgdhHzDeqsY8tlL0",
+"token_type": "Bearer",
+"scope": "read write follow push",
+"created_at": 1573979017
+}
+400: Client error
+If you try to request a scope that was not included when registering the app, the request will fail.
+
+{
+"error": "invalid_scope",
+"error_description": "The requested scope is invalid, unknown, or malformed."
+}
+401: Unauthorized
+If client_id and client_secret do not match or are invalid, the request will fail.
+
+{
+"error": "invalid_client",
+"error_description": "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method."
+}

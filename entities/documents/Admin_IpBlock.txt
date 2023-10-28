@@ -1,0 +1,233 @@
+Mastodon
+What is Mastodon?
+USING MASTODON
+Signing up for an account
+Setting up your profile
+Posting to your profile
+Using the network features
+Dealing with unwanted content
+Promoting yourself and others
+Set your preferences
+More settings
+Using Mastodon externally
+Moving or leaving accounts
+Running your own server
+RUNNING MASTODON
+Preparing your machine
+Installing from source
+Configuring your environment
+Configuring full-text search
+Installing optional features
+Configuring object storage
+Onion services
+Single Sign On
+Setting up your new instance
+Using the admin CLI
+Upgrading to a new release
+Backing up your server
+Migrating to a new machine
+Scaling up your server
+Moderation actions
+Troubleshooting errors
+Database index corruption
+DEVELOPING MASTODON APPS
+Getting started with the API
+Playing with public data
+Obtaining client app access
+Logging in with an account
+Libraries and implementations
+CONTRIBUTING TO MASTODON
+Technical overview
+Setting up a dev environment
+Code structure
+Routes
+Bug bounties and responsible disclosure
+SPEC COMPLIANCE
+ActivityPub
+WebFinger
+Security
+Microformats
+OAuth
+Bearcaps
+REST API
+Guidelines and best practices
+OAuth Scopes
+Rate limits
+API METHODS
+apps
+oauth
+emails
+accounts
+bookmarks
+favourites
+mutes
+blocks
+domain_blocks
+filters
+reports
+follow_requests
+endorsements
+featured_tags
+preferences
+followed_tags
+suggestions
+tags
+profile
+statuses
+media
+polls
+scheduled_statuses
+timelines
+conversations
+lists
+markers
+streaming
+notifications
+push
+search
+instance
+trends
+directory
+custom_emojis
+announcements
+admin
+admin/accounts
+admin/domain_blocks
+admin/reports
+admin/trends
+canonical_email_blocks
+dimensions
+domain_allows
+email_domain_blocks
+ip_blocks
+measures
+retention
+proofs
+oembed
+API ENTITIES
+Account
+Admin::Account
+Admin::CanonicalEmailBlock
+Admin::Cohort
+Admin::Dimension
+Admin::DomainAllow
+Admin::DomainBlock
+Admin::EmailDomainBlock
+Admin::Ip
+Admin::IpBlock
+Admin::Measure
+Admin::Report
+Announcement
+Application
+Context
+Conversation
+CustomEmoji
+DomainBlock
+Error
+ExtendedDescription
+FamiliarFollowers
+FeaturedTag
+Filter
+FilterKeyword
+FilterResult
+FilterStatus
+IdentityProof
+Instance
+List
+Marker
+MediaAttachment
+Notification
+Poll
+Preferences
+PreviewCard
+Reaction
+Relationship
+Report
+Role
+Rule
+ScheduledStatus
+Search
+Status
+StatusEdit
+StatusSource
+Suggestion
+Tag
+Token
+Translation
+V1::Filter
+V1::Instance
+WebPushSubscription
+Admin::IpBlock
+Represents an IP address range that cannot be used to sign up.
+
+Example
+Attributes
+id
+ip
+severity
+comment
+created_at
+expires_at
+See also
+Example
+{
+  "id": "1",
+  "ip": "8.8.8.8/32",
+  "severity": "no_access",
+  "comment": "",
+  "created_at": "2022-11-16T07:22:00.501Z",
+  "expires_at": null
+}
+Attributes
+id
+Description: The ID of the DomainBlock in the database.
+Type: String (cast from an integer, but not guaranteed to be a number)
+Version history:
+4.0.0 - added
+
+ip
+Description: The IP address range that is not allowed to federate.
+Type: String (IP address and prefix)
+Version history:
+4.0.0 - added
+
+severity
+Description: The associated policy with this IP block.
+Type: String (Enumerable, oneOf)
+sign_up_requires_approval = Any signup from this IP range will create a pending account
+sign_up_block = Any signup from this IP range will be rejected
+no_access = Any activity from this IP range will be rejected entirely
+Version history:
+4.0.0 - added
+
+comment
+Description: The recorded reason for this IP block.
+Type: String
+Version history:
+4.0.0 - added
+
+created_at
+Description: When the IP block was created.
+Type: String (ISO 8601 Datetime)
+Version history:
+4.0.0 - added
+
+expires_at
+Description: When the IP block will expire.
+Type: NULLABLE String (ISO 8601 Datetime)
+Version history:
+4.0.0 - added
+
+See also
+admin/ip_blocks API methods
+app/serializers/rest/admin/ip_blocks_serializer.rb
+Last updated November 20, 2022 · Improve this page
+
+Sponsored by
+Dotcom-Monitor
+LoadView
+Stephen Tures
+Swayable
+SponsorMotion
+Join Mastodon · Blog ·  · 
+View source · CC BY-SA 4.0 · Imprint

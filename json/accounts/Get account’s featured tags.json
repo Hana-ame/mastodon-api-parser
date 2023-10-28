@@ -1,0 +1,20 @@
+{
+  "summary": "Get account’s featured tags",
+  "method": "GET",
+  "router": "/api/v1/accounts/:id/featured_tags",
+  "description": "Tags featured by this account.\n\n",
+  "returns": "Array of FeaturedTag",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Account in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

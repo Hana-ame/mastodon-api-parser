@@ -1,0 +1,40 @@
+{
+  "summary": "Authorize a user",
+  "method": "GET",
+  "router": "/oauth/authorize",
+  "description": "Displays an authorization form to the user. If approved, it will create and return an authorization code, then redirect to the desired redirect_uri, or show the authorization code if urn:ietf:wg:oauth:2.0:oob was requested. The authorization code can be used while requesting a token to obtain access to user-level methods.\n\n",
+  "returns": "String (URL) or HTML response",
+  "oauth": "Public",
+  "request": [
+    {
+      "name": "response_type",
+      "paramType": "query",
+      "comment": "REQUIRED String. Should be set equal to code."
+    },
+    {
+      "name": "client_id",
+      "paramType": "query",
+      "comment": "REQUIRED String. The client ID, obtained during app registration."
+    },
+    {
+      "name": "redirect_uri",
+      "paramType": "query",
+      "comment": "REQUIRED String. Set a URI to redirect the user to. If this parameter is set to urn:ietf:wg:oauth:2.0:oob then the authorization code will be shown instead. Must match one of the redirect_uris declared during app registration."
+    },
+    {
+      "name": "scope",
+      "paramType": "query",
+      "comment": "String. List of requested OAuth scopes, separated by spaces (or by pluses, if using query parameters). Must be a subset of scopes declared during app registration. If not provided, defaults to read."
+    },
+    {
+      "name": "force_login",
+      "paramType": "query",
+      "comment": "Boolean. Forces the user to re-login, which is necessary for authorizing with multiple accounts from the same instance."
+    },
+    {
+      "name": "lang",
+      "paramType": "query",
+      "comment": "String. The ISO 639-1 two-letter language code to use while rendering the authorization form."
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "id",
+    "type": "Type: String (cast from an integer, but not guaranteed to be a number)",
+    "description": "Description: The account ID."
+  },
+  {
+    "name": "following",
+    "type": "Type: Boolean",
+    "description": "Description: Are you following this user?"
+  },
+  {
+    "name": "showing_reblogs",
+    "type": "Type: Boolean",
+    "description": "Description: Are you receiving this user’s boosts in your home timeline?"
+  },
+  {
+    "name": "notifying",
+    "type": "Type: Boolean",
+    "description": "Description: Have you enabled notifications for this user?"
+  },
+  {
+    "name": "languages",
+    "type": "Type: Array of String (ISO 639-1 language two-letter code)",
+    "description": "Description: Which languages are you following from this user?"
+  },
+  {
+    "name": "followed_by",
+    "type": "Type: Boolean",
+    "description": "Description: Are you followed by this user?"
+  },
+  {
+    "name": "blocking",
+    "type": "Type: Boolean",
+    "description": "Description: Are you blocking this user?"
+  },
+  {
+    "name": "blocked_by",
+    "type": "Type: Boolean",
+    "description": "Description: Is this user blocking you?"
+  },
+  {
+    "name": "muting",
+    "type": "Type: Boolean",
+    "description": "Description: Are you muting this user?"
+  },
+  {
+    "name": "muting_notifications",
+    "type": "Type: Boolean",
+    "description": "Description: Are you muting notifications from this user?"
+  },
+  {
+    "name": "requested",
+    "type": "Type: Boolean",
+    "description": "Description: Do you have a pending follow request for this user?"
+  },
+  {
+    "name": "domain_blocking",
+    "type": "Type: Boolean",
+    "description": "Description: Are you blocking this user’s domain?"
+  },
+  {
+    "name": "endorsed",
+    "type": "Type: Boolean",
+    "description": "Description: Are you featuring this user on your profile?"
+  },
+  {
+    "name": "note",
+    "type": "Type: String",
+    "description": "Description: This user’s profile bio"
+  }
+]

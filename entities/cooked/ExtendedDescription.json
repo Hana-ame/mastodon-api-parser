@@ -1,0 +1,24 @@
+[
+  {
+    "name": "updated_at",
+    "jsonName": "updated_at",
+    "valueName": "UpdatedAt",
+    "optional": false,
+    "type": "Type: String (ISO 8601 Datetime)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: A timestamp of when the extended description was last updated."
+  },
+  {
+    "name": "content",
+    "jsonName": "content",
+    "valueName": "Content",
+    "optional": false,
+    "type": "Type: String (HTML)",
+    "valueType": "string",
+    "nullable": false,
+    "isArray": false,
+    "description": "Description: The rendered HTML content of the extended description."
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "summary": "View moderated servers",
+  "method": "GET",
+  "router": "/api/v1/instance/domain_blocks",
+  "description": "Obtain a list of domains that have been blocked.\n\n",
+  "returns": "Array of DomainBlock",
+  "oauth": "Public,",
+  "request": [
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "Provide this header with Bearer <user token> to gain authorized access to this API method."
+    }
+  ]
+}

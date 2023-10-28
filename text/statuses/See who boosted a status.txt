@@ -1,0 +1,44 @@
+See who boosted a status
+GET /api/v1/statuses/:id/reblogged_by HTTP/1.1
+View who boosted a given status.
+
+Returns: Array of Account
+OAuth: Public for public statuses. User token + read:statuses for private statuses. Version history:
+0.0.0 - added
+
+Request
+Path parameters
+:id
+REQUIRED String. The ID of the Status in the database.
+Headers
+Authorization
+Provide this header with Bearer <user token> to gain authorized access to this API method.
+Query parameters
+max_id
+Internal parameter. Use HTTP Link header for pagination.
+since_id
+Internal parameter. Use HTTP Link header for pagination.
+limit
+Integer. Maximum number of results to return. Defaults to 40 accounts. Max 80 accounts.
+Response
+200: OK
+A list of accounts that boosted the status
+
+[
+{
+"id": "711345",
+"username": "Norman_Doors",
+"acct": "Norman_Doors@witches.live",
+// ...
+},
+// ...
+]
+Because reblogged Status IDs are generally not known ahead of time, you will have to parse the HTTP Link header to load older or newer results. See Paginating through API responses for more information.
+
+Link: <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&max_id=109406336446186031>; rel="next", <https://mastodon.example/api/v1/statuses/109404970108594430/reblogged_by?limit=2&since_id=109408462939099398>; rel="prev"
+404: Not found
+Status does not exist or is private
+
+{
+"error": "Record not found"
+}

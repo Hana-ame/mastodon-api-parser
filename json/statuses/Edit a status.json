@@ -1,0 +1,65 @@
+{
+  "summary": "Edit a status",
+  "method": "PUT",
+  "router": "/api/v1/statuses/:id",
+  "description": "Edit a given status to change its text, sensitivity, media attachments, or poll. Note that editing a poll’s options will reset the votes.\n\n",
+  "returns": "Status",
+  "oauth": "User",
+  "request": [
+    {
+      "name": ":id",
+      "paramType": "path",
+      "comment": "REQUIRED String. The ID of the Status in the database."
+    },
+    {
+      "name": "Authorization",
+      "paramType": "header",
+      "comment": "REQUIRED Provide this header with Bearer <user token> to gain authorized access to this API method."
+    },
+    {
+      "name": "status",
+      "paramType": "formData",
+      "comment": "String. The plain text content of the status."
+    },
+    {
+      "name": "spoiler_text",
+      "paramType": "formData",
+      "comment": "String. The plain text subject or content warning of the status."
+    },
+    {
+      "name": "sensitive",
+      "paramType": "formData",
+      "comment": "Boolean. Whether the status should be marked as sensitive."
+    },
+    {
+      "name": "language",
+      "paramType": "formData",
+      "comment": "String. ISO 639 language code for the status."
+    },
+    {
+      "name": "media_ids[]",
+      "paramType": "formData",
+      "comment": "Array of String. Include Attachment IDs to be attached as media. If provided, status becomes optional, and poll cannot be used."
+    },
+    {
+      "name": "poll[options][]",
+      "paramType": "formData",
+      "comment": "Array of String. Possible answers to the poll. If provided, media_ids cannot be used, and poll[expires_in] must be provided."
+    },
+    {
+      "name": "poll[expires_in]",
+      "paramType": "formData",
+      "comment": "Integer. Duration that the poll should be open, in seconds. If provided, media_ids cannot be used, and poll[options] must be provided."
+    },
+    {
+      "name": "poll[multiple]",
+      "paramType": "formData",
+      "comment": "Boolean. Allow multiple choices? Defaults to false."
+    },
+    {
+      "name": "poll[hide_totals]",
+      "paramType": "formData",
+      "comment": "Boolean. Hide vote counts until the poll ends? Defaults to false."
+    }
+  ]
+}
