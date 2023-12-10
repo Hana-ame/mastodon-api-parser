@@ -1,3 +1,48 @@
+好,我已经完全不记得进度了
+目前大概是
+
+- [ ] 从api的json搓出controll下的go文件
+  - [ ] swagger
+    - [ ] 没测试啊
+
+好,放弃下面的了。逻辑写controller里面
+
+
+
+放弃了
+  - [ ] ~~gin~~
+    - [ ] ~~如何取得param~~
+  - [ ] ~~api function~~
+    - [ ] ~~如何传入param~~
+
+基本形态
+
+controller
+```go
+package mastodon
+
+import (
+  mastodon "mastodon/[folder]"
+)
+
+
+// swag
+// ..
+func FuncNmae(c *gin.Context) {
+  
+  // get params
+  ...
+
+  resp, err := mastodon.FuncName(..params)
+
+  // error handle
+  ....
+
+  return
+}
+```
+
+
 写了几个月才想起来为什么不写一个工具把document里面的api参数扒拉下来免得一个个复制下来我是说我是弱智。
 
 大约是
@@ -7,26 +52,101 @@
 `                                 +-> mastodon api entrance
 ```
 
-**TODO**
+**请关注**
+[TODO](#todo)
+[known issue](#known-issue)
+
+请同时关注 readme 中的 gin.md
+
+很有必要出swagger的api嘛。
+
+## **TODO**
+ 
+
+
 ~~接着复制document~~
-去复制entities
-复制完了再去生成代码
+~~去复制entities~~
+~~复制完了再去生成代码~~
 
 
 看了swaggo源码，mf啥来着，accept要改成
 否则的话是用www-encoding post过来的
 
+## file struct
+- `html.ts`
+  - api documents (not saved) to divided api documents in `text`
+- `index.ts`
+  - documents in `text` to raw json in `json`
+- `entities.ts`
+  - documents in `entities/documents` to raw json in `entities/raw`
+  - raw json in `entities/raw` to cooked json `entities/cooked`
+    - TODO: maybe not `map[string]any` but other struct
+    - TODO: update special keys
+- `api.ts`
+  - TODO: raw json to cooked son
+- `db.ts`
+  - general db settings (CURD) of entities.
+  - sould handwrite some keys
+- `swagger.ts`
+  - generate swagger infos
+- TODO
+  - `gin.ts`
+    - generate gin infos
+  - `core.ts`
+    - generate `core/mastodon` entrances.
+    - please leave a link on its comment.
 
-## dev
+## dev log
 
-### 一阶段
+### [swagger](api.ts#swagger)
 
-~~找document~~
+从`index.ts`里面复制过来了.
 
-找entities的document
+写了下swagger,现在开始degug
+
+- [ ] params, type不在其中的情况
 
 
-### 二阶段
+### html.tx
+```sh
+npm run html
+```
+
+### index.ts
+```sh
+npm run test
+```
+
+### entities.ts
+```sh
+npm run entities
+```
+改回 Hash ，算了不改了
+
+生成`.go`文件？
+`.go`文件要什么
+```go
+type EntityName struct {
+  Key type `json:"key"`
+}
+```
+要记得自己建文件夹。
+TODO: 补一下 `Status::Xxx` 的部分
+TODO: 需要db关照一下many to many的部分，primarykey的部分，需要做index的部分
+
+~~### db.ts~~
+不用新文件，还在entities里面弄
+~~```sh~~
+~~npm run db~~
+~~```~~
+- methods:
+  - CRUD
+    - create one
+    - read one
+    - update one
+    - delete one
+
+## note
 
 需要筛出
 - swagger 需要的
@@ -46,15 +166,13 @@ api部分可能需要从raw json思考一下如何制作cooked json
 
 PS：一些工具在`LineReader.ts`里面
 
+## known issue
 
-### ./html
-```sh
-npm run html [folder_name]
-```
+1. [ ] Admin_Account类型不统一，有下划线和没下划线
+2. [ ] ::会有错误。
+   1. [ ] 不能多段用`.`吧
 
-### ./text
-
-## branches
+# branches
 
 main 主分支，先写js的好了，参考查漏补缺那个
 py的re有点大便是说。

@@ -7,7 +7,9 @@
     "build": "tsc",
     "test": "tsc && node index.js",
     "html": "tsc && node html.js",
-    "entities": "tsc && node entities.js"
+    "entities": "tsc && node entities.js",
+    "db": "tsc && node db.js",
+    "api": "tsc && node api.js"
   },
   "author": "",
   "license": "ISC",

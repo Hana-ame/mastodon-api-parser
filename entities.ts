@@ -1,6 +1,6 @@
 import path from "path";
 import { LineReader, toPascalCase, trimPrefix, trimSurfix } from "./LineReader";
-import fs, { read } from 'fs';
+import fs from 'fs';
 
 // html documet to raw json
 // entities/documents/*.txt => entities/raw/*.json
@@ -8,6 +8,8 @@ import fs, { read } from 'fs';
 const docPath = path.join('entities', 'documents')
 const rawPath = path.join('entities', 'raw')
 const cookedPath = path.join('entities', 'cooked')
+const goPath = path.join('entities', 'go')
+const dbPath = path.join('entities', 'db')
 const filelist = [
   "Account",
   "Admin_Account",
@@ -102,11 +104,11 @@ function textToJsonAll() {
 }
 
 type Entity = {
-  name : string // the raw name
+  name : string // the raw name NOTUSED
   jsonName : string // the name used in json 
   valueName : string // the name used in Golang 
   optional : boolean // is OPTIONAL
-  type : string // the raw type
+  type : string // the raw type NOTUSED
   valueType : string // type used in golang, not include []
   nullable : boolean // is nullable
   isArray : boolean // is array
@@ -160,7 +162,7 @@ function rawToEntity(raw: EntityRaw) {
     nullable,
     isArray,
     description,
-  }
+  } as Entity
 }
 
 function rawToEntityAll() {
@@ -173,10 +175,51 @@ function rawToEntityAll() {
   })
 }
 
+function entityToLine(e: Entity) {
+  let type  = e.valueType
+  if (e.isArray) type  = '[]'+type
+  if (e.nullable) type = '*'+type
+  let jsonNotition = '`json:"'
+  jsonNotition += e.jsonName
+  if (e.optional) jsonNotition += ',omitempty'
+  jsonNotition += '"`'
+  return `  ${e.valueName} ${type} ${jsonNotition} // ${e.name}, ${e.type}, ${e.description}`
+}
+
+function entityArrayToGo(fn: string, eArray: Entity[]) {
+  let content = "package entities" + `\n` 
+  content += `type ${fn} struct{` + `\n`  
+  const contentArray = eArray.map(e => entityToLine(e))
+  for (const line of contentArray) {
+    content += line + `\n` 
+  }
+  content += `}`   + `\n` 
+  return content 
+}
+
+function entityToGoAll() {
+  filelist.forEach(fn => {
+    const src = fs.readFileSync(path.join(cookedPath, `${fn}.json`), 'utf8')
+    const entityArray: Entity[] = JSON.parse(src)
+    const fileContent = entityArrayToGo(fn, entityArray)
+    fs.writeFileSync(path.join(goPath, `${fn}.go`), fileContent, 'utf-8') 
+  })
+}
+
+// db
+
+function entitliesToGorm(fn: string) {
+  
+}
+
 // step 1:
 // parse text document to raw json
 // textToJsonAll()
 
 // step 2:
 // parse raw json to entity
-rawToEntityAll()
+// rawToEntityAll()
+
+// step 3:
+// parse entity to go files
+entityToGoAll() 
